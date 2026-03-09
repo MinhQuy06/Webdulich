@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng ký - Du Lịch Việt</title>
+    <link rel="stylesheet" href="signup.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">Du Lịch Việt</div>
+      <ul class="nav">
+        <li><a href="home.html">Trang chủ</a></li>
+        <li><a href="diemden.html">Điểm đến</a></li>
+        <li><a href="uudai.html">Ưu đãi</a></li>
+        <li><a href="login.html" class="login">Đăng nhập</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Left Side -->
+      <div class="left-side">
+        <img
+          src="img/backround.jpg"
+          alt="Du lịch Việt Nam"
+          class="portal-image"
+        />
+        <h2>Bắt đầu hành trình của bạn</h2>
+        <p>Khám phá những vẻ đẹp tiềm ẩn của Việt Nam cùng chúng tôi.</p>
+      </div>
+
+      <!-- Right Side - Form -->
+      <div class="right-side">
+        <div class="form-header">
+          <h1>Đăng ký tài khoản</h1>
+          <p>Điền thông tin bên dưới để trở thành thành viên.</p>
+        </div>
+
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="hovaten">Họ và tên</label>
+            <div class="input-wrapper user">
+              <input
+                type="text"
+                id="hovaten"
+                name="hovaten"
+                placeholder="Nguyễn Văn A"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <div class="input-wrapper email">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="email@vi-du.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="sdt">Số điện thoại</label>
+              <div class="input-wrapper phone">
+                <input
+                  type="tel"
+                  id="sdt"
+                  name="sdt"
+                  placeholder="0901234567"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="password">Mật khẩu</label>
+              <div class="input-wrapper password">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirm-password">Xác nhận mật khẩu</label>
+              <div class="input-wrapper check">
+                <input
+                  type="password"
+                  id="confirm-password"
+                  name="confirm-password"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Tạo tài khoản</button>
+
+          <div class="login-link">
+            Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a>
+          </div>
+        </form>
+      </div>
+  </body>
+</html>

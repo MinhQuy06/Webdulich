@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="hotro.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hỗ trợ - Web Du Lịch</title>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="logo">
+        <img src="img/logo.jpg" alt="Web du lịch" />
+      </div>
+      <ul class="container">
+        <li class="item"><a href="home.html">Home</a></li>
+        <li class="item has-dropdown">
+          <a href="tour.html">Tours</a>
+          <ul class="dropdown">
+            <li><a href="">Việt Nam</a></li>
+            <li><a href="">Nước ngoài</a></li>
+          </ul>
+        </li>
+        <li class="item"><a href="hotels.html">Hotels</a></li>
+        <li class="item"><a href="giave.html">Giá vé</a></li>
+        <li class="item"><a href="hotro.html">Hỗ trợ</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-content">
+        <p class="hero-sub">Chúng tôi luôn sẵn sàng</p>
+        <h1 class="hero-title">Liên hệ với chúng tôi</h1>
+        <p class="hero-desc">
+          Có câu hỏi về chuyến đi? Đội ngũ của chúng tôi phản hồi trong vòng 24
+          giờ.
+        </p>
+      </div>
+      <div class="hero-wave">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+          <path
+            d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"
+            fill="#f0f6fb"
+          />
+        </svg>
+      </div>
+    </header>
+
+    <main class="contact-main">
+      <!-- INFO CARDS -->
+      <section class="info-cards">
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <h3>Địa chỉ</h3>
+          <p>123 Đường ABC, Quận XYZ<br />TP. Hồ Chí Minh</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📞</div>
+          <h3>Điện thoại</h3>
+          <p>0123 456 789<br />0987 654 321</p>
+          <a href="tel:0123456789" class="info-link">Gọi ngay</a>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">✉️</div>
+          <h3>Email</h3>
+          <p>info@webdulich.com<br />support@webdulich.com</p>
+          <a href="mailto:info@webdulich.com" class="info-link">Gửi email</a>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">🕐</div>
+          <h3>Giờ làm việc</h3>
+          <p>Thứ 2 – Thứ 6: 8:00 – 18:00<br />Thứ 7: 8:00 – 12:00</p>
+        </div>
+      </section>
+
+      <!-- FORM + MAP -->
+      <section class="contact-section">
+        <!-- FORM -->
+        <div class="form-card">
+          <div class="form-header">
+            <h2>Gửi tin nhắn cho chúng tôi</h2>
+            <p>Điền thông tin bên dưới, chúng tôi sẽ liên hệ lại sớm nhất!</p>
+          </div>
+
+          <div id="success-msg" class="success-msg" style="display: none">
+            ✅ Tin nhắn đã được gửi! Chúng tôi sẽ liên hệ bạn trong 24h.
+          </div>
+
+          <div class="form-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Họ và tên <span class="req">*</span></label>
+                <input type="text" id="name" placeholder="Nguyễn Văn A" />
+                <span class="err" id="err-name"></span>
+              </div>
+              <div class="form-group">
+                <label for="phone"
+                  >Số điện thoại <span class="req">*</span></label
+                >
+                <input type="tel" id="phone" placeholder="0123 456 789" />
+                <span class="err" id="err-phone"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" placeholder="example@email.com" />
+              <span class="err" id="err-email"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="topic">Chủ đề</label>
+              <select id="topic">
+                <option value="">-- Chọn chủ đề --</option>
+                <option>Đặt tour du lịch</option>
+                <option>Đặt phòng khách sạn</option>
+                <option>Hỏi về giá vé</option>
+                <option>Khiếu nại / Phản hồi</option>
+                <option>Khác</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Nội dung <span class="req">*</span></label>
+              <textarea
+                id="message"
+                rows="5"
+                placeholder="Nhập nội dung bạn muốn liên hệ..."
+              ></textarea>
+              <span class="err" id="err-message"></span>
+            </div>
+
+            <button class="btn-submit" onclick="submitForm()">
+              <span>Gửi tin nhắn</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- SOCIAL + MAP -->
+        <div class="side-col">
+          <div class="social-card">
+            <h3>Theo dõi chúng tôi</h3>
+            <div class="social-list">
+              <a href="#" class="social-item facebook">
+                <span class="s-icon">📘</span>
+                <div>
+                  <strong>Facebook</strong>
+                  <small>Web Du Lịch</small>
+                </div>
+              </a>
+              <a href="#" class="social-item google">
+                <span class="s-icon">🌐</span>
+                <div>
+                  <strong>Google</strong>
+                  <small>Web Du Lịch</small>
+                </div>
+              </a>
+              <a href="#" class="social-item twitter">
+                <span class="s-icon">🐦</span>
+                <div>
+                  <strong>Twitter</strong>
+                  <small>@webdulich</small>
+                </div>
+              </a>
+              <a href="#" class="social-item zalo">
+                <span class="s-icon">💬</span>
+                <div>
+                  <strong>Zalo</strong>
+                  <small>0123 456 789</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="map-card">
+            <h3>Bản đồ</h3>
+            <div class="map-placeholder">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4!2d106.6981!3d10.7769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDQ2JzM3LjAiTiAxMDbCsDQxJzUzLjIiRQ!5e0!3m2!1svi!2svn!4v1234567890"
+                width="100%"
+                height="200"
+                style="border: 0; border-radius: 10px"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq-section">
+        <h2 class="section-title">Câu hỏi thường gặp</h2>
+        <div class="faq-list">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">
+              Tôi có thể đặt tour online không? <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">
+              Có, bạn hoàn toàn có thể đặt tour trực tuyến qua website của chúng
+              tôi. Sau khi đặt, đội ngũ tư vấn sẽ liên hệ xác nhận trong vòng 2
+              giờ.
+            </div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">
+              Chính sách hoàn tiền như thế nào? <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">
+              Chúng tôi hỗ trợ hoàn tiền 100% nếu hủy trước 7 ngày. Hủy trong
+              vòng 3–7 ngày được hoàn 50%. Dưới 3 ngày không được hoàn tiền.
+            </div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">
+              Có hỗ trợ tour theo nhóm không? <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">
+              Có! Chúng tôi có gói tour theo nhóm với ưu đãi đặc biệt từ 10
+              người trở lên. Liên hệ trực tiếp để nhận báo giá tốt nhất.
+            </div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-q">
+              Thanh toán bằng những hình thức nào?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">
+              Chúng tôi chấp nhận tiền mặt, chuyển khoản ngân hàng, thẻ tín
+              dụng/ghi nợ và ví điện tử (MoMo, ZaloPay, VNPay).
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="all">
+        <div class="introduction">
+          <h2>Web du lịch</h2>
+          <p>
+            "Hành trình khám phá thế giới - Kỷ niệm những trải nghiệm đáng nhớ"
+          </p>
+        </div>
+        <div class="below">
+          <div class="contract">
+            <h2>Trụ sở tại TP.Hồ Chí Minh</h2>
+            <p>
+              Địa chỉ: 123 Đường ABC, Quận XYZ, TP.Hồ Chí Minh <br />Điện thoại:
+              0123 456 789 <br />Email: info@webdulich.com
+            </p>
+          </div>
+          <div class="contract">
+            <h2>Liên hệ</h2>
+            <p>
+              <br />Điện thoại: 0123 456 789 <br />Email: info@webdulich.com<br />
+              Mail: <input type="email" placeholder="Nhập email của bạn" />
+              <input type="button" value="Gửi" />
+            </p>
+          </div>
+          <div class="contract">
+            <h2>Theo dõi chúng tôi</h2>
+            <p>
+              <br /><img src="img/facebook.png" alt="Facebook" />Facebook: Web
+              du lịch <br /><img src="img/google.png" alt="Google" />Google: Web
+              du lịch <br /><img src="img/twitter.png" alt="Twitter" />Twitter:
+              @web
+            </p>
+          </div>
+        </div>
+        <p>© 2025 Minh Quy TRAVEL. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      function submitForm() {
+        let valid = true;
+        const name = document.getElementById("name");
+        const phone = document.getElementById("phone");
+        const email = document.getElementById("email");
+        const message = document.getElementById("message");
+
+        // clear errors
+        ["name", "phone", "email", "message"].forEach((id) => {
+          document.getElementById("err-" + id).textContent = "";
+          document.getElementById(id).classList.remove("input-error");
+        });
+
+        if (!name.value.trim()) {
+          document.getElementById("err-name").textContent =
+            "Vui lòng nhập họ tên";
+          name.classList.add("input-error");
+          valid = false;
+        }
+        if (!phone.value.trim()) {
+          document.getElementById("err-phone").textContent =
+            "Vui lòng nhập số điện thoại";
+          phone.classList.add("input-error");
+          valid = false;
+        }
+        if (!email.value.trim() || !email.value.includes("@")) {
+          document.getElementById("err-email").textContent =
+            "Email không hợp lệ";
+          email.classList.add("input-error");
+          valid = false;
+        }
+        if (!message.value.trim()) {
+          document.getElementById("err-message").textContent =
+            "Vui lòng nhập nội dung";
+          message.classList.add("input-error");
+          valid = false;
+        }
+
+        if (valid) {
+          document.getElementById("success-msg").style.display = "block";
+          name.value = "";
+          phone.value = "";
+          email.value = "";
+          message.value = "";
+          document.getElementById("topic").value = "";
+          setTimeout(
+            () =>
+              (document.getElementById("success-msg").style.display = "none"),
+            5000,
+          );
+        }
+      }
+
+      function toggleFaq(el) {
+        const isOpen = el.classList.contains("open");
+        document
+          .querySelectorAll(".faq-item")
+          .forEach((f) => f.classList.remove("open"));
+        if (!isOpen) el.classList.add("open");
+      }
+    </script>
+  </body>
+</html>

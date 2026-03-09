@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Du Lịch Tương Lai - Đăng Nhập</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">Du Lịch Việt</div>
+      <ul class="nav">
+       <li><a href="home.html">Home</a></li>
+        <li><a href="tour.html">Tour</a></li>
+        <li><a href="hotels.html">Hotels</a></li>
+        <li><a href="giave.html">Giá vé</a></li>
+        <li><a href="hotro.html">Hổ trợ</a></li>
+        <li><a href="signup.html" class="signup">Đăng ký</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+      <!-- Left Side - Login Form -->
+      <div class="login-container">
+        <h1>Chào mừng trở lại</h1>
+        <p class="subtitle">
+          Cùng tiếp tục hành trình khám phá những vùng đất mới.
+        </p>
+
+        <form>
+          <div class="form-group">
+            <label for="email">Tên tài khoản hoặc Email</label>
+            <div class="input-wrapper email-input">
+              <input
+                type="text"
+                id="email"
+                placeholder="username@example.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="label-row">
+              <label for="password">Mật khẩu</label>
+              <a href="#forgot" class="forgot-password">Quên mật khẩu?</a>
+            </div>
+            <div class="input-wrapper password-input">
+              <input
+                type="password"
+                id="password"
+                placeholder="••••••••"
+                required
+              />
+              <span class="password-toggle">👁️</span>
+            </div>
+          </div>
+
+          <button type="submit" class="login-btn">Đăng Nhập Ngay →</button>
+
+          <div class="divider">
+            <span>KẾT NỐI NHANH QUA</span>
+          </div>
+
+          <div class="social-login">
+            <button type="button" class="social-btn">
+              <img
+                src="https://www.google.com/favicon.ico"
+                alt="Google"
+                width="24"
+                height="24"
+              />
+            </button>
+            <button type="button" class="social-btn">
+              <img
+                src="https://www.facebook.com/favicon.ico"
+                alt="Facebook"
+                width="24"
+                height="24"
+              />
+            </button>
+          </div>
+
+          <div class="signup-link">
+            Chưa có tài khoản? <a href="signup.html">Tham gia ngay</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right Side - Image -->
+      <div class="right-side">
+        <img src="img/backround.jpg" alt="Du lịch Việt Nam" class="portal-image" />
+        <h2>Khám phá Việt Nam</h2>
+        <p>Vẻ đẹp bất tận trong từng hành trình trải nghiệm.</p>
+      </div>
+  </body>
+</html>
