@@ -127,8 +127,125 @@ nav {
 }
 .suport h2 {
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  color: #0e0d11;
+  font-size: 60px;
 }
-footer {
+
+.container-suport {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.form-suport,
+.form-contract {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  border-radius: 12px;
+}
+
+.form-suport {
+  flex: 1;
+  background-color: #f5f3ff;
+  border: 1px solid #ddd8ff;
+}
+
+.form-contract {
+  width: 280px;
+  flex-shrink: 0;
+  background-color: #726cb7;
+  color: white;
+}
+
+.form-contract h1 {
+  color: white;
+  margin-bottom: 8px;
+}
+
+.form-suport form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-suport label {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #3a3560;
+  margin-top: 6px;
+}
+
+.form-suport input {
+  padding: 10px 14px;
+  border: 1.5px solid #c4bff0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-suport input:focus {
+  border-color: #726cb7;
+}
+
+.form-suport button {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #726cb7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-suport button:hover {
+  background-color: #5a54a0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-item .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(118, 141, 121, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-item .icon svg {
+  width: 18px;
+  height: 18px;
+  color: white;
+}
+
+.contact-item small {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.75;
+}
+
+.contact-item p {
+  font-weight: 600;
+  margin: 2px 0 0;
+}
+
+.from footer {
   margin-top: 50px;
   background-color: rgb(152, 192, 240);
   padding: 20px;

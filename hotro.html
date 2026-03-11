@@ -37,9 +37,9 @@
     </header>
 
     <main>
-      <div class="cha">
-        <h1>Gửi tin nhắn</h1>
-        <div>
+      <div class="container-suport">
+        <div class="form-suport">
+          <h1>Gửi tin nhắn</h1>
           <form>
             <label for="hovaten">Họ và Tên</label>
             <input
@@ -49,7 +49,6 @@
               required
               maxlength="50"
             />
-            <br />
             <label for="email">Email</label>
             <input
               type="email"
@@ -57,40 +56,48 @@
               placeholder="avbfu@gmail.com"
               required
             />
-            <br />
             <label for="chude">Chủ đề</label>
             <input
               type="text"
               id="chude"
               placeholder="Vấn đề của bạn: ví dụ hotels ..."
             />
-            <br />
             <label for="sdt">Sô điện thoai:</label>
-            <input
-              type="number"
-              id="sdt"
-              placeholder="Ví dụ: 039874377438"
-            /><br />
+            <input type="number" id="sdt" placeholder="Ví dụ: 039874377438" />
             <label for="nodung">Nội dung</label>
             <input
               type="text"
               id="noidung"
               placeholder="Mô tả vấn đề của bạn"
-            /><br />
-            <button>Gửi tin nhắn</button>
+            />
+            <button type="submit">Gửi tin nhắn</button>
           </form>
         </div>
-        <div class="">
+        <div class="form-contract">
           <h1>Thông tin liên hệ</h1>
-          <div class="icon"><img src="img/phone.png" alt="email" /></div>
-          <small>Hotline</small>
-          <p>1900 1234</p>
-          <div class="icon"><img src="img/mail.png" alt="email" /></div>
-          <small>Email</small>
-          <p>helo@gmail.com</p>
-          <div class="icon"><img src="img/map.png" alt="vị trí" /></div>
-          <small>Địa chỉ</small>
-          <p>TP.Hồ Chí Minh, Việt Nam</p>
+          <div class="contact-item">
+            <div class="icon"><img src="img/phone.png" alt="phone" /></div>
+            <div>
+              <small>Hotline</small>
+              <p>1900 1234</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="icon"><img src="img/mail.png" alt="email" /></div>
+            <div>
+              <small>Email</small>
+              <p>hello@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="icon"><img src="img/map.png" alt="vị trí" /></div>
+            <div>
+              <small>Địa chỉ</small>
+              <p>TP.Hồ Chí Minh, Việt Nam</p>
+            </div>
+          </div>
         </div>
       </div>
     </main>
