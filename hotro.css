@@ -150,14 +150,14 @@ nav {
 
 .form-suport {
   flex: 1;
-  background-color: #f5f3ff;
-  border: 1px solid #ddd8ff;
+  background-color: #ebeaee;
+  border: 1px solid #c3f2fc;
 }
 
 .form-contract {
   width: 280px;
   flex-shrink: 0;
-  background-color: #726cb7;
+  background-color: #b1b7fa;
   color: white;
 }
 
@@ -175,7 +175,7 @@ nav {
 .form-suport label {
   font-weight: 600;
   font-size: 0.875rem;
-  color: #3a3560;
+  color: #a8a0eb;
   margin-top: 6px;
 }
 
@@ -265,7 +265,7 @@ nav {
 .introduction {
   text-align: center;
   padding: 20px;
-  background-color: rgb(122, 201, 178);
+  background-color: rgb(222, 248, 241);
   margin-top: 20px;
 }
 footer p,
