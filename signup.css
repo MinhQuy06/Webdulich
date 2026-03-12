@@ -1,4 +1,3 @@
-/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
@@ -32,11 +31,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.logo::before {
-  content: "🚀";
-  font-size: 24px;
+  /* FIX: bỏ emoji 🚀 để đồng bộ với login */
 }
 
 .nav {
@@ -52,12 +47,12 @@ body {
   font-weight: 500;
   transition: color 0.3s;
 }
-
 .nav a:hover {
   color: #667eea;
 }
 
-.nav .login {
+.nav .login,
+.nav .signup {
   color: #667eea;
   font-weight: 600;
 }
@@ -83,7 +78,6 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
-  position: relative;
 }
 
 .portal-image {
@@ -102,7 +96,6 @@ body {
   text-align: center;
   line-height: 1.3;
 }
-
 .left-side p {
   text-align: center;
   opacity: 0.9;
@@ -117,13 +110,11 @@ body {
 .form-header {
   margin-bottom: 35px;
 }
-
 .form-header h1 {
   font-size: 28px;
   color: #333;
   margin-bottom: 8px;
 }
-
 .form-header p {
   color: #666;
   font-size: 14px;
@@ -161,7 +152,6 @@ label {
   color: #333;
   transition: all 0.3s;
 }
-
 .input-wrapper input:focus {
   outline: none;
   background: #e8eaed;
@@ -174,35 +164,23 @@ label {
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  background-size: contain;
+  font-size: 18px;
   opacity: 0.5;
 }
-
 .input-wrapper.user::before {
   content: "👤";
-  font-size: 18px;
 }
-
 .input-wrapper.email::before {
   content: "✉️";
-  font-size: 18px;
 }
-
 .input-wrapper.phone::before {
   content: "📱";
-  font-size: 18px;
 }
-
 .input-wrapper.password::before {
   content: "🔒";
-  font-size: 18px;
 }
-
 .input-wrapper.check::before {
   content: "✓";
-  font-size: 18px;
 }
 
 .submit-btn {
@@ -220,15 +198,13 @@ label {
     transform 0.2s,
     box-shadow 0.2s;
 }
-
 .submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
 }
 
-.submit-btn::before {
-  content: "👥 ";
-}
+/* FIX: bỏ emoji 👥 tự động thêm vào nút */
+/* .submit-btn::before { content: "👥 "; } */
 
 .login-link {
   text-align: center;
@@ -236,13 +212,11 @@ label {
   color: #666;
   font-size: 14px;
 }
-
 .login-link a {
   color: #667eea;
   text-decoration: none;
   font-weight: 600;
 }
-
 .login-link a:hover {
   text-decoration: underline;
 }
@@ -252,17 +226,37 @@ label {
   .container {
     grid-template-columns: 1fr;
   }
-
   .left-side {
     padding: 40px 30px;
   }
-
   .right-side {
     padding: 40px 30px;
   }
-
   .nav {
     gap: 15px;
     font-size: 14px;
+  }
+  .header {
+    padding: 15px 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .right-side {
+    padding: 30px 20px;
+  }
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 20px;
+    padding: 15px 20px;
+  }
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
 }

@@ -5,17 +5,17 @@ body {
 }
 
 /* ══════════════════════════════
-   NAV (đồng bộ index)
+   NAV
 ══════════════════════════════ */
 nav {
   color: white;
   margin: 10px;
   display: flex;
   align-items: center;
-  width: calc(100% - 40px);
+  width: calc(100% - 20px);
   background-color: rgb(152, 192, 240);
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 10px;
   z-index: 1000;
 }
@@ -37,7 +37,7 @@ nav {
 .container .item {
   position: relative;
   white-space: nowrap;
-  margin: 0px 30px;
+  margin: 0 30px;
   transition: all 0.3s ease;
 }
 .container .item:hover {
@@ -53,6 +53,7 @@ nav {
   background-color: rgb(152, 192, 240);
   padding: 10px;
   border-radius: 6px;
+  z-index: 10;
 }
 .container .item:hover .dropdown {
   display: flex;
@@ -81,7 +82,6 @@ header {
   margin: 10px;
   margin-top: 70px;
 }
-
 .welcome {
   text-align: center;
   margin-top: 50px;
@@ -124,159 +124,305 @@ header {
 }
 
 /* ══════════════════════════════
-   MAIN CONTENT
+   MAIN
 ══════════════════════════════ */
 main {
-  padding: 30px 20px;
+  padding: 30px 20px 40px;
 }
 
-main > h1 {
-  font-size: 28px;
+/* ── 4 điểm nổi bật ── */
+.highlights {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border-radius: 50px;
+  padding: 12px 24px;
+  box-shadow: 0 3px 12px rgba(68, 144, 236, 0.12);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a3a6b;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.highlight-item:hover {
+  border-color: rgb(152, 192, 240);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(68, 144, 236, 0.2);
+}
+.hi-icon {
+  font-size: 22px;
+}
+
+/* ── Section ── */
+.tour-section {
+  margin-bottom: 50px;
+}
+
+.section-title-wrap {
+  margin-bottom: 20px;
+}
+
+.section-heading {
+  font-size: 30px;
   color: rgb(68, 144, 236);
   font-family: Arial, Helvetica, sans-serif;
-  text-shadow: -3px 2px 0px rgba(0, 0, 0, 0.2);
-  margin: 30px 0 6px;
-  padding-left: 10px;
+  text-shadow: -3px 2px 0 rgba(0, 0, 0, 0.12);
+  padding-left: 16px;
   border-left: 5px solid #fcb034;
-  transition: color 0.3s ease;
+  margin-bottom: 6px;
 }
-main > h1:first-of-type {
-  margin-top: 10px;
-}
-
-main > p {
-  font-size: 16px;
-  color: #555;
-  padding-left: 15px;
-  margin-bottom: 16px;
+.section-sub {
+  padding-left: 21px;
+  font-size: 14px;
+  color: #888;
   font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
 }
 
 /* ══════════════════════════════
-   HOTEL LIST (scroll ngang)
+   TOUR ROW — layout ngang (khác hẳn giave)
 ══════════════════════════════ */
-.list-hotels {
+.tour-list {
   display: flex;
+  flex-direction: column;
   gap: 20px;
-  overflow-x: auto;
-  padding: 10px 4px 20px;
-  scrollbar-width: thin;
-  scrollbar-color: rgb(152, 192, 240) transparent;
-  scroll-behavior: smooth;
-}
-.list-hotels::-webkit-scrollbar {
-  height: 6px;
-}
-.list-hotels::-webkit-scrollbar-track {
-  background: transparent;
-}
-.list-hotels::-webkit-scrollbar-thumb {
-  background-color: rgb(152, 192, 240);
-  border-radius: 10px;
 }
 
-/* ══════════════════════════════
-   HOTEL CARD
-══════════════════════════════ */
-.hotel {
-  flex: 0 0 auto;
-  width: 280px;
-  background-color: white;
-  border-radius: 14px;
+@keyframes rowIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.tour-row {
+  display: flex;
+  background: white;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.09);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  cursor: pointer;
+  animation: rowIn 0.5s ease both;
+}
+.tour-row:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.tour-row:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.tour-row:nth-child(3) {
+  animation-delay: 0.25s;
+}
+.tour-row:nth-child(4) {
+  animation-delay: 0.35s;
 }
 
-.hotel:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(68, 144, 236, 0.25);
+.tour-row:hover {
+  transform: translateX(6px);
+  box-shadow: 0 8px 30px rgba(68, 144, 236, 0.2);
 }
 
-/* ── Ảnh với overlay ── */
-.hotel-img-wrap {
+/* ── Ảnh bên trái ── */
+.tour-row-img {
   position: relative;
+  flex: 0 0 260px;
   overflow: hidden;
-  height: 180px;
 }
-.hotel-img-wrap img {
+.tour-row-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
   display: block;
+  transition: transform 0.45s ease;
 }
-.hotel:hover .hotel-img-wrap img {
+.tour-row:hover .tour-row-img img {
   transform: scale(1.08);
 }
 
-/* Gradient overlay đè lên ảnh */
-.hotel-img-wrap::after {
-  content: "";
+/* Badge */
+.badge {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(26, 58, 107, 0.5) 0%,
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  top: 12px;
+  left: 12px;
+  background: #f5c518;
+  color: #1a1a2e;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  z-index: 2;
 }
-.hotel:hover .hotel-img-wrap::after {
-  opacity: 1;
+.badge-sale {
+  background: #e83030;
+  color: white;
+}
+.badge-hot {
+  background: #ff6b35;
+  color: white;
+}
+.badge-vip {
+  background: linear-gradient(135deg, #b8860b, #ffd700);
+  color: #1a1a2e;
 }
 
-/* ── Nội dung card ── */
-.hotel-body {
-  padding: 14px 16px 16px;
+/* ── Nội dung bên phải ── */
+.tour-row-body {
+  flex: 1;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-.hotel-body h3 {
-  font-size: 17px;
+.tour-row-body h3 {
+  font-size: 20px;
   color: #1a3a6b;
-  margin-bottom: 8px;
   font-family: Arial, Helvetica, sans-serif;
   transition: color 0.3s ease;
 }
-.hotel:hover .hotel-body h3 {
+.tour-row:hover .tour-row-body h3 {
   color: #fcb034;
 }
-.hotel-body p {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.6;
+
+/* Lịch trình */
+.itinerary {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.itinerary li {
+  font-size: 13.5px;
+  color: #555;
   font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 14px;
+  line-height: 1.5;
+  padding-left: 4px;
+  border-left: 3px solid rgb(216, 231, 252);
+  transition: border-color 0.3s ease;
+}
+.tour-row:hover .itinerary li {
+  border-left-color: rgb(152, 192, 240);
 }
 
-/* ── Nút đặt phòng ── */
-.hotel-body input[type="button"],
-.hotel-body button {
+/* Footer của row */
+.tour-row-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+.meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.meta-tags span {
+  background: rgb(216, 231, 252);
+  color: #1a3a6b;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a3a6b;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.price span {
+  font-size: 13px;
+  font-weight: 400;
+  color: #999;
+}
+
+.btn-book {
   background-color: rgb(152, 192, 240);
   color: white;
   border: none;
-  padding: 8px 18px;
+  padding: 10px 24px;
   border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
   transition:
-    background-color 0.3s ease,
+    background-color 0.25s ease,
     transform 0.2s ease;
-  display: block;
-  width: 100%;
 }
-.hotel-body input[type="button"]:hover,
-.hotel-body button:hover {
+.btn-book:hover {
   background-color: #fcb034;
-  transform: scale(1.02);
+  transform: scale(1.05);
+}
+
+/* ── CTA banner ── */
+.cta-banner {
+  margin-top: 40px;
+  background: linear-gradient(
+    135deg,
+    rgb(152, 192, 240) 0%,
+    rgb(68, 144, 236) 100%
+  );
+  border-radius: 16px;
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.cta-banner p {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.btn-cta {
+  background: white;
+  color: rgb(68, 144, 236);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.btn-cta:hover {
+  background: #fcb034;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* ══════════════════════════════
-   FOOTER (đồng bộ index)
+   FOOTER
 ══════════════════════════════ */
 footer {
   margin-top: 50px;
@@ -298,7 +444,7 @@ footer {
 .introduction {
   text-align: center;
   padding: 20px;
-  background-color: rgb(209, 225, 244); /* FIX: đồng bộ với index */
+  background-color: rgb(209, 225, 244);
   margin-top: 20px;
 }
 footer p,
@@ -337,7 +483,7 @@ footer input[type="button"]:hover {
 }
 
 /* ══════════════════════════════
-   RESPONSIVE MOBILE
+   RESPONSIVE
 ══════════════════════════════ */
 @media (max-width: 768px) {
   nav {
@@ -351,7 +497,6 @@ footer input[type="button"]:hover {
   .logo img {
     height: 55px;
   }
-
   .container {
     flex-wrap: wrap;
     justify-content: center;
@@ -368,7 +513,6 @@ footer input[type="button"]:hover {
     height: 200px;
     padding: 5%;
   }
-
   .welcome h2 {
     font-size: 28px;
   }
@@ -376,8 +520,17 @@ footer input[type="button"]:hover {
     font-size: 16px;
   }
 
-  .hotel {
-    width: 240px;
+  .section-heading {
+    font-size: 24px;
+  }
+
+  /* Row chuyển sang dọc trên tablet */
+  .tour-row {
+    flex-direction: column;
+  }
+  .tour-row-img {
+    flex: 0 0 200px;
+    height: 200px;
   }
 }
 
@@ -390,7 +543,6 @@ footer input[type="button"]:hover {
     margin: 3px 5px;
     font-size: 13px;
   }
-
   .welcome h2 {
     font-size: 22px;
   }
@@ -399,11 +551,23 @@ footer input[type="button"]:hover {
     padding: 0 10px;
   }
 
-  main > h1 {
-    font-size: 22px;
+  .tour-row-img {
+    height: 170px;
   }
-  .hotel {
-    width: 220px;
+  .tour-row-body {
+    padding: 14px 16px;
+  }
+  .tour-row-body h3 {
+    font-size: 17px;
+  }
+  .price {
+    font-size: 18px;
+  }
+
+  .cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
   }
 
   footer input[type="email"] {

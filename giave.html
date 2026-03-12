@@ -3,17 +3,295 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="giave.css" />
     <title>Document</title>
   </head>
   <body>
-    <nav>
-      <lu class="container">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="tour.html">Tour</a></li>
-        <li><a href="hotels.html">Hotels</a></li>
-        <li><a href="giave.html">Giá vé</a></li>
-        <li><a href="hotro.html">Hổ trợ</a></li>
-      </lu>
-    </nav>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="img/logo.jpg" alt="Web du lịch" />
+        </div>
+        <ul class="container">
+          <li class="item"><a href="index.html">Home</a></li>
+          <!-- Thêm class "has-dropdown" và dropdown bên trong -->
+          <li class="item has-dropdown">
+            <a href="tour.html">Tours</a>
+            <ul class="dropdown">
+              <li><a href="">Việt Nam</a></li>
+              <li><a href="">Nước ngoài</a></li>
+            </ul>
+          </li>
+          <li class="item"><a href="hotels.html">Hotels</a></li>
+          <li class="item"><a href="giave.html">Giá vé</a></li>
+          <li class="item"><a href="hotro.html">Hổ trợ</a></li>
+        </ul>
+      </nav>
+      <section class="welcome">
+        <h2>Chào mừng bạn đến với Web du lịch</h2>
+        <p>Khám phá những điểm đến tuyệt vời nhất thế giới cùng chúng tôi!</p>
+      </section>
+    </header>
+    <main>
+      <!-- Tiêu đề Flash Sale -->
+      <div class="flash-header">
+        <div class="flash-title">
+          <span class="flash-icon">⚡</span>
+          <h1>Flash Sale</h1>
+          <span class="badge-cohan">Có hạn</span>
+        </div>
+      </div>
+
+      <!-- Danh sách vé -->
+      <div class="container-ticket">
+        <div class="ticket-card">
+          <div class="ticket-img-wrap">
+            <img src="img/hinh1.jpg" alt="Nha Trang" />
+            <span class="tag-label">Flash Sale</span>
+            <span class="tag-discount">-50%</span>
+            <div class="ticket-route">
+              <h2>SGN → CXR</h2>
+              <p>TP.HCM → Nha Trang</p>
+            </div>
+          </div>
+          <div class="ticket-info">
+            <div class="ticket-airline">
+              <img src="img/plane.png" alt="plane" class="plane-icon" />
+              <span>VietJet Air</span>
+              <span class="ticket-date">15/04/2026</span>
+            </div>
+            <div class="ticket-bottom">
+              <div class="ticket-price">890.000đ <span>/ người</span></div>
+              <button class="btn-datve">Đặt vé</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ticket-card">
+          <div class="ticket-img-wrap">
+            <img src="img/hinh2.jpg" alt="Bangkok" />
+            <span class="tag-discount">-40%</span>
+            <div class="ticket-route">
+              <h2>HAN → BKK</h2>
+              <p>Hà Nội → Bangkok</p>
+            </div>
+          </div>
+          <div class="ticket-info">
+            <div class="ticket-airline">
+              <img src="img/plane.png" alt="plane" class="plane-icon" />
+              <span>AirAsia</span>
+              <span class="ticket-date">18/04/2026</span>
+            </div>
+            <div class="ticket-bottom">
+              <div class="ticket-price">1.990.000đ <span>/ người</span></div>
+              <button class="btn-datve">Đặt vé</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ticket-card">
+          <div class="ticket-img-wrap">
+            <img src="img/hinh3.jpg" alt="Đà Nẵng" />
+            <span class="tag-label tag-sieure">Siêu rẻ</span>
+            <span class="tag-discount">-45%</span>
+            <div class="ticket-route">
+              <h2>HAN → DAD</h2>
+              <p>Hà Nội → Đà Nẵng</p>
+            </div>
+          </div>
+          <div class="ticket-info">
+            <div class="ticket-airline">
+              <img src="img/plane.png" alt="plane" class="plane-icon" />
+              <span>Pacific Airlines</span>
+              <span class="ticket-date">20/04/2026</span>
+            </div>
+            <div class="ticket-bottom">
+              <div class="ticket-price">790.000đ <span>/ người</span></div>
+              <button class="btn-datve">Đặt vé</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="popular-section">
+        <h1 class="section-title">Chuyến bay phổ biến</h1>
+
+        <div class="tab-group">
+          <button class="tab-btn active">🇻🇳 Trong nước</button>
+          <button class="tab-btn inactive">🌏 Quốc tế</button>
+        </div>
+
+        <div class="flight-grid">
+          <div class="flight-card">
+            <div class="card-img-wrap">
+              <img src="img/hinh4.jpg" alt="Hà Nội - HCM" />
+              <span class="tag-label">Phổ biến</span>
+              <div class="card-route">
+                <h2>HAN → SGN</h2>
+                <p>Hà Nội → TP. Hồ Chí Minh</p>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-airline">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                  />
+                </svg>
+                <span>Vietnam Airlines</span>
+                <span class="card-date">15/04/2026</span>
+              </div>
+              <div class="card-bottom">
+                <div class="card-price">1.890.000đ <span>/ người</span></div>
+                <button class="btn-datve">Đặt vé</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flight-card">
+            <div class="card-img-wrap">
+              <img src="img/hinh5.jpg" alt="HCM - Đà Nẵng" />
+              <div class="card-route">
+                <h2>SGN → DAD</h2>
+                <p>TP.HCM → Đà Nẵng</p>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-airline">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                  />
+                </svg>
+                <span>Bamboo Airways</span>
+                <span class="card-date">16/04/2026</span>
+              </div>
+              <div class="card-bottom">
+                <div class="card-price">1.450.000đ <span>/ người</span></div>
+                <button class="btn-datve">Đặt vé</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flight-card">
+            <div class="card-img-wrap">
+              <img src="img/hinh6.jpg" alt="Hà Nội - Nha Trang" />
+              <span class="tag-label">Giá tốt</span>
+              <span class="tag-discount">-25%</span>
+              <div class="card-route">
+                <h2>HAN → CXR</h2>
+                <p>Hà Nội → Nha Trang</p>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-airline">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                  />
+                </svg>
+                <span>VietJet Air</span>
+                <span class="card-date">17/04/2026</span>
+              </div>
+              <div class="card-bottom">
+                <div class="card-price">1.290.000đ <span>/ người</span></div>
+                <button class="btn-datve">Đặt vé</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="flight-card">
+            <div class="card-img-wrap">
+              <img src="img/hinh7.jpg" alt="HCM - Hà Nội" />
+              <div class="card-route">
+                <h2>SGN → HAN</h2>
+                <p>TP.HCM → Hà Nội</p>
+              </div>
+            </div>
+            <div class="card-info">
+              <div class="card-airline">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
+                  />
+                </svg>
+                <span>Vietnam Airlines</span>
+                <span class="card-date">18/04/2026</span>
+              </div>
+              <div class="card-bottom">
+                <div class="card-price">1.950.000đ <span>/ người</span></div>
+                <button class="btn-datve">Đặt vé</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="all">
+        <div class="introduction">
+          <h2>Web du lịch</h2>
+          <p>
+            "Hành trình khám phá thế giới - Kỷ niệm những trải nghiệm đáng nhớ"
+          </p>
+        </div>
+        <div class="below">
+          <div class="contract">
+            <h2>Trụ sở tại TP.Hồ Chí Minh</h2>
+            <p>
+              Địa chỉ: 123 Đường ABC, Quận XYZ, TP.Hồ Chí Minh <br />Điện thoại:
+              0123 456 789 <br />Email: info@webdulich.com
+            </p>
+          </div>
+          <div class="contract">
+            <h2>Liên hệ</h2>
+            <p>
+              <br />Điện thoại: 0123 456 789 <br />Email: info@webdulich.com
+              Mail: <input type="email" placeholder="Nhập email của bạn" />
+              <input type="button" value="Gửi" />
+            </p>
+          </div>
+          <div class="contract">
+            <h2>Theo dõi chúng tôi</h2>
+            <p>
+              <br /><img src="img/facebook.png" alt="Facebook" />Facebook: Web
+              du lịch <br /><img src="img/google.png" alt="Instagram" />Google:
+              Web du lịch <br /><img
+                src="img/twitter.png"
+                alt="Twitter"
+              />Twitter: @web
+            </p>
+          </div>
+        </div>
+        <p>© 2025 Minh Quy TRAVEL. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>

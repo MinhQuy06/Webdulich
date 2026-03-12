@@ -4,9 +4,6 @@ body {
   background-color: rgb(240, 235, 215);
 }
 
-/* ══════════════════════════════
-   NAV (đồng bộ index)
-══════════════════════════════ */
 nav {
   color: white;
   margin: 10px;
@@ -19,6 +16,7 @@ nav {
   left: 10px;
   z-index: 1000;
 }
+
 .logo {
   margin-left: 50px;
 }
@@ -34,6 +32,7 @@ nav {
   flex-wrap: nowrap;
   justify-content: center;
 }
+
 .container .item {
   position: relative;
   white-space: nowrap;
@@ -59,6 +58,7 @@ nav {
   flex-direction: column;
   gap: 10px;
 }
+
 .container .item a {
   white-space: nowrap;
   text-decoration: none;
@@ -124,159 +124,314 @@ header {
 }
 
 /* ══════════════════════════════
-   MAIN CONTENT
+   MAIN
 ══════════════════════════════ */
 main {
-  padding: 30px 20px;
+  padding: 40px 50px;
 }
 
-main > h1 {
-  font-size: 28px;
-  color: rgb(68, 144, 236);
-  font-family: Arial, Helvetica, sans-serif;
-  text-shadow: -3px 2px 0px rgba(0, 0, 0, 0.2);
-  margin: 30px 0 6px;
-  padding-left: 10px;
-  border-left: 5px solid #fcb034;
-  transition: color 0.3s ease;
+/* ── Flash Sale header ── */
+.flash-header {
+  margin-bottom: 24px;
 }
-main > h1:first-of-type {
-  margin-top: 10px;
+.flash-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.flash-title h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+.flash-icon {
+  font-size: 1.4rem;
+  color: #e83030;
+}
+.badge-cohan {
+  background-color: #e83030;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
 }
 
-main > p {
-  font-size: 16px;
-  color: #555;
-  padding-left: 15px;
-  margin-bottom: 16px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* ══════════════════════════════
-   HOTEL LIST (scroll ngang)
-══════════════════════════════ */
-.list-hotels {
+/* ── Ticket scroll ngang ── */
+.container-ticket {
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  padding: 10px 4px 20px;
-  scrollbar-width: thin;
-  scrollbar-color: rgb(152, 192, 240) transparent;
-  scroll-behavior: smooth;
+  padding-bottom: 12px;
+  scrollbar-width: none;
 }
-.list-hotels::-webkit-scrollbar {
-  height: 6px;
-}
-.list-hotels::-webkit-scrollbar-track {
-  background: transparent;
-}
-.list-hotels::-webkit-scrollbar-thumb {
-  background-color: rgb(152, 192, 240);
-  border-radius: 10px;
+.container-ticket::-webkit-scrollbar {
+  display: none;
 }
 
-/* ══════════════════════════════
-   HOTEL CARD
-══════════════════════════════ */
-.hotel {
+/* ── Card vé ── */
+.ticket-card {
   flex: 0 0 auto;
-  width: 280px;
-  background-color: white;
-  border-radius: 14px;
+  width: 320px;
+  background: #ffffff;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  cursor: pointer;
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.ticket-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
 }
 
-.hotel:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(68, 144, 236, 0.25);
-}
-
-/* ── Ảnh với overlay ── */
-.hotel-img-wrap {
+.ticket-img-wrap {
   position: relative;
-  overflow: hidden;
-  height: 180px;
+  height: 200px;
 }
-.hotel-img-wrap img {
+.ticket-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
-  display: block;
-}
-.hotel:hover .hotel-img-wrap img {
-  transform: scale(1.08);
 }
 
-/* Gradient overlay đè lên ảnh */
-.hotel-img-wrap::after {
+.tag-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #f5c518;
+  color: #1a1a2e;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.tag-discount {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #e83030;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.ticket-route {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 16px 14px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+  color: white;
+}
+.ticket-route h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.ticket-route p {
+  font-size: 0.82rem;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+.ticket-info {
+  padding: 14px 16px 16px;
+}
+.ticket-airline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+.plane-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+.ticket-date {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: #777;
+}
+.ticket-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ticket-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a3a6b;
+}
+.ticket-price span {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #777;
+}
+
+.btn-datve {
+  background-color: #1a3a6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-datve:hover {
+  background-color: #fcb034;
+}
+
+/* ── Popular section ── */
+.popular-section {
+  padding: 20px 0 60px;
+}
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 20px;
+  font-family: Georgia, serif;
+}
+
+.tab-group {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 30px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tab-btn.active {
+  background-color: #1a3a6b;
+  color: white;
+}
+.tab-btn.inactive {
+  background-color: white;
+  color: #444;
+  border: 1px solid #ddd;
+}
+.tab-btn.inactive:hover {
+  background-color: #f0f0f0;
+}
+
+.flight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.flight-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.flight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+}
+
+.card-img-wrap {
+  position: relative;
+  height: 190px;
+}
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-img-wrap::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(26, 58, 107, 0.5) 0%,
-    transparent 60%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.hotel:hover .hotel-img-wrap::after {
-  opacity: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 55%);
 }
 
-/* ── Nội dung card ── */
-.hotel-body {
+.card-route {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 16px;
+  color: white;
+}
+.card-route h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.card-route p {
+  font-size: 0.82rem;
+  opacity: 0.9;
+  margin-top: 3px;
+}
+
+.card-info {
   padding: 14px 16px 16px;
 }
-.hotel-body h3 {
-  font-size: 17px;
+.card-airline {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.87rem;
+  color: #555;
+  margin-bottom: 12px;
+}
+.card-airline svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+.card-date {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: #777;
+}
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-price {
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #1a3a6b;
-  margin-bottom: 8px;
-  font-family: Arial, Helvetica, sans-serif;
-  transition: color 0.3s ease;
 }
-.hotel:hover .hotel-body h3 {
-  color: #fcb034;
-}
-.hotel-body p {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.6;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 14px;
-}
-
-/* ── Nút đặt phòng ── */
-.hotel-body input[type="button"],
-.hotel-body button {
-  background-color: rgb(152, 192, 240);
-  color: white;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 13px;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
-  display: block;
-  width: 100%;
-}
-.hotel-body input[type="button"]:hover,
-.hotel-body button:hover {
-  background-color: #fcb034;
-  transform: scale(1.02);
+.card-price span {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #777;
 }
 
 /* ══════════════════════════════
-   FOOTER (đồng bộ index)
+   FOOTER
 ══════════════════════════════ */
 footer {
   margin-top: 50px;
@@ -298,7 +453,7 @@ footer {
 .introduction {
   text-align: center;
   padding: 20px;
-  background-color: rgb(209, 225, 244); /* FIX: đồng bộ với index */
+  background-color: rgb(209, 225, 244);
   margin-top: 20px;
 }
 footer p,
@@ -376,8 +531,20 @@ footer input[type="button"]:hover {
     font-size: 16px;
   }
 
-  .hotel {
-    width: 240px;
+  main {
+    padding: 20px;
+  }
+
+  .ticket-card {
+    width: 280px;
+  }
+
+  .flight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tab-group {
+    flex-wrap: wrap;
   }
 }
 
@@ -399,11 +566,16 @@ footer input[type="button"]:hover {
     padding: 0 10px;
   }
 
-  main > h1 {
-    font-size: 22px;
+  main {
+    padding: 12px;
   }
-  .hotel {
-    width: 220px;
+
+  .ticket-card {
+    width: 260px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
   }
 
   footer input[type="email"] {
