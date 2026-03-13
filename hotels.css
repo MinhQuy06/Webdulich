@@ -19,6 +19,38 @@ nav {
   left: 10px;
   z-index: 1000;
 }
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+nav .item a.active {
+  color: #184e6c;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.login-btn {
+  margin-left: auto;
+  margin-right: 50px;
+  border: 2px solid #c6fcc6;
+  padding: 8px 15px;
+  border-radius: 10px;
+  background-color: #b1e19d;
+  transition: all 0.3s ease; /* FIX: none → all */
+}
+
+.login-btn:hover {
+  transform: scale(1.2);
+  background-color: #bc80f9;
+  border-color: #bfe7e7;
+}
+.login-btn a {
+  font-weight: bold;
+  transition: color 0.3s ease; /* FIX: none → color */
+}
+
 .logo {
   margin-left: 50px;
 }
@@ -74,7 +106,7 @@ nav {
    HEADER & WELCOME
 ══════════════════════════════ */
 header {
-  background: url(img/background.jpg) no-repeat center;
+  background: url(img/background3.jpg) no-repeat center;
   background-size: cover;
   height: 250px;
   padding: 5%;
@@ -89,6 +121,7 @@ header {
 }
 .welcome h2 {
   font-size: 40px;
+  color: rgb(227, 238, 195);
   text-shadow:
     4px 4px 8px rgba(0, 0, 0, 0.3),
     0 0 30px rgba(68, 144, 236, 0.4);
@@ -96,6 +129,7 @@ header {
 }
 .welcome p {
   font-size: 20px;
+  color: rgb(208, 242, 217);
   animation: fadeUp 0.8s ease both;
   animation-delay: 0.5s;
 }
@@ -279,8 +313,10 @@ main > p {
 ══════════════════════════════ */
 footer {
   margin-top: 50px;
-  background-color: rgb(152, 192, 240);
-  padding: 20px;
+  background: url(img/footer.jpg) no-repeat center;
+  background-size: cover;
+  padding: 30px;
+  margin: 30px;
   border-radius: 12px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -297,12 +333,11 @@ footer {
 .introduction {
   text-align: center;
   padding: 20px;
-  background-color: rgb(209, 225, 244); /* FIX: đồng bộ với index */
   margin-top: 20px;
 }
 footer p,
 footer h2 {
-  color: #1a1a2e;
+  color: #ffffff;
   font-size: 16px;
   margin-bottom: 8px;
   font-weight: bold;

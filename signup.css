@@ -6,7 +6,7 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, rgb(240, 235, 215) 0%, #e6d9f1 100%);
   min-height: 100vh;
   padding: 20px;
 }
@@ -71,7 +71,7 @@ body {
 
 /* Left Side */
 .left-side {
-  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  background: linear-gradient(135deg, #f3f6fa 0%, #638cd3 100%);
   padding: 60px 40px;
   display: flex;
   flex-direction: column;
@@ -83,7 +83,7 @@ body {
 .portal-image {
   width: 100%;
   max-width: 300px;
-  height: auto;
+  height: 350px;
   margin-bottom: 30px;
   border-radius: 20px;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
@@ -186,7 +186,7 @@ label {
 .submit-btn {
   width: 100%;
   padding: 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #cdf3ea 0%, #b696d6 100%);
   color: white;
   border: none;
   border-radius: 12px;

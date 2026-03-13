@@ -5,12 +5,12 @@ body {
 }
 
 header {
-  background: url(img/background.jpg) no-repeat center;
+  background: url(img/background1.jpg) no-repeat center;
   background-size: cover;
   height: 250px;
   padding: 5%;
   margin: 10px;
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 nav {
@@ -24,6 +24,12 @@ nav {
   top: 0px;
   left: 10px;
   z-index: 1000;
+}
+
+nav .item a.active {
+  color: #184e6c;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 nav a {
@@ -110,6 +116,8 @@ nav a {
 }
 
 .welcome h2 {
+  color: rgb(245, 233, 233);
+  font-family: "Franklin Gothic Medium";
   font-size: 40px;
   text-shadow:
     4px 4px 8px rgba(0, 0, 0, 0.3),
@@ -118,7 +126,11 @@ nav a {
 }
 
 .welcome p {
-  font-size: 20px;
+  font-size: 30px;
+  color: #cce3fd;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
   animation: fadeUp 0.8s ease both;
   animation-delay: 0.5s;
 }
@@ -251,8 +263,10 @@ main > aside {
 /* ── FOOTER ── */
 footer {
   margin-top: 50px;
-  background-color: rgb(152, 192, 240);
-  padding: 20px;
+  background: url(img/footer.jpg) no-repeat center;
+  background-size: cover;
+  padding: 30px;
+  margin: 30px;
   border-radius: 12px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -269,13 +283,12 @@ footer {
 .introduction {
   text-align: center;
   padding: 20px;
-  background-color: rgb(209, 225, 244);
   margin-top: 20px;
 }
 footer p,
 footer h2 {
-  color: #1a1a2e;
-  font-size: 16px;
+  color: #f4f4f7;
+  font-size: 15px;
   margin-bottom: 8px;
   font-weight: bold;
 }
@@ -289,8 +302,7 @@ footer h2 {
   margin-right: 10px;
 }
 .contract p {
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 14px;
   margin: 0;
 }
 footer input[type="button"] {
