@@ -106,7 +106,7 @@ header {
   height: 250px;
   padding: 5%;
   margin: 10px;
-  margin-top: 70px;
+  margin-top: 95px;
 }
 
 .welcome {
@@ -190,12 +190,10 @@ main {
 .container-ticket {
   display: flex;
   gap: 20px;
+  /* thanh cuộng ngang */
   overflow-x: auto;
   padding-bottom: 12px;
   scrollbar-width: none;
-}
-.container-ticket::-webkit-scrollbar {
-  display: none;
 }
 
 /* ── Card vé ── */
@@ -314,7 +312,7 @@ main {
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s;
 }
 .btn-datve:hover {
   background-color: #fcb034;
@@ -365,9 +363,9 @@ main {
 
 .flight-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 

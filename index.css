@@ -10,7 +10,7 @@ header {
   height: 250px;
   padding: 5%;
   margin: 10px;
-  margin-top: 80px;
+  margin-top: 95px;
 }
 
 nav {
@@ -20,9 +20,11 @@ nav {
   align-items: center;
   width: calc(100% - 40px); /* FIX: thêm space vào calc */
   background-color: rgb(152, 192, 240);
+  /* cố định khi cuộn trang xuống nó vẩn ở đó */
   position: fixed;
   top: 0px;
   left: 10px;
+  /* index nào có vị trí cao nằm phía trên */
   z-index: 1000;
 }
 
@@ -47,6 +49,7 @@ nav a {
 .container {
   display: flex;
   list-style: none;
+  /* lấp đầy phần còn lại */
   flex: 1;
   flex-wrap: nowrap;
   justify-content: center;
@@ -54,6 +57,7 @@ nav a {
 
 .container .item {
   position: relative;
+  /* không đc xuống hàng */
   white-space: nowrap;
   margin: 0px 30px;
   transition: all 0.3s ease; /* FIX: none → all */
@@ -210,6 +214,8 @@ main > aside {
 }
 
 .product {
+  /* cho phép co lại dãng ra ngang
+  mỗi product chím 33% cách nhau 14px */
   flex: 1 1 calc(33.33% - 14px);
   box-sizing: border-box;
   padding: 10px;

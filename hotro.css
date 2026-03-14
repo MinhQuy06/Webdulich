@@ -7,11 +7,10 @@ body {
 header {
   background: url(img/background4.jpg) no-repeat center;
   background-size: cover;
-
   height: 250px;
   padding: 5%;
   margin: 10px;
-  margin-top: 70px;
+  margin-top: 95px;
 }
 nav {
   color: white;
@@ -105,52 +104,7 @@ nav .item a.active {
 .container .item a:hover {
   color: #fcb034;
 }
-@media (max-width: 768px) {
-  nav {
-    left: 10px;
-    right: 10px;
-    width: calc(100% -10px);
-  }
 
-  .logo {
-    margin-left: 15px;
-  }
-
-  .logo img {
-    height: 55px;
-  }
-
-  .container {
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 5px 4px;
-    gap: 8px;
-  }
-
-  .container .item {
-    margin: 4px 8px;
-    white-space: normal;
-  }
-
-  /* Đẩy header xuống theo chiều cao nav thực tế trên mobile */
-  header {
-    margin-top: 40px; /* tăng lên nếu vẫn bị che */
-    height: 200px;
-    padding: 5%;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    margin-top: 100px;
-    height: 150px;
-  }
-
-  .container .item {
-    margin: 3px 5px;
-    font-size: 13px;
-  }
-}
 .suport {
   text-align: center;
   margin-top: 50px;
@@ -216,6 +170,7 @@ nav .item a.active {
 
 .form-contract {
   width: 280px;
+  /*không cho phép thu nhỏ lại  */
   flex-shrink: 0;
   background-color: #b1b7fa;
   color: white;
@@ -244,7 +199,6 @@ nav .item a.active {
   border: 1.5px solid #c4bff0;
   border-radius: 8px;
   font-size: 0.95rem;
-  outline: none;
   transition: border-color 0.2s;
 }
 
@@ -261,7 +215,7 @@ nav .item a.active {
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s;
 }
 
 .form-suport button:hover {
@@ -365,4 +319,50 @@ footer input[type="button"] {
 
 footer input[type="button"]:hover {
   background-color: #0d47a1;
+}
+@media (max-width: 768px) {
+  nav {
+    left: 10px;
+    right: 10px;
+    width: calc(100% -10px);
+  }
+
+  .logo {
+    margin-left: 15px;
+  }
+
+  .logo img {
+    height: 55px;
+  }
+
+  .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px 4px;
+    gap: 8px;
+  }
+
+  .container .item {
+    margin: 4px 8px;
+    white-space: normal;
+  }
+
+  /* Đẩy header xuống theo chiều cao nav thực tế trên mobile */
+  header {
+    margin-top: 40px; /* tăng lên nếu vẫn bị che */
+    height: 200px;
+    padding: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    margin-top: 100px;
+    height: 150px;
+  }
+
+  .container .item {
+    margin: 3px 5px;
+    font-size: 13px;
+  }
 }
