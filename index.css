@@ -381,27 +381,42 @@ footer input[type="button"]:hover {
 /* Mobile: 480px */
 @media (max-width: 480px) {
   header {
-    margin-top: 130px;
-    height: 150px;
+    margin-top: 100px;
+    height: 140px;
   }
 
   .container .item {
     margin: 3px 5px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
+  .welcome {
+    margin-top: 20px;
+  }
   .welcome h2 {
     font-size: 22px; /* FIX: vừa màn hình nhỏ */
   }
   .welcome p {
-    font-size: 14px;
-    padding: 0 10px;
+    font-size: 13px;
   }
 
-  h4 {
-    font-size: 28px; /* FIX: vừa mobile */
+  .hero-title {
+    font-size: 25px; /* FIX: vừa mobile */
+  }
+  .hero-slogan {
+    font-size: 18px;
+  }
+  .login-btn {
+    margin-right: 15px;
+  }
+  .login-btn a {
+    font-size: 10px;
   }
 
+  nav {
+    margin: 10px 10px;
+    width: calc(100% - 40px);
+  }
   /* 1 cột trên mobile */
   .product {
     flex: 1 1 100%;

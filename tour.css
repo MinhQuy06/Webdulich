@@ -553,8 +553,28 @@ footer input[type="button"]:hover {
 
 @media (max-width: 480px) {
   header {
-    margin-top: 130px;
+    margin-top: 150px;
     height: 150px;
+  }
+  .welcome {
+    margin-top: 20px;
+  }
+  .welcome h2 {
+    font-size: 22px; /* FIX: vừa màn hình nhỏ */
+  }
+  .welcome p {
+    font-size: 13px;
+  }
+  .login-btn {
+    margin-right: 15px;
+  }
+  .login-btn a {
+    font-size: 10px;
+  }
+
+  nav {
+    margin: 10px 10px;
+    width: calc(100% - 40px);
   }
   .container .item {
     margin: 3px 5px;

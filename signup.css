@@ -254,6 +254,7 @@ label {
     padding: 15px 20px;
   }
   .nav {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
