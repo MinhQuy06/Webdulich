@@ -1,5 +1,5 @@
 body {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Franklin Gothic Medium";
   margin: 10px;
   background-color: rgb(240, 235, 215);
 }
@@ -107,7 +107,6 @@ nav .item a.active {
 .suport {
   text-align: center;
   margin-top: 50px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 .suport h2 {
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
@@ -149,7 +148,6 @@ nav .item a.active {
   justify-content: space-between;
   gap: 24px;
   margin: 20px;
-  font-family: "Segoe UI", sans-serif;
 }
 
 .form-suport,
@@ -264,7 +262,6 @@ footer {
   padding: 30px;
   margin: 30px;
   border-radius: 12px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 .all {
   max-width: 1000px;
@@ -412,7 +409,7 @@ footer input[type="button"]:hover {
     margin-top: 20px;
   }
   .welcome h2 {
-    font-size: 22px; 
+    font-size: 22px;
   }
   .welcome p {
     font-size: 13px;

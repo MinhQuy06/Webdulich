@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Franklin Gothic Medium";
   background: linear-gradient(135deg, rgb(240, 235, 215) 0%, #e6d9f1 100%);
   min-height: 100vh;
   padding: 20px;
