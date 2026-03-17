@@ -1,32 +1,24 @@
 * {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box quy định kích thước
-  của một element bao gồm padding, border, content.
-  khi sử dụng nó thì chiều ngang của một element đã tính của padding, border không tác động đến margin */
   box-sizing: border-box;
 }
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /* màu chuyển sắc */
   background: linear-gradient(135deg, rgb(240, 235, 215) 0%, #e6d9f1 100%);
   min-height: 100vh;
   padding: 20px;
 }
 
-/* Header */
 .header {
   display: flex;
-  /* dùng để căng chỉnh các thành phần con */
   justify-content: space-between;
   align-items: center;
-  /* trên dưới 15px, trái phải 40px */
   padding: 15px 40px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 50px;
   max-width: 1200px;
-  /* trên tái phải dưới */
   margin: 0 auto 50px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -59,29 +51,23 @@ body {
   color: #667eea;
 }
 
-/* FIX: đồng bộ tên class highlight — login dùng .signup, signup dùng .login */
 .nav .signup {
   color: #667eea;
   font-weight: 600;
 }
 
-/* Main Container */
 .main-container {
-  /* chia cột */
   display: grid;
-  /* 2 cột điều nhau */
   grid-template-columns: 1fr 1fr;
   gap: 0;
   max-width: 1100px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 30px;
-  /* cắt bỏ phần tràn */
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-/* Left Side - Login Form */
 .login-container {
   padding: 60px 70px;
   background: rgba(255, 255, 255, 0.98);
@@ -106,7 +92,6 @@ body {
 }
 
 .form-group label {
-  /* chím cả hàng */
   display: block;
   color: #2c3e50;
   font-size: 14px;
@@ -135,7 +120,6 @@ body {
 }
 
 .input-wrapper {
-  /* dùng để định vị input-wrapper là cha */
   position: relative;
 }
 
@@ -150,17 +134,14 @@ body {
   outline: none;
   transition: all 0.3s;
 }
-/* khi click vào input */
 .input-wrapper input:focus {
   background: #e8eaed;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
-/* gợi ý trong input */
 .input-wrapper input::placeholder {
   color: #bdc3c7;
 }
 
-/* icon trong input */
 .input-wrapper::before {
   position: absolute;
   left: 16px;
@@ -182,7 +163,6 @@ body {
   right: 16px;
   top: 50%;
   transform: translateY(-50%);
-  /* thay đổi chuột khi vào */
   cursor: pointer;
   font-size: 16px;
   opacity: 0.5;
@@ -260,7 +240,6 @@ body {
 .social-btn img {
   width: 24px;
   height: 24px;
-  /* giữ tỉ lệ ảnh ko bị méo */
   object-fit: contain;
 }
 .social-btn:hover {
@@ -282,7 +261,6 @@ body {
   text-decoration: underline;
 }
 
-/* Right Side - Image */
 .right-side {
   background: linear-gradient(135deg, #f3f6fa 0%, #638cd3 100%);
   padding: 80px 60px;
@@ -301,7 +279,6 @@ body {
   margin-bottom: 40px;
   border-radius: 20px;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
-  /* giữ tỉ lệ hình anh lấp đầy container */
   object-fit: cover;
 }
 
@@ -319,7 +296,6 @@ body {
   max-width: 300px;
 }
 
-/* Footer */
 .footer {
   text-align: center;
   margin-top: 30px;
@@ -327,7 +303,6 @@ body {
   font-size: 12px;
 }
 
-/* Responsive */
 @media (max-width: 968px) {
   .main-container {
     grid-template-columns: 1fr;

@@ -19,7 +19,6 @@ nav {
   align-items: center;
   width: calc(100% - 40px);
   background-color: rgb(152, 192, 240);
-  /* thanh tiêu đề sẽ luôn ở phía trên không bao giờ bị cuộn đi */
   position: fixed;
   top: 0px;
   left: 10px;
@@ -44,7 +43,7 @@ nav .item a.active {
   padding: 8px 15px;
   border-radius: 10px;
   background-color: #b1e19d;
-  transition: all 0.3s ease; /* FIX: none → all */
+  transition: all 0.3s ease;
 }
 
 .login-btn:hover {
@@ -54,7 +53,7 @@ nav .item a.active {
 }
 .login-btn a {
   font-weight: bold;
-  transition: color 0.3s ease; /* FIX: none → color */
+  transition: color 0.3s ease;
 }
 .logo {
   margin-left: 50px;
@@ -170,7 +169,6 @@ nav .item a.active {
 
 .form-contract {
   width: 280px;
-  /*không cho phép thu nhỏ lại  */
   flex-shrink: 0;
   background-color: #b1b7fa;
   color: white;
@@ -367,7 +365,6 @@ footer input[type="button"]:hover {
     font-size: 15px;
   }
 
-  /* Form chuyển sang xếp dọc trên tablet/mobile */
   .container-suport {
     flex-direction: column;
     margin: 12px;
@@ -384,7 +381,6 @@ footer input[type="button"]:hover {
     padding: 20px;
   }
 
-  /* Footer */
   footer {
     margin: 10px;
     padding: 20px;
@@ -416,7 +412,7 @@ footer input[type="button"]:hover {
     margin-top: 20px;
   }
   .welcome h2 {
-    font-size: 22px; /* FIX: vừa màn hình nhỏ */
+    font-size: 22px; 
   }
   .welcome p {
     font-size: 13px;

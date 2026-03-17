@@ -34,7 +34,7 @@ nav .item a.active {
   padding: 8px 15px;
   border-radius: 10px;
   background-color: #b1e19d;
-  transition: all 0.3s ease; /* FIX: none → all */
+  transition: all 0.3s ease; 
 }
 
 .login-btn:hover {
@@ -44,7 +44,7 @@ nav .item a.active {
 }
 .login-btn a {
   font-weight: bold;
-  transition: color 0.3s ease; /* FIX: none → color */
+  transition: color 0.3s ease; 
 }
 .logo {
   margin-left: 50px;
@@ -98,9 +98,6 @@ nav .item a.active {
   color: #fcb034;
 }
 
-/* ══════════════════════════════
-   HEADER & WELCOME
-══════════════════════════════ */
 header {
   background: url(img/background5.jpg) no-repeat center;
   background-size: cover;
@@ -152,14 +149,10 @@ header {
   }
 }
 
-/* ══════════════════════════════
-   MAIN
-══════════════════════════════ */
 main {
   padding: 30px 20px 40px;
 }
 
-/* ── 4 điểm nổi bật ── */
 .highlights {
   display: flex;
   justify-content: center;
@@ -191,7 +184,6 @@ main {
   font-size: 22px;
 }
 
-/* ── Section ── */
 .tour-section {
   margin-bottom: 50px;
 }
@@ -217,9 +209,6 @@ main {
   font-style: italic;
 }
 
-/* ══════════════════════════════
-   TOUR ROW — layout ngang (khác hẳn giave)
-══════════════════════════════ */
 .tour-list {
   display: flex;
   flex-direction: column;
@@ -253,7 +242,6 @@ main {
   box-shadow: 0 8px 30px rgba(68, 144, 236, 0.2);
 }
 
-/* ── Ảnh bên trái ── */
 .tour-row-img {
   position: relative;
   flex: 0 0 260px;
@@ -270,7 +258,6 @@ main {
   transform: scale(1.08);
 }
 
-/* Badge */
 .badge {
   position: absolute;
   top: 12px;
@@ -297,7 +284,6 @@ main {
   color: #1a1a2e;
 }
 
-/* ── Nội dung bên phải ── */
 .tour-row-body {
   flex: 1;
   padding: 20px 24px;
@@ -315,7 +301,6 @@ main {
   color: #fcb034;
 }
 
-/* Lịch trình */
 .itinerary {
   list-style: none;
   display: flex;
@@ -335,7 +320,6 @@ main {
   border-left-color: rgb(152, 192, 240);
 }
 
-/* Footer của row */
 .tour-row-footer {
   margin-top: auto;
   display: flex;
@@ -395,7 +379,6 @@ main {
   transform: scale(1.05);
 }
 
-/* ── CTA banner ── */
 .cta-banner {
   margin-top: 40px;
   background: linear-gradient(
@@ -437,9 +420,6 @@ main {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* ══════════════════════════════
-   FOOTER
-══════════════════════════════ */
 footer {
   margin-top: 50px;
   background: url(img/footer.jpg) no-repeat center;
@@ -499,9 +479,6 @@ footer input[type="button"]:hover {
   background-color: #0d47a1;
 }
 
-/* ══════════════════════════════
-   RESPONSIVE
-══════════════════════════════ */
 @media (max-width: 768px) {
   nav {
     left: 10px;
@@ -541,7 +518,6 @@ footer input[type="button"]:hover {
     font-size: 24px;
   }
 
-  /* Row chuyển sang dọc trên tablet */
   .tour-row {
     flex-direction: column;
   }
@@ -560,7 +536,7 @@ footer input[type="button"]:hover {
     margin-top: 20px;
   }
   .welcome h2 {
-    font-size: 22px; /* FIX: vừa màn hình nhỏ */
+    font-size: 22px; 
   }
   .welcome p {
     font-size: 13px;

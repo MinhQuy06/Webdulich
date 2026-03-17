@@ -33,7 +33,7 @@ nav .item a.active {
   padding: 8px 15px;
   border-radius: 10px;
   background-color: #b1e19d;
-  transition: all 0.3s ease; /* FIX: none → all */
+  transition: all 0.3s ease; 
 }
 
 .login-btn:hover {
@@ -43,7 +43,7 @@ nav .item a.active {
 }
 .login-btn a {
   font-weight: bold;
-  transition: color 0.3s ease; /* FIX: none → color */
+  transition: color 0.3s ease;
 }
 
 .logo {
@@ -97,9 +97,6 @@ nav .item a.active {
   color: #fcb034;
 }
 
-/* ══════════════════════════════
-   HEADER & WELCOME
-══════════════════════════════ */
 header {
   background: url(img/background2.jpg) no-repeat center;
   background-size: cover;
@@ -152,14 +149,10 @@ header {
   }
 }
 
-/* ══════════════════════════════
-   MAIN
-══════════════════════════════ */
 main {
   padding: 40px 50px;
 }
 
-/* ── Flash Sale header ── */
 .flash-header {
   margin-bottom: 24px;
 }
@@ -186,17 +179,14 @@ main {
   border-radius: 20px;
 }
 
-/* ── Ticket scroll ngang ── */
 .container-ticket {
   display: flex;
   gap: 20px;
-  /* thanh cuộng ngang */
   overflow-x: auto;
   padding-bottom: 12px;
   scrollbar-width: none;
 }
 
-/* ── Card vé ── */
 .ticket-card {
   flex: 0 0 auto;
   width: 320px;
@@ -318,7 +308,6 @@ main {
   background-color: #fcb034;
 }
 
-/* ── Popular section ── */
 .popular-section {
   padding: 20px 0 60px;
 }
@@ -456,9 +445,6 @@ main {
   color: #777;
 }
 
-/* ══════════════════════════════
-   FOOTER
-══════════════════════════════ */
 footer {
   margin-top: 50px;
   background: url(img/footer.jpg) no-repeat center;
@@ -518,9 +504,6 @@ footer input[type="button"]:hover {
   background-color: #0d47a1;
 }
 
-/* ══════════════════════════════
-   RESPONSIVE MOBILE
-══════════════════════════════ */
 @media (max-width: 768px) {
   nav {
     left: 10px;
@@ -589,7 +572,7 @@ footer input[type="button"]:hover {
     margin-top: 20px;
   }
   .welcome h2 {
-    font-size: 22px; /* FIX: vừa màn hình nhỏ */
+    font-size: 22px;
   }
   .welcome p {
     font-size: 13px;
