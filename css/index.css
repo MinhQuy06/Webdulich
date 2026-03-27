@@ -1,0 +1,307 @@
+/* index.css – Home page specific */
+
+/* ---- Hero Stats ---- */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  animation: fadeUp 0.7s ease both 0.6s;
+}
+.stat {
+  text-align: center;
+}
+.stat strong {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+.stat span {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+.stat-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* ---- HOT SECTION ---- */
+.section-hot {
+  background: linear-gradient(135deg, #fff8f0, #fff3e0);
+  padding: 72px 0;
+  border-top: 3px solid var(--accent);
+}
+
+.badge-hot-label {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.countdown-time {
+  color: var(--accent);
+  font-family: monospace;
+  font-size: 1.1rem;
+}
+
+.hot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.hot-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+.hot-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+.hot-card.featured {
+  border: 2px solid var(--accent);
+  box-shadow: 0 8px 32px rgba(255, 107, 0, 0.14);
+  transform: scale(1.03);
+}
+.hot-card.featured:hover {
+  transform: scale(1.03) translateY(-6px);
+}
+
+.hot-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+.hot-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.hot-card:hover .hot-img-wrap img {
+  transform: scale(1.06);
+}
+
+.badge-discount {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #e53935;
+  color: #fff;
+  font-size: 0.73rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.badge-slots {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.52);
+  color: #fff;
+  font-size: 0.73rem;
+  padding: 4px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(4px);
+}
+.badge-featured {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.hot-body {
+  padding: 18px 20px 20px;
+}
+.hot-body h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.card-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.card-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.card-price s {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.card-price strong {
+  font-size: 1.28rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+.btn-book {
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 11px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: all var(--transition);
+}
+.btn-book:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 104, 255, 0.32);
+}
+
+/* ---- TOUR SECTIONS ---- */
+.section-tours {
+  padding: 72px 0;
+  background: var(--bg);
+}
+.section-intl {
+  background: linear-gradient(135deg, #f0f4ff, #eef1fc);
+}
+
+.tour-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tour-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+.tour-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+.tour-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 172px;
+}
+.tour-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.tour-card:hover .tour-img-wrap img {
+  transform: scale(1.07);
+}
+.tour-body {
+  padding: 15px 17px 17px;
+}
+.tour-body h3 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+.price {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.btn-book-sm {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all var(--transition);
+}
+.btn-book-sm:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 104, 255, 0.28);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .hot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hot-card.featured {
+    transform: none;
+  }
+  .tour-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .hot-grid,
+  .tour-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-hot,
+  .section-tours {
+    padding: 48px 0;
+  }
+  .hero-stats {
+    gap: 16px;
+  }
+  .stat strong {
+    font-size: 1.2rem;
+  }
+  .hot-card.featured {
+    transform: none;
+  }
+  .hot-card.featured:hover {
+    transform: translateY(-5px);
+  }
+}
+@media (max-width: 480px) {
+  .hero-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .stat-divider {
+    width: 40px;
+    height: 1px;
+  }
+}

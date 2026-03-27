@@ -1,0 +1,305 @@
+/* giave.css – Flight tickets page */
+
+/* Flash Sale Section */
+.flash-section {
+  padding: 60px 0 48px;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border);
+}
+.flash-header {
+  margin-bottom: 28px;
+}
+.flash-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.flash-icon {
+  font-size: 1.5rem;
+}
+.badge-cohan {
+  background: var(--danger);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+/* Ticket Scroll */
+.ticket-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 14px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-light) transparent;
+}
+.ticket-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+.ticket-scroll::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 4px;
+}
+
+.ticket-card {
+  flex: 0 0 300px;
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+.ticket-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ticket-img {
+  position: relative;
+  height: 185px;
+  overflow: hidden;
+}
+.ticket-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.ticket-card:hover .ticket-img img {
+  transform: scale(1.06);
+}
+.tag-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #f5c518;
+  color: #1a1a2e;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.tag-discount {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--danger);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+.ticket-route {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 15px 12px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+  color: #fff;
+}
+.ticket-route h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.ticket-route p {
+  font-size: 0.78rem;
+  opacity: 0.88;
+  margin-top: 2px;
+}
+
+.ticket-info {
+  padding: 14px 16px 16px;
+}
+.ticket-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.ticket-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ticket-price s {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.ticket-price strong {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.ticket-price span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.btn-datve {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: all var(--transition);
+}
+.btn-datve:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Popular Section */
+.popular-section {
+  padding: 60px 0 72px;
+}
+.tab-group {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 24px;
+  border-radius: 100px;
+  border: 2px solid var(--border);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--bg-white);
+  color: var(--text);
+  transition: all var(--transition);
+  font-family: var(--font-body);
+}
+.tab-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+.tab-btn:hover:not(.active) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.flight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.flight-card {
+  background: var(--bg-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+.flight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+.card-img-wrap {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.card-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.58) 0%, transparent 55%);
+}
+.flight-card:hover .card-img-wrap img {
+  transform: scale(1.06);
+}
+.card-route {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 16px;
+  color: #fff;
+}
+.card-route h2 {
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+.card-route p {
+  font-size: 0.76rem;
+  opacity: 0.88;
+}
+.card-info {
+  padding: 14px 16px 16px;
+}
+.card-meta-row {
+  display: flex;
+  gap: 12px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-price strong {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.card-price span {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .flight-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .flight-grid {
+    grid-template-columns: 1fr;
+  }
+  .ticket-card {
+    flex: 0 0 270px;
+  }
+  .tab-group {
+    flex-wrap: wrap;
+  }
+  .flash-section,
+  .popular-section {
+    padding: 40px 0;
+  }
+}
+@media (max-width: 480px) {
+  .ticket-card {
+    flex: 0 0 250px;
+  }
+}

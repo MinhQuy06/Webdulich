@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "name": "Ba Na Hills – Đà Nẵng",
+    "location": "Đà Nẵng",
+    "category": "vn",
+    "image": "img/banahilljpg.jpg",
+    "duration": "3N2Đ",
+    "people": 2,
+    "rating": 4.7,
+    "price": 1500000,
+    "discount": 0,
+    "slots": 8,
+    "description": "Khám phá Bà Nà Hills với Cầu Vàng nổi tiếng, làng Pháp cổ kính và cảnh quan núi non hùng vĩ.",
+    "itinerary": [
+      "Ngày 1: Đến Đà Nẵng, tham quan Cầu Rồng, Bãi biển Mỹ Khê",
+      "Ngày 2: Bà Nà Hills – Cầu Vàng, làng Pháp cổ kính",
+      "Ngày 3: Phố cổ Hội An về đêm, mua sắm lưu niệm"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Máy bay"
+  },
+  {
+    "id": 2,
+    "name": "Phố Cổ Hội An",
+    "location": "Hội An",
+    "category": "vn",
+    "image": "img/Phocohoian.jpg",
+    "duration": "2N1Đ",
+    "people": 2,
+    "rating": 4.9,
+    "price": 500000,
+    "discount": 0,
+    "slots": 12,
+    "description": "Dạo bước trên những con phố đèn lồng lung linh, thả hoa đăng trên sông Hoài.",
+    "itinerary": [
+      "Ngày 1: Chùa Cầu, Hội quán Phúc Kiến, thả đèn hoa đăng",
+      "Ngày 2: Làng rau Trà Quế, làng gốm Thanh Hà, về TP.HCM"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Máy bay"
+  },
+  {
+    "id": 3,
+    "name": "Phú Quốc Nghỉ Dưỡng",
+    "location": "Kiên Giang",
+    "category": "vn",
+    "image": "img/phuquoc.jpg",
+    "duration": "3N2Đ",
+    "people": 2,
+    "rating": 4.8,
+    "price": 2000000,
+    "discount": 25,
+    "slots": 4,
+    "description": "Đảo ngọc Phú Quốc với bãi biển xanh trong, san hô đẹp và resort sang trọng.",
+    "itinerary": [
+      "Ngày 1: Bay đến Phú Quốc, nhận phòng resort, tắm biển",
+      "Ngày 2: Lặn ngắm san hô, chợ đêm Phú Quốc",
+      "Ngày 3: VinWonders, tham quan Vinpearl Safari"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Bay thẳng"
+  },
+  {
+    "id": 4,
+    "name": "Núi Bà Đen – Tây Ninh",
+    "location": "Tây Ninh",
+    "category": "vn",
+    "image": "img/sunworld-ba-den.jpg",
+    "duration": "2N1Đ",
+    "people": 2,
+    "rating": 4.6,
+    "price": 1000000,
+    "discount": 0,
+    "slots": 10,
+    "description": "Leo núi Bà Đen huyền thoại với cáp treo hiện đại và lễ hội văn hóa đặc sắc.",
+    "itinerary": [
+      "Ngày 1: Đến Tây Ninh, cáp treo lên núi, tham quan Điện Bà",
+      "Ngày 2: Khu du lịch Sun World, về TP.HCM"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Xe limousine"
+  },
+  {
+    "id": 5,
+    "name": "Tà Xùa – Sơn La",
+    "location": "Sơn La",
+    "category": "vn",
+    "image": "img/Taxua.webp",
+    "duration": "2N1Đ",
+    "people": 2,
+    "rating": 4.7,
+    "price": 1500000,
+    "discount": 0,
+    "slots": 6,
+    "description": "Biển mây huyền ảo giữa núi rừng Tây Bắc, trải nghiệm săn mây độc đáo.",
+    "itinerary": [
+      "Ngày 1: Lên Tà Xùa, nghỉ tại homestay, ngắm hoàng hôn",
+      "Ngày 2: Săn mây buổi sáng, về TP.HCM"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Máy bay + xe"
+  },
+  {
+    "id": 6,
+    "name": "Tam Đảo – Vĩnh Phúc",
+    "location": "Vĩnh Phúc",
+    "category": "vn",
+    "image": "img/tamdao.webp",
+    "duration": "2N1Đ",
+    "people": 2,
+    "rating": 4.5,
+    "price": 800000,
+    "discount": 0,
+    "slots": 15,
+    "description": "Thị trấn trên mây Tam Đảo với khí hậu mát mẻ quanh năm và kiến trúc Pháp cổ.",
+    "itinerary": [
+      "Ngày 1: Đến Tam Đảo, tham quan thị trấn, chùa Tây Thiên",
+      "Ngày 2: Vườn quốc gia Tam Đảo, về Hà Nội"
+    ],
+    "departure": "Hà Nội",
+    "transport": "Xe khách"
+  },
+  {
+    "id": 7,
+    "name": "Tokyo – Nhật Bản",
+    "location": "Nhật Bản",
+    "category": "nn",
+    "image": "img/tokyo.jpg",
+    "duration": "5N4Đ",
+    "people": 2,
+    "rating": 4.9,
+    "price": 5000000,
+    "discount": 20,
+    "slots": 6,
+    "description": "Khám phá thủ đô hiện đại nhất thế giới với công nghệ tiên tiến và văn hóa truyền thống.",
+    "itinerary": [
+      "Ngày 1–2: Shibuya, Harajuku, tháp Tokyo Skytree",
+      "Ngày 3: Núi Phú Sĩ, Hồ Kawaguchi",
+      "Ngày 4–5: Chùa Senso-ji, Akihabara, mua sắm"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Bay thẳng"
+  },
+  {
+    "id": 8,
+    "name": "Seoul – Hàn Quốc",
+    "location": "Hàn Quốc",
+    "category": "nn",
+    "image": "img/seouljpg.jpg",
+    "duration": "4N3Đ",
+    "people": 2,
+    "rating": 4.8,
+    "price": 4000000,
+    "discount": 0,
+    "slots": 8,
+    "description": "Seoul – thành phố K-pop, ẩm thực hấp dẫn và cung điện lịch sử ngàn năm.",
+    "itinerary": [
+      "Ngày 1: Cung điện Gyeongbokgung, làng Hanok Bukchon",
+      "Ngày 2: Myeongdong, N Seoul Tower, Hongdae",
+      "Ngày 3: Everland, K-pop tour",
+      "Ngày 4: Mua sắm, về TP.HCM"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Bay thẳng"
+  },
+  {
+    "id": 9,
+    "name": "Bangkok – Thái Lan",
+    "location": "Thái Lan",
+    "category": "nn",
+    "image": "img/bangkok.jpg",
+    "duration": "3N2Đ",
+    "people": 2,
+    "rating": 4.7,
+    "price": 3000000,
+    "discount": 15,
+    "slots": 8,
+    "description": "Thành phố của những ngôi chùa vàng, ẩm thực đường phố và cuộc sống về đêm sôi động.",
+    "itinerary": [
+      "Ngày 1: Bay đến Bangkok, tham quan Cung điện Hoàng gia",
+      "Ngày 2: Chùa Phật Ngọc, chợ nổi Damnoen Saduak",
+      "Ngày 3: Platinum Fashion Mall, ẩm thực đường phố"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Bay thẳng"
+  },
+  {
+    "id": 10,
+    "name": "Singapore",
+    "location": "Singapore",
+    "category": "nn",
+    "image": "img/singapore.jpg",
+    "duration": "3N2Đ",
+    "people": 2,
+    "rating": 4.8,
+    "price": 4500000,
+    "discount": 0,
+    "slots": 10,
+    "description": "Đảo quốc sư tử với Marina Bay Sands, Gardens by the Bay và ẩm thực đa dạng.",
+    "itinerary": [
+      "Ngày 1: Gardens by the Bay, Marina Bay Sands",
+      "Ngày 2: Sentosa, Universal Studios",
+      "Ngày 3: Chinatown, Little India, Orchard Road"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Bay thẳng"
+  },
+  {
+    "id": 11,
+    "name": "Paris – Pháp",
+    "location": "Pháp",
+    "category": "nn",
+    "image": "img/paris.jpg",
+    "duration": "4N3Đ",
+    "people": 2,
+    "rating": 4.9,
+    "price": 10000000,
+    "discount": 0,
+    "slots": 5,
+    "description": "Kinh đô ánh sáng với tháp Eiffel huyền thoại, bảo tàng Louvre và ẩm thực tinh tế.",
+    "itinerary": [
+      "Ngày 1–2: Tháp Eiffel, Bảo tàng Louvre, Khải Hoàn Môn",
+      "Ngày 3: Cung điện Versailles, vườn hoa lãng mạn",
+      "Ngày 4: Champs-Élysées, mua sắm thời trang cao cấp"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Hạng thương gia"
+  },
+  {
+    "id": 12,
+    "name": "Thụy Sĩ",
+    "location": "Thụy Sĩ",
+    "category": "nn",
+    "image": "img/thuysi.webp",
+    "duration": "5N4Đ",
+    "people": 2,
+    "rating": 4.9,
+    "price": 15000000,
+    "discount": 0,
+    "slots": 4,
+    "description": "Đất nước của đồng hồ, chocolate và cảnh quan núi Alps tuyết trắng tuyệt đẹp.",
+    "itinerary": [
+      "Ngày 1–2: Zurich, Bern – thủ đô Thụy Sĩ",
+      "Ngày 3: Jungfraujoch – nóc nhà châu Âu",
+      "Ngày 4: Geneva, hồ Leman thơ mộng",
+      "Ngày 5: Mua sắm, về TP.HCM"
+    ],
+    "departure": "TP.HCM",
+    "transport": "Hạng thương gia"
+  }
+]

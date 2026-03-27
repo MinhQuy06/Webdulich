@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <title>Admin Panel – MinhQuy Travel</title>
+  </head>
+  <body class="admin-body">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">✈ MinhQuy<b>Travel</b></div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="snav-item">🏠 Trang chủ</a>
+        <a href="#" class="snav-item active">🗺️ Quản lý Tour</a>
+        <a href="hotels.html" class="snav-item">🏨 Khách sạn</a>
+        <a href="giave.html" class="snav-item">✈️ Vé máy bay</a>
+        <a href="hotro.html" class="snav-item">💬 Hỗ trợ</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="admin-profile">
+          <div class="admin-av">AD</div>
+          <div><strong>Admin</strong><small>Quản trị viên</small></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <!-- Top bar -->
+      <header class="admin-topbar">
+        <div class="topbar-left">
+          <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+          <h1>Quản lý Tour</h1>
+        </div>
+        <div class="topbar-right">
+          <a href="index.html" class="topbar-link">👁️ Xem website</a>
+          <span class="admin-badge"
+            >Tổng: <strong id="totalCount">0</strong> tours</span
+          >
+        </div>
+      </header>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-ic">🗺️</div>
+          <div><strong id="totalCount2">0</strong><span>Tổng tour</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-ic">🇻🇳</div>
+          <div><strong>6</strong><span>Tour VN</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-ic">🌍</div>
+          <div><strong>6</strong><span>Tour NN</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-ic">🔥</div>
+          <div><strong>3</strong><span>Đang giảm giá</span></div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="admin-actions">
+        <div class="admin-search-wrap">
+          <span>🔍</span>
+          <input
+            type="text"
+            id="adminSearch"
+            placeholder="Tìm kiếm tour theo tên, địa điểm…"
+          />
+        </div>
+        <button class="btn-add" id="addTourBtn">➕ Thêm tour mới</button>
+      </div>
+
+      <!-- Table -->
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên tour</th>
+              <th>Địa điểm</th>
+              <th>Thời gian</th>
+              <th>Giá</th>
+              <th>Loại</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="adminTbody">
+            <tr>
+              <td
+                colspan="7"
+                style="
+                  text-align: center;
+                  padding: 32px;
+                  color: var(--text-muted);
+                "
+              >
+                Đang tải dữ liệu…
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Form Modal -->
+    <div class="form-overlay" id="formOverlay"></div>
+    <div class="form-modal" id="formModal">
+      <div class="form-modal-header">
+        <h3 id="formTitle">➕ Thêm Tour Mới</h3>
+        <button class="form-close" id="closeFormBtn">✕</button>
+      </div>
+      <form id="tourForm" novalidate>
+        <input type="hidden" id="tourId" />
+        <div class="fm-grid">
+          <div class="fm-group">
+            <label>Tên tour <span class="required">*</span></label>
+            <input
+              type="text"
+              id="fName"
+              placeholder="VD: Ba Na Hills – Đà Nẵng"
+              required
+            />
+          </div>
+          <div class="fm-group">
+            <label>Địa điểm <span class="required">*</span></label>
+            <input
+              type="text"
+              id="fLocation"
+              placeholder="VD: Đà Nẵng"
+              required
+            />
+          </div>
+          <div class="fm-group">
+            <label>Loại tour</label>
+            <select id="fCategory">
+              <option value="vn">🇻🇳 Việt Nam</option>
+              <option value="nn">🌍 Nước ngoài</option>
+            </select>
+          </div>
+          <div class="fm-group">
+            <label>Thời gian</label>
+            <input type="text" id="fDuration" placeholder="VD: 3N2Đ" />
+          </div>
+          <div class="fm-group">
+            <label>Giá (VNĐ) <span class="required">*</span></label>
+            <input
+              type="number"
+              id="fPrice"
+              placeholder="VD: 1500000"
+              min="0"
+              required
+            />
+          </div>
+          <div class="fm-group">
+            <label>Giảm giá (%)</label>
+            <input
+              type="number"
+              id="fDiscount"
+              placeholder="0"
+              min="0"
+              max="100"
+            />
+          </div>
+          <div class="fm-group">
+            <label>Số chỗ còn</label>
+            <input type="number" id="fSlots" placeholder="10" min="0" />
+          </div>
+          <div class="fm-group">
+            <label>Số người</label>
+            <input type="number" id="fPeople" placeholder="2" min="1" />
+          </div>
+          <div class="fm-group">
+            <label>Rating (1–5)</label>
+            <input
+              type="number"
+              id="fRating"
+              placeholder="4.5"
+              min="1"
+              max="5"
+              step="0.1"
+            />
+          </div>
+          <div class="fm-group fm-full">
+            <label>Đường dẫn ảnh</label>
+            <input type="text" id="fImage" placeholder="img/banahilljpg.jpg" />
+          </div>
+          <div class="fm-group fm-full">
+            <label>Mô tả ngắn</label>
+            <textarea id="fDesc" rows="3" placeholder="Mô tả tour…"></textarea>
+          </div>
+        </div>
+        <div class="fm-actions">
+          <button type="button" class="btn-cancel" id="cancelFormBtn">
+            Hủy
+          </button>
+          <button type="submit" class="btn-save">💾 Lưu</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="toast" id="adminToast"></div>
+
+    <script src="js/admin.js"></script>
+    <script>
+      // Sync stat card
+      const ob = new MutationObserver(() => {
+        const n = document.querySelectorAll(
+          "#adminTbody tr td:first-child:not([colspan])",
+        ).length;
+        document.getElementById("totalCount2").textContent = n;
+      });
+      ob.observe(document.getElementById("adminTbody"), { childList: true });
+
+      // Sidebar toggle mobile
+      document.getElementById("sidebarToggle").addEventListener("click", () => {
+        document.getElementById("sidebar").classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>

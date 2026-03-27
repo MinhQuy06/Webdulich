@@ -1,191 +1,638 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
-    <title>Home</title>
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <title>MinhQuy Travel – Khám phá thế giới</title>
   </head>
   <body>
-    <header>
-      <nav>
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar">
+      <div class="nav-inner">
         <div class="logo">
-          <img src="img/logo.jpg" alt="Web du lịch" />
+          <img src="img/logo.jpg" alt="MinhQuy Travel" />
+          <span class="logo-text">MinhQuy<b>Travel</b></span>
         </div>
-        <ul class="container">
-          <li class="item"><a href="#" class="active">Home</a></li>
-          <li class="item has-dropdown">
-            <a href="tour.html">Tours</a>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="active">Trang chủ</a></li>
+          <li class="has-dropdown">
+            <a href="tour.html">Tours ▾</a>
             <ul class="dropdown">
-              <li><a href="tour.html#vn">Việt Nam</a></li>
-              <li><a href="tour.html#nn">Nước ngoài</a></li>
+              <li><a href="tour.html#vn">🇻🇳 Việt Nam</a></li>
+              <li><a href="tour.html#nn">🌍 Nước ngoài</a></li>
             </ul>
           </li>
-          <li class="item"><a href="hotels.html">Hotels</a></li>
-          <li class="item"><a href="giave.html">Giá vé</a></li>
-          <li class="item"><a href="hotro.html">Hổ trợ</a></li>
+          <li><a href="hotels.html">Khách sạn</a></li>
+          <li><a href="giave.html">Giá vé</a></li>
+          <li><a href="hotro.html">Hỗ trợ</a></li>
+          <li><a href="admin.html">⚙️ Admin</a></li>
         </ul>
-        <a class="login-btn" href="login.html">Đăng nhập</a>
-      </nav>
-      <section class="welcome">
-        <h2>Chào mừng bạn đến với Web du lịch</h2>
-        <p>
-          Khám phá những điểm đến tuyệt vời nhất Việt Nam. Mỗi tour là một hành
-          trình đáng nhớ.
+        <div class="nav-actions">
+          <button class="cart-btn" title="Giỏ hàng">
+            🛒 <span class="cart-badge">0</span>
+          </button>
+          <a class="btn-login" href="login.html">Đăng nhập</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero" style="background-image: url(img/background1.jpg)">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-label">✈️ Hơn 200+ điểm đến tuyệt vời</p>
+        <h1 class="hero-heading">
+          Khám phá thế giới<br /><span>cùng chúng tôi</span>
+        </h1>
+        <p class="hero-sub">
+          Mỗi chuyến đi là một trang ký ức mới. Hãy để chúng tôi viết nên câu
+          chuyện đó.
         </p>
-      </section>
+        <div class="hero-btns">
+          <a href="#hot" class="btn-primary">🔥 Đặt tour ngay</a>
+          <a href="tour.html" class="btn-outline">Khám phá ngay</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>10K+</strong><span>Khách hàng</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong>200+</strong><span>Điểm đến</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong>4.9⭐</strong><span>Đánh giá</span></div>
+        </div>
+      </div>
     </header>
 
     <main>
-      <aside>
-        <h4 class="hero-title">Tour Việt Nam</h4>
-        <p class="hero-slogan">Đừng mơ về những chuyến đi hãy bắt đầu nó</p>
-        <div class="tourVN">
-          <div class="product">
-            <h3>Ba nahill Đà nẵng</h3>
-            <img src="img/banahilljpg.jpg" alt="Ba Na Hills" />
-            <p>Thời gian: 3 ngày 2 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 1,500,000 VND</p>
-            <input type="button" value="Đặt vé" />
+      <!-- ===== HOT SECTION ===== -->
+      <section id="hot" class="section-hot">
+        <div class="section-inner">
+          <div class="section-header">
+            <span class="badge-hot-label">🔥 Ưu đãi hôm nay</span>
+            <h2 class="section-title">Tour HOT – Giá sốc</h2>
+            <p class="section-sub">
+              Đặt nhanh tay kẻo hết! Ưu đãi kết thúc sau:
+              <strong id="countdown" class="countdown-time">--:--:--</strong>
+            </p>
           </div>
-          <div class="product">
-            <h3>Phố cổ hội an</h3>
-            <img src="img/Phocohoian.jpg" alt="Pho co hoi an" />
-            <p>Thời gian: 2 ngày 1 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 500,000 VND</p>
-            <input type="button" value="Đặt vé" />
-          </div>
-
-          <div class="product">
-            <h3>Phú quốc</h3>
-            <img src="img/phuquoc.jpg" alt="Phu quoc" />
-            <p>Thời gian: 3 ngày 2 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 2,000,000 VND</p>
-            <input type="button" value="Đặt vé" />
-          </div>
-
-          <div class="product">
-            <h3>Núi Bà đen Tây Ninh</h3>
-            <img src="img/sunworld-ba-den.jpg" alt="Nui ba den" />
-            <p>Thời gian: 2 ngày 1 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 1,000,000 VND</p>
-            <input type="button" value="Đặt vé" />
-          </div>
-          <div class="product">
-            <h3>Tà xùa</h3>
-            <img src="img/Taxua.webp" alt="Ta xua" />
-            <p>Thời gian: 2 ngày 1 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 1,500,000 VND</p>
-            <input type="button" value="Đặt vé" />
-          </div>
-          <div class="product">
-            <h3>Tam đảo</h3>
-            <img src="img/tamdao.webp" alt="Tam dao" />
-            <p>Thời gian: 2 ngày 1 đêm</p>
-            <p>Xuất phát: Hà Nội</p>
-            <p>Giá vé: 800,000 VND</p>
-            <input type="button" value="Đặt vé" />
-          </div>
-        </div>
-        <h4 class="hero-title">Tour nước ngoài</h4>
-        <p class="hero-slogan">
-          Cuộc sống bắt đầu khi bạn bước ra khỏi vùng an toàn
-        </p>
-        <div class="tourNN">
-          <div class="product">
-            <h3>Tokyo</h3>
-            <img src="img/tokyo.jpg" alt="Tokyo" />
-            <p>Thời gian: 5 ngày 4 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 5,000,000 VND</p>
-            <input type="button" value="Đặt vé" />
-          </div>
-          <div class="product">
-            <h3>Seoul</h3>
-            <img src="img/seouljpg.jpg" alt="Seoul" />
-            <p>Thời gian: 4 ngày 3 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 4,000,000 VND</p>
-            <input type="button" value="Đặt vé" />
-          </div>
-          <div class="product">
-            <h3>Bangkok</h3>
-            <img src="img/bangkok.jpg" alt="Bangkok" />
-            <p>Thời gian: 3 ngày 2 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 3,000,000 VND</p>
-            <input type="button" value="Đặt vé" />
-          </div>
-          <div class="product">
-            <h3>Singapore</h3>
-            <img src="img/singapore.jpg" alt="Singapore" />
-            <p>Thời gian: 3 ngày 2 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 4,500,000 VND</p>
-            <input type="button" value="Đặt vé" />
-          </div>
-          <div class="product">
-            <h3>Paris</h3>
-            <img src="img/paris.jpg" alt="Paris" />
-            <p>Thời gian: 4 ngày 3 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 10,000,000 VND</p>
-            <input type="button" value="Đặt vé" />
-          </div>
-          <div class="product">
-            <h3>Thụy Sĩ</h3>
-            <img src="img/thuysi.webp" alt="Thụy Sĩ" />
-            <p>Thời gian: 5 ngày 4 đêm</p>
-            <p>Xuất phát: TP.Hồ Chí Minh</p>
-            <p>Giá vé: 15,000,000 VND</p>
-            <input type="button" value="Đặt vé" />
+          <div class="hot-grid">
+            <div class="hot-card">
+              <div class="hot-img-wrap">
+                <img src="img/phuquoc.jpg" alt="Phú Quốc" />
+                <span class="badge-discount">-25%</span>
+                <span class="badge-slots">⚡ Còn 4 chỗ</span>
+              </div>
+              <div class="hot-body">
+                <h3>Phú Quốc – Đảo Ngọc</h3>
+                <div class="card-meta">
+                  <span>🕐 3N2Đ</span><span>👥 2 người</span><span>⭐ 4.8</span>
+                </div>
+                <div class="card-price">
+                  <s>2,600,000đ</s><strong>2,000,000đ</strong>
+                </div>
+                <button
+                  class="btn-book"
+                  onclick="
+                    addToCart({
+                      id: 3,
+                      name: 'Phú Quốc – Đảo Ngọc',
+                      price: 2000000,
+                      image: 'img/phuquoc.jpg',
+                    })
+                  "
+                >
+                  Đặt ngay
+                </button>
+              </div>
+            </div>
+            <div class="hot-card featured">
+              <div class="hot-img-wrap">
+                <img src="img/tokyo.jpg" alt="Tokyo" />
+                <span class="badge-discount">-20%</span>
+                <span class="badge-slots">⚡ Còn 6 chỗ</span>
+                <span class="badge-featured">⭐ Nổi bật</span>
+              </div>
+              <div class="hot-body">
+                <h3>Tokyo – Nhật Bản</h3>
+                <div class="card-meta">
+                  <span>🕐 5N4Đ</span><span>👥 2 người</span><span>⭐ 4.9</span>
+                </div>
+                <div class="card-price">
+                  <s>6,250,000đ</s><strong>5,000,000đ</strong>
+                </div>
+                <button
+                  class="btn-book"
+                  onclick="
+                    addToCart({
+                      id: 7,
+                      name: 'Tokyo – Nhật Bản',
+                      price: 5000000,
+                      image: 'img/tokyo.jpg',
+                    })
+                  "
+                >
+                  Đặt ngay
+                </button>
+              </div>
+            </div>
+            <div class="hot-card">
+              <div class="hot-img-wrap">
+                <img src="img/bangkok.jpg" alt="Bangkok" />
+                <span class="badge-discount">-15%</span>
+                <span class="badge-slots">⚡ Còn 8 chỗ</span>
+              </div>
+              <div class="hot-body">
+                <h3>Bangkok – Thái Lan</h3>
+                <div class="card-meta">
+                  <span>🕐 3N2Đ</span><span>👥 2 người</span><span>⭐ 4.7</span>
+                </div>
+                <div class="card-price">
+                  <s>3,530,000đ</s><strong>3,000,000đ</strong>
+                </div>
+                <button
+                  class="btn-book"
+                  onclick="
+                    addToCart({
+                      id: 9,
+                      name: 'Bangkok – Thái Lan',
+                      price: 3000000,
+                      image: 'img/bangkok.jpg',
+                    })
+                  "
+                >
+                  Đặt ngay
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </aside>
+      </section>
+
+      <!-- ===== TOUR VIỆT NAM ===== -->
+      <section id="tourVN" class="section-tours">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2 class="section-title">
+              <img src="img/vn.jpg" alt="VN" /> Tour Việt Nam
+            </h2>
+            <span class="section-accent-line"></span>
+            <p class="section-sub">
+              Đừng mơ về những chuyến đi — hãy bắt đầu ngay hôm nay
+            </p>
+          </div>
+          <div class="tour-grid">
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/banahilljpg.jpg" alt="Ba Na Hills" />
+              </div>
+              <div class="tour-body">
+                <h3>Ba Na Hills – Đà Nẵng</h3>
+                <div class="card-meta">
+                  <span>🕐 3N2Đ</span><span>📍 TP.HCM</span><span>⭐ 4.7</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">1,500,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 1,
+                        name: 'Ba Na Hills',
+                        price: 1500000,
+                        image: 'img/banahilljpg.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/Phocohoian.jpg" alt="Hội An" />
+              </div>
+              <div class="tour-body">
+                <h3>Phố Cổ Hội An</h3>
+                <div class="card-meta">
+                  <span>🕐 2N1Đ</span><span>📍 TP.HCM</span><span>⭐ 4.9</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">500,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 2,
+                        name: 'Phố Cổ Hội An',
+                        price: 500000,
+                        image: 'img/Phocohoian.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/phuquoc.jpg" alt="Phú Quốc" />
+              </div>
+              <div class="tour-body">
+                <h3>Phú Quốc</h3>
+                <div class="card-meta">
+                  <span>🕐 3N2Đ</span><span>📍 TP.HCM</span><span>⭐ 4.8</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">2,000,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 3,
+                        name: 'Phú Quốc',
+                        price: 2000000,
+                        image: 'img/phuquoc.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/sunworld-ba-den.jpg" alt="Bà Đen" />
+              </div>
+              <div class="tour-body">
+                <h3>Núi Bà Đen – Tây Ninh</h3>
+                <div class="card-meta">
+                  <span>🕐 2N1Đ</span><span>📍 TP.HCM</span><span>⭐ 4.6</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">1,000,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 4,
+                        name: 'Núi Bà Đen',
+                        price: 1000000,
+                        image: 'img/sunworld-ba-den.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/Taxua.webp" alt="Tà Xùa" />
+              </div>
+              <div class="tour-body">
+                <h3>Tà Xùa</h3>
+                <div class="card-meta">
+                  <span>🕐 2N1Đ</span><span>📍 TP.HCM</span><span>⭐ 4.7</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">1,500,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 5,
+                        name: 'Tà Xùa',
+                        price: 1500000,
+                        image: 'img/Taxua.webp',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/tamdao.webp" alt="Tam Đảo" />
+              </div>
+              <div class="tour-body">
+                <h3>Tam Đảo</h3>
+                <div class="card-meta">
+                  <span>🕐 2N1Đ</span><span>📍 Hà Nội</span><span>⭐ 4.5</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">800,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 6,
+                        name: 'Tam Đảo',
+                        price: 800000,
+                        image: 'img/tamdao.webp',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TOUR NƯỚC NGOÀI ===== -->
+      <section id="tourNN" class="section-tours section-intl">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2 class="section-title">🌍 Tour Nước Ngoài</h2>
+            <span class="section-accent-line"></span>
+            <p class="section-sub">
+              Cuộc sống bắt đầu khi bạn bước ra khỏi vùng an toàn
+            </p>
+          </div>
+          <div class="tour-grid">
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/tokyo.jpg" alt="Tokyo" />
+              </div>
+              <div class="tour-body">
+                <h3>Tokyo – Nhật Bản</h3>
+                <div class="card-meta">
+                  <span>🕐 5N4Đ</span><span>📍 TP.HCM</span><span>⭐ 4.9</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">5,000,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 7,
+                        name: 'Tokyo',
+                        price: 5000000,
+                        image: 'img/tokyo.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/seouljpg.jpg" alt="Seoul" />
+              </div>
+              <div class="tour-body">
+                <h3>Seoul – Hàn Quốc</h3>
+                <div class="card-meta">
+                  <span>🕐 4N3Đ</span><span>📍 TP.HCM</span><span>⭐ 4.8</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">4,000,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 8,
+                        name: 'Seoul',
+                        price: 4000000,
+                        image: 'img/seouljpg.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/bangkok.jpg" alt="Bangkok" />
+              </div>
+              <div class="tour-body">
+                <h3>Bangkok – Thái Lan</h3>
+                <div class="card-meta">
+                  <span>🕐 3N2Đ</span><span>📍 TP.HCM</span><span>⭐ 4.7</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">3,000,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 9,
+                        name: 'Bangkok',
+                        price: 3000000,
+                        image: 'img/bangkok.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/singapore.jpg" alt="Singapore" />
+              </div>
+              <div class="tour-body">
+                <h3>Singapore</h3>
+                <div class="card-meta">
+                  <span>🕐 3N2Đ</span><span>📍 TP.HCM</span><span>⭐ 4.8</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">4,500,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 10,
+                        name: 'Singapore',
+                        price: 4500000,
+                        image: 'img/singapore.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/paris.jpg" alt="Paris" />
+              </div>
+              <div class="tour-body">
+                <h3>Paris – Pháp</h3>
+                <div class="card-meta">
+                  <span>🕐 4N3Đ</span><span>📍 TP.HCM</span><span>⭐ 4.9</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">10,000,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 11,
+                        name: 'Paris',
+                        price: 10000000,
+                        image: 'img/paris.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="tour-card">
+              <div class="tour-img-wrap">
+                <img src="img/thuysi.webp" alt="Thụy Sĩ" />
+              </div>
+              <div class="tour-body">
+                <h3>Thụy Sĩ</h3>
+                <div class="card-meta">
+                  <span>🕐 5N4Đ</span><span>📍 TP.HCM</span><span>⭐ 4.9</span>
+                </div>
+                <div class="card-price-row">
+                  <strong class="price">15,000,000đ</strong
+                  ><button
+                    class="btn-book-sm"
+                    onclick="
+                      addToCart({
+                        id: 12,
+                        name: 'Thụy Sĩ',
+                        price: 15000000,
+                        image: 'img/thuysi.webp',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <!-- ===== FOOTER ===== -->
     <footer>
-      <div class="all">
-        <div class="introduction">
-          <h2>Web du lịch</h2>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">✈ MinhQuy<b>Travel</b></div>
           <p>
-            "Hành trình khám phá thế giới - Kỷ niệm những trải nghiệm đáng nhớ"
+            "Hành trình khám phá thế giới – Kỷ niệm những trải nghiệm đáng nhớ"
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"
+              ><img src="img/facebook.png" alt="Facebook" />Facebook</a
+            >
+            <a href="#" class="social-btn"
+              ><img src="img/google.png" alt="Google" />Google</a
+            >
+            <a href="#" class="social-btn"
+              ><img src="img/twitter.png" alt="Twitter" />Twitter</a
+            >
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Liên hệ</h4>
+          <p>
+            📍 123 Đường ABC, Quận XYZ, TP.HCM<br />📞 0123 456 789<br />✉️
+            info@minhquytravel.com
           </p>
         </div>
-        <div class="below">
-          <div class="contract">
-            <h2>Trụ sở tại TP.Hồ Chí Minh</h2>
-            <p>
-              Địa chỉ: 123 Đường ABC, Quận XYZ, TP.Hồ Chí Minh <br />Điện thoại:
-              0123 456 789 <br />Email: info@webdulich.com
-            </p>
-          </div>
-          <div class="contract">
-            <h2>Liên hệ</h2>
-            <p>
-              <br />Điện thoại: 0123 456 789 <br />Email: info@webdulich.com
-              Mail: <input type="email" placeholder="Nhập email của bạn" />
-              <input type="button" value="Gửi" />
-            </p>
-          </div>
-          <div class="contract">
-            <h2>Theo dõi chúng tôi</h2>
-            <p>
-              <br /><img src="img/facebook.png" alt="Facebook" />Facebook: Web
-              du lịch <br /><img src="img/google.png" alt="Instagram" />Google:
-              Web du lịch <br /><img
-                src="img/twitter.png"
-                alt="Twitter"
-              />Twitter: @web
-            </p>
+        <div class="footer-col">
+          <h4>Nhận ưu đãi</h4>
+          <p>Đăng ký nhận thông tin tour mới nhất!</p>
+          <div class="footer-email">
+            <input type="email" placeholder="Email của bạn…" />
+            <button type="button">Gửi</button>
           </div>
         </div>
-        <p>© 2025 Minh Quy TRAVEL. All rights reserved.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MinhQuy Travel. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- ===== CART DRAWER ===== -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3>🛒 Giỏ hàng</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Tổng cộng:</span><span id="cartTotal">0đ</span>
+        </div>
+        <button
+          class="btn-checkout"
+          onclick="showToast('🚧 Tính năng thanh toán đang phát triển!')"
+        >
+          Thanh toán
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== CHAT ===== -->
+    <div class="chat-widget">
+      <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+          <div class="chat-agent">
+            <div class="agent-avatar">MQ</div>
+            <div>
+              <strong>Hỗ trợ khách hàng</strong
+              ><span class="agent-status">🟢 Đang trực tuyến</span>
+            </div>
+          </div>
+          <button class="chat-close" id="chatClose">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg bot">
+            <span
+              >👋 Xin chào! Tôi là trợ lý MinhQuy Travel. Bạn cần hỗ trợ gì
+              không?</span
+            >
+          </div>
+          <div class="msg bot">
+            <span
+              >🔥 Hiện có tour Tokyo và Phú Quốc đang giảm giá đặc biệt!</span
+            >
+          </div>
+        </div>
+        <div class="chat-input-wrap">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Nhập tin nhắn…"
+          /><button id="chatSend">➤</button>
+        </div>
+      </div>
+      <button class="chat-toggle" id="chatToggle">
+        💬<span class="chat-dot">1</span>
+      </button>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

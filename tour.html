@@ -3,394 +3,259 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="tour.css" />
-    <title>Tours - Web Du Lịch</title>
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/tour.css" />
+    <title>Tours – MinhQuy Travel</title>
   </head>
   <body>
-    <header>
-      <nav>
+    <nav id="navbar">
+      <div class="nav-inner">
         <div class="logo">
-          <img src="img/logo.jpg" alt="Web du lịch" />
+          <img src="img/logo.jpg" alt="MinhQuy Travel" /><span class="logo-text"
+            >MinhQuy<b>Travel</b></span
+          >
         </div>
-        <ul class="container">
-          <li class="item"><a href="index.html">Home</a></li>
-          <li class="item has-dropdown">
-            <a href="tour.html" class="active">Tours</a>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li class="has-dropdown">
+            <a href="tour.html" class="active">Tours ▾</a>
             <ul class="dropdown">
               <li><a href="#vn">Việt Nam</a></li>
-              <li><a href="#nn">Nước ngoài</a></li>
+              <li><a href="#nn">🌍 Nước ngoài</a></li>
             </ul>
           </li>
-          <li class="item"><a href="hotels.html">Hotels</a></li>
-          <li class="item"><a href="giave.html">Giá vé</a></li>
-          <li class="item"><a href="hotro.html">Hổ trợ</a></li>
+          <li><a href="hotels.html">Khách sạn</a></li>
+          <li><a href="giave.html">Giá vé</a></li>
+          <li><a href="hotro.html">Hỗ trợ</a></li>
+          <li><a href="admin.html">⚙️ Admin</a></li>
         </ul>
-        <a class="login-btn" href="login.html">Đăng nhập</a>
-      </nav>
-      <section class="welcome">
-        <h2>Các tour du lịch hấp dẫn</h2>
-        <p>
-          Chào mừng bạn đến với hành trình khám phá thế giới. Từ những cảnh đẹp
-          Việt Nam đến những điểm đến nổi tiếng quốc tế, chúng tôi sẽ cùng bạn
-          tạo nên những chuyến đi đáng nhớ
+        <div class="nav-actions">
+          <button class="cart-btn">🛒 <span class="cart-badge">0</span></button>
+          <a class="btn-login" href="login.html">Đăng nhập</a>
+        </div>
+      </div>
+    </nav>
+
+    <header
+      class="hero"
+      style="background-image: url(img/background5.jpg); min-height: 55vh"
+    >
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-label">🗺️ 200+ điểm đến chờ bạn</p>
+        <h1 class="hero-heading">
+          Các tour du lịch<br /><span>hấp dẫn nhất</span>
+        </h1>
+        <p class="hero-sub">
+          Từ cảnh đẹp Việt Nam đến những điểm đến quốc tế nổi tiếng
         </p>
-      </section>
+      </div>
     </header>
 
     <main>
-      <section class="highlights">
-        <div class="highlight-item">
-          <span class="hi-icon">🗺️</span>
-          <p>Lịch trình rõ ràng</p>
-        </div>
-        <div class="highlight-item">
-          <span class="hi-icon">🎙️</span>
-          <p>Hướng dẫn viên chuyên nghiệp</p>
-        </div>
-        <div class="highlight-item">
-          <span class="hi-icon">🏨</span>
-          <p>Khách sạn chất lượng</p>
-        </div>
-        <div class="highlight-item">
-          <span class="hi-icon">💰</span>
-          <p>Giá cả hợp lý</p>
-        </div>
-      </section>
-
-      <section id="vn" class="tour-section">
-        <div class="section-title-wrap">
-          <h1 class="section-heading">🇻🇳 Tour Trong Nước</h1>
-          <p class="section-sub">
-            Tour Việt Nam mang đến cho bạn những chuyến đi trọn vẹn với dịch vụ
-            tốt nhất, giá hợp lý và trải nghiệm đáng nhớ tại các địa điểm nổi
-            tiếng
-          </p>
-        </div>
-
-        <div class="tour-list">
-          <div class="tour-row">
-            <div class="tour-row-img">
-              <img src="img/banahilljpg.jpg" alt="Ba Na Hills" />
-              <span class="badge">Nổi bật</span>
+      <!-- Highlights -->
+      <section class="highlights-bar">
+        <div class="section-inner">
+          <div class="highlights">
+            <div class="highlight-item">
+              <span>🗺️</span>
+              <p>Lịch trình rõ ràng</p>
             </div>
-            <div class="tour-row-body">
-              <h3>Tour Đà Nẵng – Hội An – Bà Nà Hills</h3>
-              <ul class="itinerary">
-                <li>
-                  📅 <strong>Ngày 1:</strong> Đến Đà Nẵng, tham quan Cầu Rồng,
-                  Bãi biển Mỹ Khê
-                </li>
-                <li>
-                  📅 <strong>Ngày 2:</strong> Bà Nà Hills – Cầu Vàng, làng Pháp
-                  cổ kính
-                </li>
-                <li>
-                  📅 <strong>Ngày 3:</strong> Phố cổ Hội An về đêm, mua sắm lưu
-                  niệm
-                </li>
-              </ul>
-              <div class="tour-row-footer">
-                <div class="meta-tags">
-                  <span>⏱ 3 ngày 2 đêm</span>
-                  <span>📍 Đà Nẵng</span>
-                  <span>🚌 Xuất phát TP.HCM</span>
-                </div>
-                <div class="price-row">
-                  <div class="price">2.500.000đ<span>/người</span></div>
-                  <button class="btn-book">Đặt tour</button>
-                </div>
-              </div>
+            <div class="highlight-item">
+              <span>🎙️</span>
+              <p>HDV chuyên nghiệp</p>
             </div>
-          </div>
-
-          <div class="tour-row">
-            <div class="tour-row-img">
-              <img src="img/phuquoc.jpg" alt="Phú Quốc" />
-              <span class="badge badge-sale">Giảm 20%</span>
+            <div class="highlight-item">
+              <span>🏨</span>
+              <p>KS chất lượng</p>
             </div>
-            <div class="tour-row-body">
-              <h3>Tour Phú Quốc Nghỉ Dưỡng</h3>
-              <ul class="itinerary">
-                <li>
-                  📅 <strong>Ngày 1:</strong> Bay đến Phú Quốc, nhận phòng
-                  resort, tắm biển
-                </li>
-                <li>
-                  📅 <strong>Ngày 2:</strong> Lặn ngắm san hô, chợ đêm Phú Quốc
-                </li>
-                <li>
-                  📅 <strong>Ngày 3:</strong> VinWonders, tham quan Vinpearl
-                  Safari
-                </li>
-              </ul>
-              <div class="tour-row-footer">
-                <div class="meta-tags">
-                  <span>⏱ 3 ngày 2 đêm</span>
-                  <span>📍 Kiên Giang</span>
-                  <span>✈️ Bay thẳng</span>
-                </div>
-                <div class="price-row">
-                  <div class="price">2.000.000đ<span>/người</span></div>
-                  <button class="btn-book">Đặt tour</button>
-                </div>
-              </div>
+            <div class="highlight-item">
+              <span>💰</span>
+              <p>Giá tốt nhất</p>
             </div>
-          </div>
-
-          <div class="tour-row">
-            <div class="tour-row-img">
-              <img src="img/tamdao.webp" alt="Đà Lạt" />
-            </div>
-            <div class="tour-row-body">
-              <h3>Tour Đà Lạt 3 Ngày 2 Đêm</h3>
-              <ul class="itinerary">
-                <li>
-                  📅 <strong>Ngày 1:</strong> Xuất phát, đến Đà Lạt, tham quan
-                  Hồ Xuân Hương
-                </li>
-                <li>
-                  📅 <strong>Ngày 2:</strong> Thác Datanla, Thiền Viện Trúc Lâm,
-                  Đồi Chè
-                </li>
-                <li>
-                  📅 <strong>Ngày 3:</strong> Làng Cù Lần, chợ Đà Lạt, về TP.HCM
-                </li>
-              </ul>
-              <div class="tour-row-footer">
-                <div class="meta-tags">
-                  <span>⏱ 3 ngày 2 đêm</span>
-                  <span>📍 Lâm Đồng</span>
-                  <span>🚌 Xe limousine</span>
-                </div>
-                <div class="price-row">
-                  <div class="price">1.800.000đ<span>/người</span></div>
-                  <button class="btn-book">Đặt tour</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-row">
-            <div class="tour-row-img">
-              <img src="img/Phocohoian.jpg" alt="Hội An" />
-            </div>
-            <div class="tour-row-body">
-              <h3>Tour Phố Cổ Hội An</h3>
-              <ul class="itinerary">
-                <li>
-                  📅 <strong>Ngày 1:</strong> Chùa Cầu, Hội quán Phúc Kiến, thả
-                  đèn hoa đăng
-                </li>
-                <li>
-                  📅 <strong>Ngày 2:</strong> Làng rau Trà Quế, làng gốm Thanh
-                  Hà, về TP.HCM
-                </li>
-              </ul>
-              <div class="tour-row-footer">
-                <div class="meta-tags">
-                  <span>⏱ 2 ngày 1 đêm</span>
-                  <span>📍 Hội An</span>
-                  <span>✈️ Bay thẳng</span>
-                </div>
-                <div class="price-row">
-                  <div class="price">500.000đ<span>/người</span></div>
-                  <button class="btn-book">Đặt tour</button>
-                </div>
-              </div>
+            <div class="highlight-item">
+              <span>🛡️</span>
+              <p>Bảo hiểm du lịch</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="nn" class="tour-section">
-        <div class="section-title-wrap">
-          <h1 class="section-heading">🌏 Tour Nước Ngoài</h1>
-          <p class="section-sub">
-            Trải nghiệm văn hóa và cảnh đẹp khắp thế giới
-          </p>
-        </div>
-
-        <div class="tour-list">
-          <div class="tour-row">
-            <div class="tour-row-img">
-              <img src="img/bangkok.jpg" alt="Thái Lan" />
-              <span class="badge badge-hot">Hot</span>
+      <!-- Search & Filter bar -->
+      <section class="filter-bar-section">
+        <div class="section-inner">
+          <div class="filter-bar">
+            <div class="filter-search">
+              <span>🔍</span>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Tìm tour theo tên, địa điểm…"
+              />
             </div>
-            <div class="tour-row-body">
-              <h3>Tour Du Lịch Thái Lan – Bangkok</h3>
-              <ul class="itinerary">
-                <li>
-                  📅 <strong>Ngày 1:</strong> Bay đến Bangkok, tham quan Cung
-                  điện Hoàng gia
-                </li>
-                <li>
-                  📅 <strong>Ngày 2:</strong> Chùa Phật Ngọc, chợ nổi Damnoen
-                  Saduak
-                </li>
-                <li>
-                  📅 <strong>Ngày 3:</strong> Platinum Fashion Mall, ẩm thực
-                  đường phố
-                </li>
-              </ul>
-              <div class="tour-row-footer">
-                <div class="meta-tags">
-                  <span>⏱ 3 ngày 2 đêm</span>
-                  <span>📍 Thái Lan</span>
-                  <span>✈️ Bay thẳng</span>
-                </div>
-                <div class="price-row">
-                  <div class="price">3.000.000đ<span>/người</span></div>
-                  <button class="btn-book">Đặt tour</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-row">
-            <div class="tour-row-img">
-              <img src="img/tokyo.jpg" alt="Nhật Bản" />
-              <span class="badge">Phổ biến</span>
-            </div>
-            <div class="tour-row-body">
-              <h3>Tour Tokyo – Nhật Bản</h3>
-              <ul class="itinerary">
-                <li>
-                  📅 <strong>Ngày 1–2:</strong> Shibuya, Harajuku, tháp Tokyo
-                  Skytree
-                </li>
-                <li>📅 <strong>Ngày 3:</strong> Núi Phú Sĩ, Hồ Kawaguchi</li>
-                <li>
-                  📅 <strong>Ngày 4–5:</strong> Chùa Senso-ji, Akihabara, mua
-                  sắm
-                </li>
-              </ul>
-              <div class="tour-row-footer">
-                <div class="meta-tags">
-                  <span>⏱ 5 ngày 4 đêm</span>
-                  <span>📍 Nhật Bản</span>
-                  <span>✈️ Bay thẳng</span>
-                </div>
-                <div class="price-row">
-                  <div class="price">5.000.000đ<span>/người</span></div>
-                  <button class="btn-book">Đặt tour</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-row">
-            <div class="tour-row-img">
-              <img src="img/paris.jpg" alt="Paris" />
-              <span class="badge badge-vip">✨ VIP</span>
-            </div>
-            <div class="tour-row-body">
-              <h3>Tour Paris – Pháp</h3>
-              <ul class="itinerary">
-                <li>
-                  📅 <strong>Ngày 1–2:</strong> Tháp Eiffel, Bảo tàng Louvre,
-                  Khải Hoàn Môn
-                </li>
-                <li>
-                  📅 <strong>Ngày 3:</strong> Cung điện Versailles, vườn hoa
-                  lãng mạn
-                </li>
-                <li>
-                  📅 <strong>Ngày 4:</strong> Champs-Élysées, mua sắm thời trang
-                  cao cấp
-                </li>
-              </ul>
-              <div class="tour-row-footer">
-                <div class="meta-tags">
-                  <span>⏱ 4 ngày 3 đêm</span>
-                  <span>📍 Pháp</span>
-                  <span>✈️ Hạng thương gia</span>
-                </div>
-                <div class="price-row">
-                  <div class="price">10.000.000đ<span>/người</span></div>
-                  <button class="btn-book">Đặt tour</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-row">
-            <div class="tour-row-img">
-              <img src="img/singapore.jpg" alt="Singapore" />
-            </div>
-            <div class="tour-row-body">
-              <h3>Tour Singapore</h3>
-              <ul class="itinerary">
-                <li>
-                  📅 <strong>Ngày 1:</strong> Gardens by the Bay, Marina Bay
-                  Sands
-                </li>
-                <li>📅 <strong>Ngày 2:</strong> Sentosa, Universal Studios</li>
-                <li>
-                  📅 <strong>Ngày 3:</strong> Chinatown, Little India, Orchard
-                  Road
-                </li>
-              </ul>
-              <div class="tour-row-footer">
-                <div class="meta-tags">
-                  <span>⏱ 3 ngày 2 đêm</span>
-                  <span>📍 Singapore</span>
-                  <span>✈️ Bay thẳng</span>
-                </div>
-                <div class="price-row">
-                  <div class="price">4.500.000đ<span>/người</span></div>
-                  <button class="btn-book">Đặt tour</button>
-                </div>
-              </div>
+            <select id="locationFilter" class="filter-select">
+              <option value="">🌐 Tất cả</option>
+              <option value="vn">Việt Nam</option>
+              <option value="nn">🌍 Nước ngoài</option>
+            </select>
+            <select id="priceFilter" class="filter-select">
+              <option value="">💰 Tất cả giá</option>
+              <option value="1000000">Dưới 1 triệu</option>
+              <option value="2000000">Dưới 2 triệu</option>
+              <option value="5000000">Dưới 5 triệu</option>
+              <option value="10000000">Dưới 10 triệu</option>
+            </select>
+            <div class="view-toggle">
+              <button id="btnGrid" class="view-btn active" title="Grid">
+                ⊞
+              </button>
+              <button id="btnList" class="view-btn" title="List">☰</button>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="cta-banner">
-        <p>
-          🌟 Hãy lựa chọn tour phù hợp để tận hưởng những chuyến đi đáng nhớ!
-        </p>
-        <button class="btn-cta">Liên hệ tư vấn miễn phí</button>
+      <!-- Tour List -->
+      <section id="vn" class="tour-results-section">
+        <div class="section-inner">
+          <div
+            class="section-header"
+            style="text-align: left; margin-bottom: 20px"
+          >
+            <h2 class="section-title">Danh sách tour</h2>
+            <p class="section-sub">
+              Tổng cộng <strong id="resultCount">--</strong> tours
+            </p>
+          </div>
+          <div id="tourListContainer" class="grid-view">
+            <p
+              style="
+                text-align: center;
+                color: var(--text-muted);
+                padding: 48px;
+              "
+            >
+              Đang tải tour…
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Banner -->
+      <section class="cta-section">
+        <div class="section-inner">
+          <div class="cta-banner">
+            <div class="cta-text">
+              <h3>🌟 Chưa tìm được tour ưng ý?</h3>
+              <p>Liên hệ ngay để được tư vấn tour riêng theo nhu cầu!</p>
+            </div>
+            <a href="hotro.html" class="btn-primary">Tư vấn miễn phí</a>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer>
-      <div class="all">
-        <div class="introduction">
-          <h2>Web du lịch</h2>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">✈ MinhQuy<b>Travel</b></div>
+          <p>"Hành trình khám phá thế giới"</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"
+              ><img src="img/facebook.png" alt="fb" />Facebook</a
+            ><a href="#" class="social-btn"
+              ><img src="img/google.png" alt="gg" />Google</a
+            >
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Liên hệ</h4>
           <p>
-            "Hành trình khám phá thế giới - Kỷ niệm những trải nghiệm đáng nhớ"
+            📍 123 Đường ABC, TP.HCM<br />📞 0123 456 789<br />✉️
+            info@minhquytravel.com
           </p>
         </div>
-        <div class="below">
-          <div class="contract">
-            <h2>Trụ sở tại TP.Hồ Chí Minh</h2>
-            <p>
-              Địa chỉ: 123 Đường ABC, Quận XYZ, TP.Hồ Chí Minh<br />
-              Điện thoại: 0123 456 789<br />Email: info@webdulich.com
-            </p>
-          </div>
-          <div class="contract">
-            <h2>Liên hệ</h2>
-            <p>
-              <br />Điện thoại: 0123 456 789<br />Email: info@webdulich.com<br />
-              Mail: <input type="email" placeholder="Nhập email của bạn" />
-              <input type="button" value="Gửi" />
-            </p>
-          </div>
-          <div class="contract">
-            <h2>Theo dõi chúng tôi</h2>
-            <p>
-              <br />
-              <img src="img/facebook.png" alt="Facebook" />Facebook: Web du
-              lịch<br />
-              <img src="img/google.png" alt="Google" />Google: Web du lịch<br />
-              <img src="img/twitter.png" alt="Twitter" />Twitter: @web
-            </p>
+        <div class="footer-col">
+          <h4>Nhận ưu đãi</h4>
+          <p>Đăng ký nhận thông báo!</p>
+          <div class="footer-email">
+            <input type="email" placeholder="Email của bạn…" /><button>
+              Gửi
+            </button>
           </div>
         </div>
-        <p>© 2025 Minh Quy TRAVEL. All rights reserved.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MinhQuy Travel. All rights reserved.</p>
       </div>
     </footer>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3>🛒 Giỏ hàng</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Tổng cộng:</span><span id="cartTotal">0đ</span>
+        </div>
+        <button
+          class="btn-checkout"
+          onclick="showToast('🚧 Tính năng đang phát triển!')"
+        >
+          Thanh toán
+        </button>
+      </div>
+    </div>
+
+    <div class="chat-widget">
+      <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+          <div class="chat-agent">
+            <div class="agent-avatar">MQ</div>
+            <div>
+              <strong>Hỗ trợ khách hàng</strong
+              ><span class="agent-status">🟢 Đang trực tuyến</span>
+            </div>
+          </div>
+          <button class="chat-close" id="chatClose">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg bot">
+            <span>👋 Cần tư vấn tour không? Hỏi tôi nhé!</span>
+          </div>
+        </div>
+        <div class="chat-input-wrap">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Nhập tin nhắn…"
+          /><button id="chatSend">➤</button>
+        </div>
+      </div>
+      <button class="chat-toggle" id="chatToggle">
+        💬<span class="chat-dot">1</span>
+      </button>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      // Count results after render
+      const observer = new MutationObserver(() => {
+        const count = document.querySelectorAll(".tour-card-dyn").length;
+        const el = document.getElementById("resultCount");
+        if (el) el.textContent = count;
+      });
+      observer.observe(document.getElementById("tourListContainer"), {
+        childList: true,
+      });
+    </script>
   </body>
 </html>
