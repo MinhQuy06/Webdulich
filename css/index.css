@@ -278,6 +278,7 @@
   font-size: 0.8rem;
   font-weight: 700;
   transition: all var(--transition);
+  cursor: pointer;
 }
 .btn-book-sm:hover {
   background: var(--primary-dark);

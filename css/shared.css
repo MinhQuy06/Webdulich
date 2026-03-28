@@ -555,10 +555,12 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  pointer-events: none; /*loi bi chan click*/
   gap: 12px;
 }
 .chat-toggle {
   position: relative;
+  pointer-events: auto; /*cho phep click vào ô chat*/
   width: 56px;
   height: 56px;
   border-radius: 50%;
