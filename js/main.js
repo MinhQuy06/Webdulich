@@ -2,7 +2,7 @@
    main.js – Index page logic (load tours from JSON, render)
    ============================================================ */
 
-const API_URL = "tours.json";
+const API_URL = "data/tours.json";
 
 async function fetchTours() {
   try {

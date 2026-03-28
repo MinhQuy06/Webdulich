@@ -188,6 +188,30 @@
   background: linear-gradient(135deg, #f0f4ff, #eef1fc);
 }
 
+.flag-vn {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  border-radius: 2px;
+  background: #da251d; /* nền đỏ */
+  position: relative;
+  vertical-align: middle;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+/* Ngôi sao vàng 5 cánh bằng clip-path */
+.flag-vn::before {
+  content: "★";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffff00;
+  font-size: 20px;
+  line-height: 1;
+}
+
 .tour-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
