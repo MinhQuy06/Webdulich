@@ -11,12 +11,118 @@
     "price": 1500000,
     "discount": 0,
     "slots": 8,
-    "description": "Khám phá Bà Nà Hills với Cầu Vàng nổi tiếng, làng Pháp cổ kính và cảnh quan núi non hùng vĩ.",
+    "description": "Khám phá Bà Nà Hills với Cầu Vàng nổi tiếng, làng Pháp cổ kính và cảnh quan núi non hùng vĩ. Tour bao gồm hướng dẫn viên chuyên nghiệp, khách sạn 3 sao và các bữa ăn chính.",
     "itinerary": [
-      "Ngày 1: Đến Đà Nẵng, tham quan Cầu Rồng, Bãi biển Mỹ Khê",
-      "Ngày 2: Bà Nà Hills – Cầu Vàng, làng Pháp cổ kính",
-      "Ngày 3: Phố cổ Hội An về đêm, mua sắm lưu niệm"
+      {
+        "day": 1,
+        "title": "Đà Nẵng – Khám phá thành phố biển",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Đón khách tại sân bay Đà Nẵng",
+              "Di chuyển về khách sạn, nhận phòng & nghỉ ngơi"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa tại nhà hàng địa phương – đặc sản Đà Nẵng"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tham quan Cầu Rồng – biểu tượng thành phố",
+              "Dạo bộ bãi biển Mỹ Khê – một trong những bãi biển đẹp nhất thế giới"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Tự do khám phá ẩm thực đường phố Đà Nẵng",
+              "Nghỉ đêm tại khách sạn"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Bà Nà Hills – Cầu Vàng huyền thoại",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Khởi hành lên Bà Nà Hills bằng cáp treo (dài nhất thế giới)",
+              "Tham quan Cầu Vàng – biểu tượng du lịch Việt Nam"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": [
+              "Ăn trưa tại nhà hàng trên đỉnh núi",
+              "Khám phá khu vườn Le Jardin D'Amour"
+            ]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tham quan làng Pháp cổ kính",
+              "Vui chơi tại Fantasy Park – công viên giải trí trong nhà lớn nhất VN"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Trở về khách sạn, tự do mua sắm",
+              "Nghỉ đêm tại Đà Nẵng"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Hội An cổ kính – Chia tay & về nhà",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Di chuyển đến Phố Cổ Hội An (~30km)",
+              "Tham quan Chùa Cầu Nhật Bản – biểu tượng Hội An"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Thưởng thức Cao Lầu, Mì Quảng – đặc sản Hội An"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Dạo phố cổ, mua sắm đèn lồng và đồ lưu niệm",
+              "Di chuyển ra sân bay, kết thúc tour"
+            ]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Vé máy bay 2 chiều",
+      "Khách sạn 3 sao (2 đêm)",
+      "Xe đón/tiễn sân bay",
+      "Hướng dẫn viên tiếng Việt",
+      "Bảo hiểm du lịch",
+      "Vé cáp treo Bà Nà Hills"
+    ],
+    "excludes": ["Chi phí cá nhân", "Đồ uống trong bữa ăn", "Tip cho HDV"],
     "departure": "TP.HCM",
     "transport": "Máy bay"
   },
@@ -32,11 +138,78 @@
     "price": 500000,
     "discount": 0,
     "slots": 12,
-    "description": "Dạo bước trên những con phố đèn lồng lung linh, thả hoa đăng trên sông Hoài.",
+    "description": "Dạo bước trên những con phố đèn lồng lung linh, thả hoa đăng trên sông Hoài. Trải nghiệm văn hóa phố cổ được UNESCO công nhận di sản thế giới.",
     "itinerary": [
-      "Ngày 1: Chùa Cầu, Hội quán Phúc Kiến, thả đèn hoa đăng",
-      "Ngày 2: Làng rau Trà Quế, làng gốm Thanh Hà, về TP.HCM"
+      {
+        "day": 1,
+        "title": "Khám phá Phố Cổ Hội An về đêm",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Bay đến Đà Nẵng, di chuyển về Hội An (~30km)",
+              "Nhận phòng khách sạn, nghỉ ngơi"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa – thưởng thức Cao Lầu, Mì Quảng trứ danh"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tham quan Chùa Cầu Nhật Bản",
+              "Ghé thăm Hội quán Phúc Kiến – kiến trúc độc đáo thế kỷ XVII"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Thả đèn hoa đăng trên sông Hoài – trải nghiệm không thể bỏ qua",
+              "Dạo phố đêm, thưởng thức ẩm thực đường phố"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Làng nghề truyền thống – Chia tay Hội An",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Tham quan Làng Rau Trà Quế – trải nghiệm làm nông dân",
+              "Ghé Làng Gốm Thanh Hà – tự tay nặn gốm"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa đặc sản cuối chuyến"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Mua sắm đèn lồng, quà lưu niệm",
+              "Di chuyển ra sân bay Đà Nẵng, kết thúc tour"
+            ]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Vé máy bay 2 chiều",
+      "Khách sạn 2 sao (1 đêm)",
+      "Hướng dẫn viên",
+      "Bảo hiểm du lịch"
+    ],
+    "excludes": ["Chi phí cá nhân", "Đồ uống"],
     "departure": "TP.HCM",
     "transport": "Máy bay"
   },
@@ -52,12 +225,113 @@
     "price": 2000000,
     "discount": 25,
     "slots": 4,
-    "description": "Đảo ngọc Phú Quốc với bãi biển xanh trong, san hô đẹp và resort sang trọng.",
+    "description": "Đảo ngọc Phú Quốc với bãi biển xanh trong, san hô đẹp và resort sang trọng. Tận hưởng không khí biển đảo và trải nghiệm cuộc sống người dân đảo.",
     "itinerary": [
-      "Ngày 1: Bay đến Phú Quốc, nhận phòng resort, tắm biển",
-      "Ngày 2: Lặn ngắm san hô, chợ đêm Phú Quốc",
-      "Ngày 3: VinWonders, tham quan Vinpearl Safari"
+      {
+        "day": 1,
+        "title": "Đặt chân lên Đảo Ngọc",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Bay thẳng từ TP.HCM đến Phú Quốc (1 giờ)",
+              "Xe đón về resort, nhận phòng"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa tại nhà hàng hải sản tươi sống"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tắm biển, thư giãn tại bãi biển Bãi Trường",
+              "Thuê xe máy khám phá hồ tiêu Phú Quốc"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Dạo Chợ Đêm Phú Quốc – mua hải sản, đồ lưu niệm",
+              "Nghỉ đêm tại resort"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Lặn ngắm san hô – VinWonders",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Tour lặn ngắm san hô 4 đảo – trải nghiệm thế giới đại dương",
+              "Câu cá, ngắm san hô bằng thuyền kính"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa trên thuyền – hải sản tươi sống"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tham quan VinWonders Phú Quốc – công viên giải trí đẳng cấp quốc tế"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Xem show Grand World Phú Quốc",
+              "Nghỉ đêm tại resort"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Vinpearl Safari – Chia tay Đảo Ngọc",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Tham quan Vinpearl Safari – vườn thú bán hoang dã lớn nhất VN",
+              "Trải nghiệm đi xe safari ngắm thú"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa, trả phòng"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Mua sắm nước mắm Phú Quốc, rượu sim, tiêu đặc sản",
+              "Ra sân bay, bay về TP.HCM"
+            ]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Vé máy bay 2 chiều",
+      "Resort 4 sao (2 đêm)",
+      "Tour lặn ngắm san hô",
+      "Vé VinWonders",
+      "Bảo hiểm du lịch"
+    ],
+    "excludes": ["Chi phí cá nhân", "Vé Vinpearl Safari", "Đồ uống"],
     "departure": "TP.HCM",
     "transport": "Bay thẳng"
   },
@@ -73,11 +347,78 @@
     "price": 1000000,
     "discount": 0,
     "slots": 10,
-    "description": "Leo núi Bà Đen huyền thoại với cáp treo hiện đại và lễ hội văn hóa đặc sắc.",
+    "description": "Leo núi Bà Đen huyền thoại với cáp treo hiện đại và lễ hội văn hóa đặc sắc. Điểm du lịch tâm linh nổi tiếng nhất Tây Nguyên.",
     "itinerary": [
-      "Ngày 1: Đến Tây Ninh, cáp treo lên núi, tham quan Điện Bà",
-      "Ngày 2: Khu du lịch Sun World, về TP.HCM"
+      {
+        "day": 1,
+        "title": "Tây Ninh – Núi Bà Đen linh thiêng",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Xe khởi hành từ TP.HCM đến Tây Ninh (~2 giờ)",
+              "Đến khu du lịch Sun World Bà Đen Mountain"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa tại khu ẩm thực Sun World"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Đi cáp treo lên đỉnh núi 986m – cao nhất Nam Bộ",
+              "Tham quan Điện Bà, vãn cảnh chùa trên đỉnh núi"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": ["Nghỉ đêm tại khách sạn Tây Ninh"]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Sun World – Về lại TP.HCM",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Khám phá khu vui chơi Sun World – cáp treo cabin đôi dài nhất VN",
+              "Chụp ảnh tại vườn hoa, check-in điểm sống ảo"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": [
+              "Ăn trưa đặc sản Tây Ninh – bánh tráng phơi sương, muối tôm"
+            ]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Ghé Tòa Thánh Cao Đài – kiến trúc độc đáo không thể bỏ lỡ",
+              "Xe về lại TP.HCM, kết thúc tour"
+            ]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Xe đưa đón TP.HCM – Tây Ninh",
+      "Vé cáp treo Bà Đen",
+      "Khách sạn 2 sao (1 đêm)",
+      "Hướng dẫn viên",
+      "Bảo hiểm"
+    ],
+    "excludes": ["Chi phí cá nhân", "Vé vào cổng Sun World"],
     "departure": "TP.HCM",
     "transport": "Xe limousine"
   },
@@ -93,11 +434,81 @@
     "price": 1500000,
     "discount": 0,
     "slots": 6,
-    "description": "Biển mây huyền ảo giữa núi rừng Tây Bắc, trải nghiệm săn mây độc đáo.",
+    "description": "Biển mây huyền ảo giữa núi rừng Tây Bắc, trải nghiệm săn mây độc đáo. Thiên đường của dân phượt.",
     "itinerary": [
-      "Ngày 1: Lên Tà Xùa, nghỉ tại homestay, ngắm hoàng hôn",
-      "Ngày 2: Săn mây buổi sáng, về TP.HCM"
+      {
+        "day": 1,
+        "title": "Bay đến Tây Bắc – Chinh phục Tà Xùa",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Bay từ TP.HCM đến Hà Nội",
+              "Xe đưa đón lên Sơn La (~4 giờ)"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": [
+              "Ăn trưa dọc đường – thưởng thức đặc sản vùng Tây Bắc"
+            ]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Đến Tà Xùa, nhận phòng homestay bản địa",
+              "Ngắm hoàng hôn từ đỉnh núi – cảnh đẹp nao lòng"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Ăn tối tại homestay – đặc sản thịt nướng, rượu ngô",
+              "Ngủ trong không khí se lạnh vùng cao"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Săn mây – Trải nghiệm Tây Bắc",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "5:30 – Thức dậy sớm săn biển mây – khoảnh khắc tuyệt đỉnh",
+              "Chụp ảnh bình minh trên biển mây huyền ảo"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Bữa sáng/trưa tại homestay", "Trả phòng, xuống núi"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Xe về Hà Nội, bay về TP.HCM",
+              "Kết thúc hành trình Tà Xùa"
+            ]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Vé máy bay 2 chiều HCM-HN",
+      "Xe đưa đón HN-Tà Xùa",
+      "Homestay (1 đêm)",
+      "Bữa ăn theo chương trình",
+      "Hướng dẫn viên"
+    ],
+    "excludes": ["Chi phí cá nhân", "Đồ uống ngoài bữa ăn"],
     "departure": "TP.HCM",
     "transport": "Máy bay + xe"
   },
@@ -115,9 +526,76 @@
     "slots": 15,
     "description": "Thị trấn trên mây Tam Đảo với khí hậu mát mẻ quanh năm và kiến trúc Pháp cổ.",
     "itinerary": [
-      "Ngày 1: Đến Tam Đảo, tham quan thị trấn, chùa Tây Thiên",
-      "Ngày 2: Vườn quốc gia Tam Đảo, về Hà Nội"
+      {
+        "day": 1,
+        "title": "Hà Nội – Tam Đảo thị trấn trong sương",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Xe khởi hành từ Hà Nội (~2.5 giờ)",
+              "Đến Tam Đảo, nhận phòng khách sạn view núi"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa – đặc sản thịt chuột đồng, su su Tam Đảo"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tham quan Thị Trấn Tam Đảo – kiến trúc Pháp cổ độc đáo",
+              "Viếng Thiền Viện Trúc Lâm Tây Thiên"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Tản bộ trong sương mù huyền ảo",
+              "Nghỉ đêm tại khách sạn"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Vườn Quốc Gia – Về Hà Nội",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Khám phá Vườn Quốc Gia Tam Đảo",
+              "Thác Bạc – cảnh đẹp thiên nhiên hoang sơ"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa cuối chuyến – đặc sản vùng cao"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Mua đặc sản su su, mật ong rừng mang về",
+              "Xe về Hà Nội, kết thúc tour"
+            ]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Xe đưa đón Hà Nội – Tam Đảo",
+      "Khách sạn 2 sao (1 đêm)",
+      "Hướng dẫn viên",
+      "Bảo hiểm"
+    ],
+    "excludes": ["Vé Vườn Quốc Gia", "Chi phí cá nhân"],
     "departure": "Hà Nội",
     "transport": "Xe khách"
   },
@@ -133,12 +611,167 @@
     "price": 5000000,
     "discount": 20,
     "slots": 6,
-    "description": "Khám phá thủ đô hiện đại nhất thế giới với công nghệ tiên tiến và văn hóa truyền thống.",
+    "description": "Khám phá thủ đô hiện đại nhất thế giới với công nghệ tiên tiến và văn hóa truyền thống. Nơi giao thoa giữa cổ xưa và hiện đại.",
     "itinerary": [
-      "Ngày 1–2: Shibuya, Harajuku, tháp Tokyo Skytree",
-      "Ngày 3: Núi Phú Sĩ, Hồ Kawaguchi",
-      "Ngày 4–5: Chùa Senso-ji, Akihabara, mua sắm"
+      {
+        "day": 1,
+        "title": "Đến Tokyo – Shibuya & Harajuku",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Bay từ TP.HCM đến Tokyo Narita (~6 tiếng)",
+              "Xe đưa về khách sạn, nhận phòng"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa – Ramen trứ danh Nhật Bản"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Khám phá Shibuya Crossing – giao lộ đông người nhất thế giới",
+              "Dạo phố thời trang Harajuku"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Ngắm Tokyo Skytree – đài quan sát 634m",
+              "Ăn tối Sushi tại nhà hàng địa phương"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Núi Phú Sĩ – Hồ Kawaguchi",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Xe đưa đến núi Phú Sĩ (~2 giờ)",
+              "Ngắm Phú Sĩ từ Điểm ngắm cảnh Chureito Pagoda"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa bên Hồ Kawaguchi – view Phú Sĩ tuyệt đẹp"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tham quan Làng Oshino Hakkai – làng cổ truyền thống",
+              "Về Tokyo"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Tự do khám phá Shinjuku về đêm – khu phố neon sôi động"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Chùa Senso-ji & Akihabara",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Tham quan Chùa Senso-ji – ngôi chùa cổ nhất Tokyo (645 sau CN)",
+              "Dạo phố Nakamise – mua sắm đồ lưu niệm truyền thống"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa – Tempura truyền thống Edo"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Khám phá Akihabara – thiên đường anime, manga, đồ điện tử"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": ["Tự do mua sắm, ăn tối theo sở thích"]
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Odaiba & Mua sắm Ginza",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Tham quan Odaiba – đảo nhân tạo hiện đại, trải nghiệm teamLab Borderless"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa tại khu mua sắm DiverCity Tokyo"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Mua sắm tại Ginza – khu phố thời trang cao cấp nhất Tokyo"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Bữa tối chia tay Nhật Bản",
+              "Chuẩn bị hành lý về nước"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Bay về TP.HCM",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": ["Trả phòng khách sạn", "Xe đưa ra sân bay Narita"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": ["Bay về TP.HCM, kết thúc hành trình Nhật Bản"]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Vé máy bay 2 chiều",
+      "Khách sạn 4 sao (4 đêm)",
+      "Xe theo đoàn",
+      "Hướng dẫn viên tiếng Việt",
+      "Bảo hiểm du lịch quốc tế",
+      "Vé Phú Sĩ"
+    ],
+    "excludes": ["Chi phí cá nhân", "Vé teamLab", "Ăn trưa ngày 3-4"],
     "departure": "TP.HCM",
     "transport": "Bay thẳng"
   },
@@ -154,13 +787,145 @@
     "price": 4000000,
     "discount": 0,
     "slots": 8,
-    "description": "Seoul – thành phố K-pop, ẩm thực hấp dẫn và cung điện lịch sử ngàn năm.",
+    "description": "Seoul – thành phố K-pop, ẩm thực hấp dẫn và cung điện lịch sử ngàn năm. Trải nghiệm văn hóa Hàn Quốc từ truyền thống đến hiện đại.",
     "itinerary": [
-      "Ngày 1: Cung điện Gyeongbokgung, làng Hanok Bukchon",
-      "Ngày 2: Myeongdong, N Seoul Tower, Hongdae",
-      "Ngày 3: Everland, K-pop tour",
-      "Ngày 4: Mua sắm, về TP.HCM"
+      {
+        "day": 1,
+        "title": "Đến Seoul – Myeongdong sôi động",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Bay từ TP.HCM đến Seoul Incheon (~5 giờ)",
+              "Xe đưa về khách sạn, nhận phòng"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa – Bibimbap và Kimchi truyền thống"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Khám phá Myeongdong – mua sắm mỹ phẩm, thời trang Hàn"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Ăn tối BBQ Hàn Quốc – Galbi, Samgyeopsal",
+              "Ngắm Seoul từ tháp N Seoul Tower"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Cung điện cổ – Làng Hanok",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Tham quan Cung Điện Gyeongbokgung – cung điện lớn nhất triều đại Joseon",
+              "Xem lễ đổi gác hoàng cung (10:00 & 14:00)"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": [
+              "Ăn trưa gần cung điện – Haemul Pajeon (bánh xèo hải sản)"
+            ]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Dạo Làng Hanok Bukchon – làng cổ truyền thống giữa lòng Seoul",
+              "Mặc Hanbok chụp ảnh"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Khám phá Hongdae – khu phố nghệ thuật và giới trẻ sôi động"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Everland – Thiên đường vui chơi",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Xe đến Everland (~1 giờ) – công viên giải trí lớn nhất Hàn Quốc"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa trong khuôn viên Everland"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tiếp tục vui chơi tại Everland",
+              "Về Seoul, mua sắm tại Dongdaemun"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": ["Tự do khám phá Seoul về đêm"]
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Mua sắm cuối – Bay về nhà",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Mua sắm lần cuối tại COEX Mall hoặc Lotte Mart",
+              "Mua mỹ phẩm, đồ ăn đặc sản Hàn mang về"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa – Ramyeon, Tteokbokki lần cuối"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Trả phòng, xe ra sân bay Incheon",
+              "Bay về TP.HCM, kết thúc tour Hàn Quốc"
+            ]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Vé máy bay 2 chiều",
+      "Khách sạn 3 sao (3 đêm)",
+      "Vé Everland",
+      "Hướng dẫn viên tiếng Việt",
+      "Bảo hiểm quốc tế"
+    ],
+    "excludes": ["Chi phí cá nhân", "Ăn trưa ngày 2-3"],
     "departure": "TP.HCM",
     "transport": "Bay thẳng"
   },
@@ -178,10 +943,111 @@
     "slots": 8,
     "description": "Thành phố của những ngôi chùa vàng, ẩm thực đường phố và cuộc sống về đêm sôi động.",
     "itinerary": [
-      "Ngày 1: Bay đến Bangkok, tham quan Cung điện Hoàng gia",
-      "Ngày 2: Chùa Phật Ngọc, chợ nổi Damnoen Saduak",
-      "Ngày 3: Platinum Fashion Mall, ẩm thực đường phố"
+      {
+        "day": 1,
+        "title": "Đến Bangkok – Cung điện Hoàng gia",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Bay từ TP.HCM đến Bangkok Suvarnabhumi (~1.5 giờ)",
+              "Xe đưa về khách sạn, nhận phòng"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa – Pad Thai, Tom Yum đặc sản Thái"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tham quan Cung Điện Hoàng Gia – kiến trúc tráng lệ",
+              "Chùa Phật Ngọc Wat Phra Kaew"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Dạo thuyền sông Chao Phraya – ngắm Bangkok về đêm",
+              "Ăn tối tại chợ đêm Asiatique"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Chợ Nổi – Mua sắm thiên đường",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Chợ Nổi Damnoen Saduak – trải nghiệm văn hóa sông nước độc đáo",
+              "Mua trái cây nhiệt đới tươi ngon trên thuyền"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa tại nhà hàng ven sông"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Platinum Fashion Mall – thiên đường mua sắm giá rẻ Bangkok",
+              "Chatuchak Weekend Market (nếu cuối tuần)"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Ăn tối tại đường phố Bangkok – thưởng thức 100 món ăn đường phố"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Chùa Vàng – Bay về nhà",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Tham quan Chùa Wat Arun – Chùa Bình Minh tráng lệ bên sông",
+              "Chụp ảnh kỷ niệm"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa cuối tại nhà hàng Thái nổi tiếng"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Mua đặc sản Thái: kem dưỡng da, kẹo dừa, nước hoa",
+              "Ra sân bay, bay về TP.HCM"
+            ]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Vé máy bay 2 chiều",
+      "Khách sạn 3 sao (2 đêm)",
+      "Tour chợ nổi",
+      "Hướng dẫn viên tiếng Việt",
+      "Bảo hiểm"
+    ],
+    "excludes": ["Visa Thái Lan (nếu cần)", "Chi phí cá nhân"],
     "departure": "TP.HCM",
     "transport": "Bay thẳng"
   },
@@ -197,12 +1063,115 @@
     "price": 4500000,
     "discount": 0,
     "slots": 10,
-    "description": "Đảo quốc sư tử với Marina Bay Sands, Gardens by the Bay và ẩm thực đa dạng.",
+    "description": "Đảo quốc sư tử với Marina Bay Sands, Gardens by the Bay và ẩm thực đa dạng nhất châu Á.",
     "itinerary": [
-      "Ngày 1: Gardens by the Bay, Marina Bay Sands",
-      "Ngày 2: Sentosa, Universal Studios",
-      "Ngày 3: Chinatown, Little India, Orchard Road"
+      {
+        "day": 1,
+        "title": "Đến Singapore – Marina Bay huyền ảo",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Bay từ TP.HCM đến Singapore Changi (~2 giờ)",
+              "Xe đưa về khách sạn"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": [
+              "Ăn trưa tại Lau Pa Sat – hawker centre nổi tiếng nhất Singapore"
+            ]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tham quan Gardens by the Bay – vườn trong nhà ấn tượng nhất thế giới",
+              "Supertree Grove – ngắm cảnh từ cầu kính cao 22m"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Xem show ánh sáng Garden Rhapsody (miễn phí, 19:45 & 20:45)",
+              "Ngắm Marina Bay Sands lung linh về đêm"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Sentosa – Universal Studios",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Cáp treo sang đảo Sentosa – ngắm cảnh toàn Singapore",
+              "Vào Universal Studios Singapore ngay lúc mở cửa"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa trong khuôn viên Universal Studios"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tiếp tục khám phá các khu Harry Potter, Transformers, Minions",
+              "Tắm biển Siloso Beach – bãi biển nhân tạo đẹp nhất Sentosa"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": ["Về trung tâm, khám phá Clarke Quay về đêm"]
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Chinatown & Little India – Bay về",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Tham quan Chinatown – chùa Phật Nha (Buddha Tooth Relic)",
+              "Khám phá Little India – sắc màu văn hóa Ấn Độ"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": [
+              "Ăn trưa tại Orchard Road – khu mua sắm đẳng cấp nhất Singapore"
+            ]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Mua đặc sản: kẹo bánh, mỹ phẩm, đồ điện tử",
+              "Ra sân bay Changi – explore Jewel Changi Airport"
+            ]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Vé máy bay 2 chiều",
+      "Khách sạn 4 sao (2 đêm)",
+      "Vé Universal Studios",
+      "Hướng dẫn viên",
+      "Bảo hiểm"
+    ],
+    "excludes": ["Chi phí cá nhân", "Ăn trưa ngày 2"],
     "departure": "TP.HCM",
     "transport": "Bay thẳng"
   },
@@ -218,12 +1187,140 @@
     "price": 10000000,
     "discount": 0,
     "slots": 5,
-    "description": "Kinh đô ánh sáng với tháp Eiffel huyền thoại, bảo tàng Louvre và ẩm thực tinh tế.",
+    "description": "Kinh đô ánh sáng với tháp Eiffel huyền thoại, bảo tàng Louvre và ẩm thực tinh tế nhất thế giới.",
     "itinerary": [
-      "Ngày 1–2: Tháp Eiffel, Bảo tàng Louvre, Khải Hoàn Môn",
-      "Ngày 3: Cung điện Versailles, vườn hoa lãng mạn",
-      "Ngày 4: Champs-Élysées, mua sắm thời trang cao cấp"
+      {
+        "day": 1,
+        "title": "Paris – Tháp Eiffel biểu tượng",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Bay từ TP.HCM đến Paris CDG (~12 giờ)",
+              "Xe đưa về khách sạn trung tâm Paris"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa – Baguette, Croissant và Crêpe Pháp"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Tháp Eiffel – leo lên tầng 2 ngắm toàn Paris",
+              "Dạo bộ Champs-Élysées – đại lộ đẹp nhất thế giới"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Tháp Eiffel lung linh ánh đèn vàng lúc chập tối",
+              "Ăn tối tại nhà hàng Pháp – Fine Dining"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Louvre – Khải Hoàn Môn",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Bảo tàng Louvre – ngắm nàng Mona Lisa, Venus de Milo",
+              "Thư giãn tại Vườn Tuileries"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa tại bờ sông Seine – không khí thơ mộng"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Khải Hoàn Môn – leo lên đỉnh ngắm Paris 360°",
+              "Khu Montmartre – làng nghệ sĩ bohemian"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": [
+              "Du thuyền sông Seine ngắm Paris về đêm – Bateaux Mouches"
+            ]
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Versailles xa hoa – Mua sắm Paris",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Xe đến Cung Điện Versailles (~30km) – cung điện dát vàng nổi tiếng nhất thế giới",
+              "Khám phá Phòng Gương, Vườn Versailles"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": [
+              "Picnic trong vườn Versailles – trải nghiệm quý tộc Pháp"
+            ]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Trở về Paris, mua sắm tại Galeries Lafayette – trung tâm thương mại đẳng cấp",
+              "Mua đồ hiệu Louis Vuitton, Chanel, Hermès"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": ["Bữa tối chia tay Paris – Foie Gras, Bordeaux wine"]
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Bay về TP.HCM",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Sáng cuối tự do tại Paris – cafe sáng kiểu Pháp",
+              "Trả phòng, xe ra sân bay CDG"
+            ]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": ["Bay về TP.HCM, kết thúc hành trình Pháp"]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Vé máy bay hạng thương gia",
+      "Khách sạn 5 sao (3 đêm)",
+      "Xe riêng theo đoàn",
+      "Vé Versailles",
+      "Hướng dẫn viên tiếng Việt",
+      "Bảo hiểm cao cấp"
+    ],
+    "excludes": ["Visa Schengen", "Chi phí cá nhân", "Đồ hiệu"],
     "departure": "TP.HCM",
     "transport": "Hạng thương gia"
   },
@@ -241,11 +1338,167 @@
     "slots": 4,
     "description": "Đất nước của đồng hồ, chocolate và cảnh quan núi Alps tuyết trắng tuyệt đẹp.",
     "itinerary": [
-      "Ngày 1–2: Zurich, Bern – thủ đô Thụy Sĩ",
-      "Ngày 3: Jungfraujoch – nóc nhà châu Âu",
-      "Ngày 4: Geneva, hồ Leman thơ mộng",
-      "Ngày 5: Mua sắm, về TP.HCM"
+      {
+        "day": 1,
+        "title": "Zurich – Trái tim Thụy Sĩ",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Bay từ TP.HCM – transit – đến Zurich (~14 giờ)",
+              "Xe về khách sạn, nhận phòng"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa – Raclette, Fondue Cheese đặc sản Thụy Sĩ"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Khám phá Zurich Old Town – phố cổ trung cổ",
+              "Nhà thờ Grossmünster – tháp đôi biểu tượng Zurich"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": ["Dạo bờ hồ Zurichsee – hoàng hôn tuyệt đẹp"]
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Bern – Thủ đô cổ kính",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Xe đến Bern – thủ đô Thụy Sĩ (~1.5 giờ)",
+              "Tham quan Old Town Bern – Di sản UNESCO"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa tại quảng trường Bern"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Đồng hồ Zytglogge – tháp đồng hồ thế kỷ XIII",
+              "Thăm Vườn Hoa Bern và cầu Nydegg"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": ["Nghỉ đêm tại Interlaken – cửa ngõ vùng Alps"]
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Jungfraujoch – Nóc nhà châu Âu",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Tàu hỏa leo núi lên Jungfraujoch (3454m) – nóc nhà châu Âu",
+              "Ngắm tuyết trắng, sông băng Aletsch dài nhất châu Âu"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": ["Ăn trưa tại nhà hàng trên đỉnh núi 3454m"]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Trải nghiệm trượt tuyết, chụp ảnh tuyết",
+              "Tàu về Grindelwald – làng núi cổ tích"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": ["Nghỉ đêm tại khách sạn view Alps"]
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Geneva – Hồ Leman thơ mộng",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Xe đến Geneva (~3 giờ)",
+              "Tham quan Palais des Nations – trụ sở LHQ"
+            ]
+          },
+          {
+            "time": "noon",
+            "label": "Trưa",
+            "activities": [
+              "Ăn trưa tại bờ Hồ Leman – hồ nước ngọt lớn nhất Tây Âu"
+            ]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Jet d'Eau – vòi phun nước cao 140m biểu tượng Geneva",
+              "Mua đồng hồ Thụy Sĩ, chocolate Lindt chính hãng"
+            ]
+          },
+          {
+            "time": "evening",
+            "label": "Tối",
+            "activities": ["Bữa tối chia tay Thụy Sĩ sang trọng"]
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Bay về TP.HCM",
+        "sessions": [
+          {
+            "time": "morning",
+            "label": "Sáng",
+            "activities": [
+              "Trả phòng, mua sắm cuối – Swiss Army Knife, chocolate",
+              "Xe ra sân bay Zurich"
+            ]
+          },
+          {
+            "time": "afternoon",
+            "label": "Chiều",
+            "activities": [
+              "Bay về TP.HCM – kết thúc hành trình Thụy Sĩ tuyệt vời"
+            ]
+          }
+        ]
+      }
     ],
+    "includes": [
+      "Vé máy bay hạng thương gia",
+      "Khách sạn 5 sao (4 đêm)",
+      "Vé tàu Swiss Travel Pass",
+      "Vé Jungfraujoch",
+      "Hướng dẫn viên",
+      "Bảo hiểm cao cấp"
+    ],
+    "excludes": ["Visa Schengen", "Chi phí cá nhân"],
     "departure": "TP.HCM",
     "transport": "Hạng thương gia"
   }

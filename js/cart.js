@@ -12,10 +12,11 @@ const saveCart = (cart) => localStorage.setItem(CART_KEY, JSON.stringify(cart));
 function addToCart(tour) {
   const cart = getCart();
   const idx = cart.findIndex((i) => i.id === tour.id);
+  const qty = tour.qty || 1;
   if (idx > -1) {
-    cart[idx].qty += 1;
+    cart[idx].qty += qty;
   } else {
-    cart.push({ ...tour, qty: 1 });
+    cart.push({ ...tour, qty: qty });
   }
   saveCart(cart);
   updateCartBadge();

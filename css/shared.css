@@ -988,7 +988,7 @@ footer {
   }
   .has-dropdown .dropdown {
     position: static;
-    display: flex;
+    display: none;
     flex-direction: column;
     box-shadow: none;
     border: none;
