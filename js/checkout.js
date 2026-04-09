@@ -14,28 +14,8 @@ function fmtVnd(n) {
 
 // --- Load tour ---
 async function loadCheckoutTour(id) {
-  // Thử localStorage trước
-  const stored = localStorage.getItem("mq_tours_admin");
-  if (stored) {
-    try {
-      const tours = JSON.parse(stored);
-      const found = tours.find((t) => t.id === id);
-      if (found) return found;
-    } catch {
-      /* ignore */
-    }
-  }
-  for (const path of ["data/tours.json", "tours.json"]) {
-    try {
-      const res = await fetch(path);
-      if (!res.ok) continue;
-      const tours = await res.json();
-      return tours.find((t) => t.id === id) || null;
-    } catch {
-      /* try next */
-    }
-  }
-  return null;
+  // Gọi thẳng API — getTourById từ api.js → GET /tours/:id
+  return await getTourById(id);
 }
 
 // --- Render order summary ---

@@ -1,21 +1,19 @@
 /* ============================================================
-   main.js – Index page logic (load tours from JSON, render)
+   main.js – Frontend người dùng
+   Nguồn dữ liệu DUY NHẤT: API (json-server) qua api.js
+   ⚠️  api.js PHẢI được load TRƯỚC main.js trong HTML
    ============================================================ */
 
-const API_URL = "data/tours.json";
+let allTours = []; // cache toàn bộ tour đang hiển thị
 
-async function fetchTours() {
-  try {
-    const res = await fetch(API_URL);
-    if (!res.ok) throw new Error("Network error");
-    return await res.json();
-  } catch (e) {
-    console.warn("Fetch failed, using embedded data:", e.message);
-    return null; // page falls back to static HTML
-  }
-}
+// ============================================================
+// FORMAT TIỀN
+// ============================================================
+// fmtVnd đã được khai báo trong cart.js — dùng lại trực tiếp
 
-// ---- Index page: hot tours countdown ----
+// ============================================================
+// COUNTDOWN (trang chủ – index.html)
+// ============================================================
 function startCountdown(endMs) {
   const el = document.getElementById("countdown");
   if (!el) return;
@@ -34,189 +32,216 @@ function startCountdown(endMs) {
   setInterval(tick, 1000);
 }
 
-// ---- Tour page: search + filter ----
-let allTours = [];
+// ============================================================
+// HIỂN THỊ TRẠNG THÁI LOADING / LỖI trên tour.html
+// ============================================================
+function showListStatus(html) {
+  const c = document.getElementById("tourListContainer");
+  if (c) c.innerHTML = html;
+}
 
+// ============================================================
+// RENDER DANH SÁCH TOUR CARD
+// ============================================================
 function renderTourList(tours) {
   const container = document.getElementById("tourListContainer");
   if (!container) return;
-  if (tours.length === 0) {
-    container.innerHTML =
-      '<p style="text-align:center;color:var(--text-muted);padding:40px">Không tìm thấy tour phù hợp.</p>';
+
+  if (!tours || tours.length === 0) {
+    showListStatus(`
+      <div style="text-align:center;padding:60px 20px;color:var(--text-muted)">
+        <div style="font-size:3rem;margin-bottom:12px">🔍</div>
+        <p style="font-size:1rem">Không tìm thấy tour phù hợp.</p>
+      </div>`);
     return;
   }
-  const isGrid = container.classList.contains("grid-view");
+
   container.innerHTML = tours
     .map((t) => {
+      const finalPrice =
+        t.discount > 0 ? Math.round(t.price * (1 - t.discount / 100)) : t.price;
+
+      const oldPrice =
+        t.discount > 0
+          ? `<s style="font-size:.76rem;color:var(--text-muted)">${fmtVnd(t.price)}</s> `
+          : "";
+
       const discountBadge =
         t.discount > 0
           ? `<span class="badge-discount">-${t.discount}%</span>`
           : "";
+
       const slotBadge =
-        t.slots <= 6
+        t.slots > 0 && t.slots <= 6
           ? `<span class="badge-slots">⚡ Còn ${t.slots} chỗ</span>`
           : "";
-      const finalPrice =
-        t.discount > 0 ? Math.round(t.price * (1 - t.discount / 100)) : t.price;
-      const oldPrice =
-        t.discount > 0
-          ? `<s style="font-size:.78rem;color:var(--text-muted)">${fmtVnd(t.price)}</s> `
-          : "";
+
       return `
-    <div class="tour-card-dyn" data-id="${t.id}">
-      <div class="tc-img">
-        <img src="${t.image}" alt="${t.name}" loading="lazy" onerror="this.src='img/banahilljpg.jpg'" />
-        ${discountBadge}${slotBadge}
-      </div>
-      <div class="tc-body">
-        <h3>${t.name}</h3>
-        <div class="tc-meta">
-          <span>🕐 ${t.duration}</span>
-          <span>📍 ${t.location}</span>
-          <span>⭐ ${t.rating}</span>
-          <span>👥 ${t.people} người</span>
+      <div class="tour-card-dyn" data-id="${t.id}">
+        <div class="tc-img">
+          <img src="${t.image || "img/banahilljpg.jpg"}" alt="${t.name}"
+               loading="lazy" onerror="this.src='img/banahilljpg.jpg'" />
+          ${discountBadge}${slotBadge}
         </div>
-        <div class="tc-footer">
-          <div class="tc-price">${oldPrice}<strong>${fmtVnd(finalPrice)}</strong></div>
-          <div class="tc-btns">
-            <button class="btn-detail" onclick="window.location='detail.html?id=${t.id}'">Chi tiết</button>
-            <button class="btn-book-dyn" onclick="addToCartById(${t.id})">🛒 Đặt</button>
+        <div class="tc-body">
+          <h3>${t.name}</h3>
+          <div class="tc-meta">
+            <span>🕐 ${t.duration || "—"}</span>
+            <span>📍 ${t.location || "—"}</span>
+            <span>⭐ ${t.rating || "—"}</span>
+            <span>👥 ${t.people || 2} người</span>
+          </div>
+          <div class="tc-footer">
+            <div class="tc-price">
+              ${oldPrice}<strong>${fmtVnd(finalPrice)}</strong>
+            </div>
+            <div class="tc-btns">
+              <button class="btn-detail"
+                onclick="window.location='detail.html?id=${t.id}'">
+                Chi tiết
+              </button>
+              <button class="btn-book-dyn"
+                onclick="quickAddToCart(${t.id})">
+                🛒 Đặt
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </div>`;
+      </div>`;
     })
     .join("");
+
+  // Cập nhật số đếm
+  const countEl = document.getElementById("resultCount");
+  if (countEl) countEl.textContent = tours.length;
 }
 
-function addToCartById(id) {
+// ============================================================
+// QUICK ADD (thêm vào giỏ thẳng từ danh sách)
+// ============================================================
+function quickAddToCart(id) {
   const t = allTours.find((x) => x.id === id);
-  if (t) addToCart(t);
+  if (!t) return;
+  const finalPrice =
+    t.discount > 0 ? Math.round(t.price * (1 - t.discount / 100)) : t.price;
+  addToCart({
+    id: t.id,
+    name: t.name,
+    price: finalPrice,
+    image: t.image,
+    qty: 1,
+  });
+}
+
+// ============================================================
+// FILTER + SEARCH – lọc từ allTours (đã cache từ API)
+// ============================================================
+function applyFilters() {
+  const q = (document.getElementById("searchInput")?.value || "").toLowerCase();
+  const loc = document.getElementById("locationFilter")?.value || "";
+  const price = parseInt(document.getElementById("priceFilter")?.value || "0");
+
+  const filtered = allTours.filter((t) => {
+    const matchQ =
+      t.name.toLowerCase().includes(q) ||
+      (t.location || "").toLowerCase().includes(q);
+    const matchLoc = !loc || t.category === loc;
+    const matchPrice = !price || t.price <= price;
+    return matchQ && matchLoc && matchPrice;
+  });
+
+  renderTourList(filtered);
 }
 
 function initTourFilters() {
-  const searchInput = document.getElementById("searchInput");
-  const locationFilter = document.getElementById("locationFilter");
-  const priceFilter = document.getElementById("priceFilter");
+  document
+    .getElementById("searchInput")
+    ?.addEventListener("input", applyFilters);
+  document
+    .getElementById("locationFilter")
+    ?.addEventListener("change", applyFilters);
+  document
+    .getElementById("priceFilter")
+    ?.addEventListener("change", applyFilters);
+
+  const container = document.getElementById("tourListContainer");
   const gridBtn = document.getElementById("btnGrid");
   const listBtn = document.getElementById("btnList");
-  const container = document.getElementById("tourListContainer");
-
-  function applyFilters() {
-    const q = (searchInput?.value || "").toLowerCase();
-    const loc = locationFilter?.value || "";
-    const price = parseInt(priceFilter?.value || "0");
-    let filtered = allTours.filter((t) => {
-      const matchQ =
-        t.name.toLowerCase().includes(q) ||
-        t.location.toLowerCase().includes(q);
-      const matchLoc = !loc || t.category === loc;
-      const matchPrice = !price || t.price <= price;
-      return matchQ && matchLoc && matchPrice;
-    });
-    renderTourList(filtered);
-  }
-
-  searchInput?.addEventListener("input", applyFilters);
-  locationFilter?.addEventListener("change", applyFilters);
-  priceFilter?.addEventListener("change", applyFilters);
 
   gridBtn?.addEventListener("click", () => {
     container.classList.remove("list-view");
     container.classList.add("grid-view");
     gridBtn.classList.add("active");
     listBtn?.classList.remove("active");
-    renderTourList(allTours);
+    applyFilters();
   });
+
   listBtn?.addEventListener("click", () => {
     container.classList.remove("grid-view");
     container.classList.add("list-view");
     listBtn.classList.add("active");
     gridBtn?.classList.remove("active");
-    renderTourList(allTours);
+    applyFilters();
   });
 }
 
-// ---- Detail page ----
-async function initDetailPage() {
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get("id"));
-  if (!id) return;
-  const tours = await fetchTours();
-  if (!tours) return;
-  const t = tours.find((x) => x.id === id);
-  if (!t) return;
+// ============================================================
+// LOAD TOURS TỪ API – KHÔNG FALLBACK GÌ CẢ
+// ============================================================
+async function loadTourPage() {
+  // 1. Hiển thị skeleton loading
+  showListStatus(`
+    <div style="text-align:center;padding:60px 20px;color:var(--text-muted)">
+      <div style="
+        width:36px;height:36px;border:3px solid var(--primary-light);
+        border-top-color:var(--primary);border-radius:50%;
+        animation:spin .7s linear infinite;margin:0 auto 14px;
+      "></div>
+      <p>Đang tải danh sách tour từ API…</p>
+    </div>
+    <style>@keyframes spin{to{transform:rotate(360deg)}}</style>`);
 
-  document.title = t.name + " – MinhQuy Travel";
-  const container = document.getElementById("detailContainer");
-  if (!container) return;
-  const finalPrice =
-    t.discount > 0 ? Math.round(t.price * (1 - t.discount / 100)) : t.price;
-  container.innerHTML = `
-    <div class="detail-grid">
-      <div class="detail-img-wrap">
-        <img src="${t.image}" alt="${t.name}" onerror="this.src='img/banahilljpg.jpg'" />
-        ${t.discount > 0 ? `<span class="badge-discount">-${t.discount}%</span>` : ""}
-      </div>
-      <div class="detail-info">
-        <h1>${t.name}</h1>
-        <div class="detail-meta">
-          <span>📍 ${t.location}</span>
-          <span>🕐 ${t.duration}</span>
-          <span>👥 ${t.people} người</span>
-          <span>⭐ ${t.rating}/5</span>
-          <span>✈️ ${t.transport}</span>
-        </div>
-        <p class="detail-desc">${t.description}</p>
-        <div class="detail-itinerary">
-          <h3>🗓 Lịch trình</h3>
-          <ul>${t.itinerary.map((d) => `<li>${d}</li>`).join("")}</ul>
-        </div>
-        <div class="detail-book">
-          <div class="detail-price">
-            ${t.discount > 0 ? `<s>${fmtVnd(t.price)}</s>` : ""}
-            <strong>${fmtVnd(finalPrice)}</strong><span>/người</span>
-          </div>
-          <div class="detail-qty-wrap">
-            <label>Số người:</label>
-            <div class="qty-ctrl">
-              <button onclick="changePeople(-1)">−</button>
-              <span id="peopleCount">1</span>
-              <button onclick="changePeople(1)">+</button>
-            </div>
-          </div>
-          <button class="btn-primary" onclick="addToCart({id:${t.id},name:'${t.name.replace(/'/g, "\\'")}',price:${finalPrice},image:'${t.image}',qty:1})">🛒 Thêm vào giỏ</button>
-        </div>
-      </div>
-    </div>`;
+  // 2. Gọi API
+  try {
+    const tours = await getTours(); // hàm từ api.js → GET /tours
+    allTours = tours;
+    renderTourList(tours);
+    initTourFilters();
+  } catch (err) {
+    // 3. Hiển thị lỗi rõ ràng — KHÔNG fallback JSON tĩnh
+    showListStatus(`
+      <div style="text-align:center;padding:60px 20px">
+        <div style="font-size:3rem;margin-bottom:14px">⚠️</div>
+        <h3 style="color:var(--danger);margin-bottom:8px">Không kết nối được API</h3>
+        <p style="color:var(--text-muted);margin-bottom:20px">
+          Hãy chạy json-server để tải dữ liệu tour.
+        </p>
+        <code style="
+          display:block;background:#1a2340;color:#7dd3fc;
+          padding:12px 20px;border-radius:8px;font-size:.88rem;
+          max-width:420px;margin:0 auto;
+        ">npx json-server --watch data/db.json --port 3000</code>
+        <button onclick="loadTourPage()" style="
+          margin-top:18px;background:var(--primary);color:#fff;
+          border:none;padding:10px 24px;border-radius:8px;
+          font-size:.9rem;font-weight:700;cursor:pointer;
+        ">🔄 Thử lại</button>
+      </div>`);
+    console.error("API Error:", err.message);
+  }
 }
 
-let peopleCount = 1;
-function changePeople(d) {
-  peopleCount = Math.max(1, peopleCount + d);
-  const el = document.getElementById("peopleCount");
-  if (el) el.textContent = peopleCount;
-}
-
-// ---- DOMContentLoaded ----
+// ============================================================
+// DOMContentLoaded
+// ============================================================
 document.addEventListener("DOMContentLoaded", async () => {
-  // Countdown for hot section
+  // Countdown (index.html)
   const end = new Date();
   end.setHours(23, 59, 59, 0);
   startCountdown(end.getTime());
 
-  // Tour list page
+  // Tour list page (tour.html)
   if (document.getElementById("tourListContainer")) {
-    const tours = await fetchTours();
-    if (tours) {
-      allTours = tours;
-      renderTourList(tours);
-    }
-    initTourFilters();
-  }
-
-  // Detail page
-  if (document.getElementById("detailContainer")) {
-    await initDetailPage();
+    await loadTourPage();
   }
 });
