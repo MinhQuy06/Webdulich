@@ -101,8 +101,8 @@ function renderTourList(tours) {
                 Chi tiết
               </button>
               <button class="btn-book-dyn"
-                onclick="quickAddToCart(${t.id})">
-                🛒 Đặt
+                onclick="goToCheckoutById(${t.id})">
+                Đặt ngay
               </button>
             </div>
           </div>
@@ -117,8 +117,13 @@ function renderTourList(tours) {
 }
 
 // ============================================================
-// QUICK ADD (thêm vào giỏ thẳng từ danh sách)
+// NÚT "ĐẶT" TRÊN CARD → chuyển thẳng sang checkout
 // ============================================================
+function goToCheckoutById(id) {
+  window.location.href = `checkout.html?id=${id}&qty=1`;
+}
+
+// Quick add (dùng khi cần thêm vào giỏ mà không rời trang)
 function quickAddToCart(id) {
   const t = allTours.find((x) => x.id === id);
   if (!t) return;

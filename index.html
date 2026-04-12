@@ -8,7 +8,7 @@
     <title>MinhQuy Travel – Khám phá thế giới</title>
   </head>
   <body>
-    <!-- ===== NAVBAR ===== -->
+    <!-- NAVBAR – Không có link Admin -->
     <nav id="navbar">
       <div class="nav-inner">
         <div class="logo">
@@ -24,9 +24,11 @@
             <a href="tour.html">Tours ▾</a>
             <ul class="dropdown">
               <li>
-                <a href="tour.html#vn"> Việt Nam</a>
+                <a href="tour.html#vn"
+                  ><span class="flag-vn"></span> Việt Nam</a
+                >
               </li>
-              <li><a href="tour.html#nn"> Nước ngoài</a></li>
+              <li><a href="tour.html#nn">🌍 Nước ngoài</a></li>
             </ul>
           </li>
           <li><a href="hotels.html">Khách sạn</a></li>
@@ -42,7 +44,7 @@
       </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <header class="hero" style="background-image: url(img/background1.jpg)">
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -69,7 +71,7 @@
     </header>
 
     <main>
-      <!-- ===== HOT SECTION ===== -->
+      <!-- HOT SECTION -->
       <section id="hot" class="section-hot">
         <div class="section-inner">
           <div class="section-header">
@@ -100,7 +102,7 @@
                   onclick="
                     addToCart({
                       id: 3,
-                      name: 'Phú Quốc – Đảo Ngọc',
+                      name: 'Phú Quốc',
                       price: 2000000,
                       image: 'img/phuquoc.jpg',
                     })
@@ -130,7 +132,7 @@
                   onclick="
                     addToCart({
                       id: 7,
-                      name: 'Tokyo – Nhật Bản',
+                      name: 'Tokyo',
                       price: 5000000,
                       image: 'img/tokyo.jpg',
                     })
@@ -159,7 +161,7 @@
                   onclick="
                     addToCart({
                       id: 9,
-                      name: 'Bangkok – Thái Lan',
+                      name: 'Bangkok',
                       price: 3000000,
                       image: 'img/bangkok.jpg',
                     })
@@ -173,7 +175,7 @@
         </div>
       </section>
 
-      <!-- ===== TOUR VIỆT NAM ===== -->
+      <!-- TOUR VIỆT NAM -->
       <section id="tourVN" class="section-tours">
         <div class="section-inner">
           <div class="section-header">
@@ -229,7 +231,7 @@
                     onclick="
                       addToCart({
                         id: 2,
-                        name: 'Phố Cổ Hội An',
+                        name: 'Hội An',
                         price: 500000,
                         image: 'img/Phocohoian.jpg',
                       })
@@ -283,7 +285,7 @@
                     onclick="
                       addToCart({
                         id: 4,
-                        name: 'Núi Bà Đen',
+                        name: 'Bà Đen',
                         price: 1000000,
                         image: 'img/sunworld-ba-den.jpg',
                       })
@@ -352,7 +354,7 @@
         </div>
       </section>
 
-      <!-- ===== TOUR NƯỚC NGOÀI ===== -->
+      <!-- TOUR NƯỚC NGOÀI -->
       <section id="tourNN" class="section-tours section-intl">
         <div class="section-inner">
           <div class="section-header">
@@ -530,7 +532,7 @@
       </section>
     </main>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- FOOTER -->
     <footer>
       <div class="footer-inner">
         <div class="footer-brand">
@@ -540,13 +542,13 @@
           </p>
           <div class="footer-socials">
             <a href="#" class="social-btn"
-              ><img src="img/facebook.png" alt="Facebook" />Facebook</a
+              ><img src="img/facebook.png" alt="fb" />Facebook</a
             >
             <a href="#" class="social-btn"
-              ><img src="img/google.png" alt="Google" />Google</a
+              ><img src="img/google.png" alt="gg" />Google</a
             >
             <a href="#" class="social-btn"
-              ><img src="img/twitter.png" alt="Twitter" />Twitter</a
+              ><img src="img/twitter.png" alt="tw" />Twitter</a
             >
           </div>
         </div>
@@ -571,7 +573,7 @@
       </div>
     </footer>
 
-    <!-- ===== CART DRAWER ===== -->
+    <!-- CART DRAWER -->
     <div class="cart-overlay" id="cartOverlay"></div>
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-drawer-header">
@@ -583,16 +585,13 @@
         <div class="cart-total">
           <span>Tổng cộng:</span><span id="cartTotal">0đ</span>
         </div>
-        <button
-          class="btn-checkout"
-          onclick="showToast('🚧 Tính năng thanh toán đang phát triển!')"
-        >
+        <button class="btn-checkout" onclick="goToCheckout()">
           Thanh toán
         </button>
       </div>
     </div>
 
-    <!-- ===== CHAT ===== -->
+    <!-- CHAT -->
     <div class="chat-widget">
       <div class="chat-box" id="chatBox">
         <div class="chat-header">
@@ -633,6 +632,8 @@
 
     <div class="toast" id="toast"></div>
 
+    <!-- Scripts – đúng thứ tự -->
+    <script src="js/api.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
   </body>

@@ -8,196 +8,269 @@
     <title>Admin Panel – MinhQuy Travel</title>
   </head>
   <body class="admin-body">
-    <!-- ===== LOGIN GATE ===== -->
-    <div class="admin-login-gate" id="adminLoginGate">
-      <div class="admin-login-box">
-        <div class="admin-login-logo">⚙️ MinhQuy<b>Admin</b></div>
+    <!-- ═══════════════════════════════════════════
+     LOGIN GATE
+═══════════════════════════════════════════ -->
+    <div class="login-gate" id="loginGate">
+      <div class="login-box">
+        <div class="login-logo">⚙️ MinhQuy<b>Admin</b></div>
         <h2>Đăng nhập quản trị</h2>
-        <p>Trang này chỉ dành cho quản trị viên</p>
-        <div class="al-group">
+        <p class="login-hint">Trang này chỉ dành cho quản trị viên</p>
+        <div class="lg-group">
           <label>Tên đăng nhập</label>
-          <input type="text" id="adminUser" placeholder="admin" />
+          <input
+            type="text"
+            id="adminUser"
+            placeholder="admin"
+            autocomplete="username"
+          />
         </div>
-        <div class="al-group">
+        <div class="lg-group">
           <label>Mật khẩu</label>
-          <input type="password" id="adminPass" placeholder="••••••••" />
+          <input
+            type="password"
+            id="adminPass"
+            placeholder="••••••••"
+            autocomplete="current-password"
+          />
         </div>
-        <p class="al-hint">Demo: admin / admin123</p>
-        <button class="al-btn" id="adminLoginBtn">Đăng nhập →</button>
-        <p class="al-error" id="adminLoginErr"></p>
+        <p class="lg-demo">
+          Demo: <strong>admin</strong> / <strong>admin123</strong>
+        </p>
+        <button class="lg-btn" id="loginBtn">Đăng nhập →</button>
+        <p class="lg-error" id="loginErr"></p>
       </div>
     </div>
 
-    <!-- ===== ADMIN PANEL (ẩn cho đến khi đăng nhập) ===== -->
-    <div
-      id="adminPanel"
-      style="display: none; width: 100%; min-height: 100vh; display: none"
-    >
-      <!-- Sidebar -->
+    <!-- ═══════════════════════════════════════════
+     ADMIN LAYOUT
+═══════════════════════════════════════════ -->
+    <div class="admin-layout" id="adminLayout">
+      <!-- SIDEBAR -->
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">⚙️ MinhQuy<b>Admin</b></div>
+
         <nav class="sidebar-nav">
-          <a href="#" class="snav-item active" onclick="showSection('tours')"
-            >🗺️ Quản lý Tour</a
+          <a
+            class="snav-item active"
+            id="nav-tours"
+            href="#"
+            onclick="
+              showSection('tours', this);
+              return false;
+            "
           >
-          <a href="#" class="snav-item" onclick="showSection('stats')"
-            >📊 Thống kê</a
+            🗺️ Quản lý Tour
+          </a>
+          <a
+            class="snav-item"
+            id="nav-stats"
+            href="#"
+            onclick="
+              showSection('stats', this);
+              return false;
+            "
           >
-          <hr
-            style="border-color: rgba(255, 255, 255, 0.1); margin: 8px 12px"
-          />
-          <a href="index.html" class="snav-item" target="_blank"
-            >🌐 Xem website</a
-          >
+            📊 Thống kê
+          </a>
+          <div class="snav-divider"></div>
+          <a class="snav-item" href="index.html" target="_blank">
+            🌐 Xem website
+          </a>
         </nav>
+
         <div class="sidebar-footer">
-          <div class="admin-profile">
-            <div class="admin-av">AD</div>
-            <div><strong>Admin</strong><small>Quản trị viên</small></div>
+          <div class="sidebar-user">
+            <div class="user-av">AD</div>
+            <div class="user-info">
+              <strong>Admin</strong>
+              <small>Quản trị viên</small>
+            </div>
           </div>
-          <button class="admin-logout-btn" id="adminLogoutBtn">
-            🚪 Đăng xuất
-          </button>
+          <button class="logout-btn" id="logoutBtn">🚪 Đăng xuất</button>
         </div>
       </aside>
 
-      <!-- Main -->
-      <div class="admin-main">
+      <!-- MAIN CONTENT -->
+      <div class="admin-main" id="adminMain">
+        <!-- Top bar -->
         <header class="admin-topbar">
           <div class="topbar-left">
-            <button class="sidebar-toggle" id="sidebarToggle">☰</button>
-            <h1>Quản lý Tour</h1>
+            <button class="hamburger-admin" id="sidebarToggle">☰</button>
+            <h1 class="topbar-title" id="topbarTitle">Quản lý Tour</h1>
           </div>
           <div class="topbar-right">
-            <span class="admin-badge"
-              >Tổng: <strong id="totalCount">0</strong> tours</span
+            <span class="topbar-badge">
+              Tổng: <strong id="totalCount">0</strong> tours
+            </span>
+            <button
+              class="topbar-refresh"
+              onclick="refreshAll()"
+              title="Làm mới dữ liệu"
             >
+              ⟳
+            </button>
           </div>
         </header>
 
-        <!-- ===== SECTION: QUẢN LÝ TOUR ===== -->
-        <div id="section-tours">
+        <!-- ─────────────────────────────────────
+         SECTION: QUẢN LÝ TOUR
+    ───────────────────────────────────── -->
+        <section id="section-tours" class="admin-section">
+          <!-- Mini stats bar -->
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <span class="ms-icon">🗺️</span>
+              <div>
+                <strong id="totalCount2">0</strong><small>Tổng tour</small>
+              </div>
+            </div>
+            <div class="mini-stat">
+              <span class="ms-icon" style="background: #e8f0fe">🇻🇳</span>
+              <div><strong id="countVN">0</strong><small>Việt Nam</small></div>
+            </div>
+            <div class="mini-stat">
+              <span class="ms-icon" style="background: #fff3e8">🌍</span>
+              <div>
+                <strong id="countNN">0</strong><small>Nước ngoài</small>
+              </div>
+            </div>
+            <div class="mini-stat">
+              <span class="ms-icon" style="background: #ffeaea">🔥</span>
+              <div>
+                <strong id="countDiscount">0</strong><small>Giảm giá</small>
+              </div>
+            </div>
+          </div>
 
-        <!-- Stats -->
-        <div class="stats-row">
-          <div class="stat-card">
-            <div class="stat-ic">🗺️</div>
-            <div><strong id="totalCount2">0</strong><span>Tổng tour</span></div>
+          <!-- Actions -->
+          <div class="tours-actions">
+            <div class="search-box">
+              <span class="search-ico">🔍</span>
+              <input
+                type="text"
+                id="adminSearch"
+                placeholder="Tìm tour theo tên, địa điểm…"
+              />
+            </div>
+            <button class="btn-add-tour" id="addTourBtn">
+              ➕ Thêm tour mới
+            </button>
           </div>
-          <div class="stat-card">
-            <div class="stat-ic">🇻🇳</div>
-            <div><strong id="countVN">0</strong><span>Tour VN</span></div>
+
+          <!-- Table -->
+          <div class="table-card">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tên tour</th>
+                  <th>Địa điểm</th>
+                  <th>Thời gian</th>
+                  <th>Giá</th>
+                  <th>Loại</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="adminTbody">
+                <tr>
+                  <td colspan="7" class="table-loading">
+                    <div class="spinner"></div>
+                    Đang tải dữ liệu…
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="stat-card">
-            <div class="stat-ic">🌍</div>
-            <div><strong id="countNN">0</strong><span>Tour NN</span></div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-ic">🔥</div>
+        </section>
+
+        <!-- ─────────────────────────────────────
+         SECTION: THỐNG KÊ
+    ───────────────────────────────────── -->
+        <section id="section-stats" class="admin-section" style="display: none">
+          <div class="stats-header">
             <div>
-              <strong id="countDiscount">0</strong><span>Đang giảm giá</span>
+              <h2 class="stats-title">📊 Thống kê tổng quan</h2>
+              <p class="stats-sub">Dữ liệu tính từ API theo thời gian thực</p>
             </div>
-          </div>
-        </div>
-
-        <!-- Actions -->
-        <div class="admin-actions">
-          <div class="admin-search-wrap">
-            <span>🔍</span>
-            <input
-              type="text"
-              id="adminSearch"
-              placeholder="Tìm kiếm tour theo tên, địa điểm…"
-            />
-          </div>
-          <button class="btn-add" id="addTourBtn">➕ Thêm tour mới</button>
-        </div>
-
-        <!-- Table -->
-        <div class="table-wrap">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Tên tour</th>
-                <th>Địa điểm</th>
-                <th>Thời gian</th>
-                <th>Giá</th>
-                <th>Loại</th>
-                <th>Thao tác</th>
-              </tr>
-            </thead>
-            <tbody id="adminTbody">
-              <tr>
-                <td
-                  colspan="7"
-                  style="
-                    text-align: center;
-                    padding: 32px;
-                    color: var(--text-muted);
-                  "
-                >
-                  Đang tải dữ liệu…
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-        </div>
-        <!-- ===== SECTION: THỐNG KÊ ===== -->
-        <div id="section-stats" style="display:none">
-          <div class="stats-page-header">
-            <h2 class="stats-page-title">📊 Thống kê tổng quan</h2>
-            <p class="stats-page-sub">Dữ liệu được tính từ API theo thời gian thực</p>
+            <button class="btn-reload-stats" onclick="renderStatsPage()">
+              ⟳ Làm mới
+            </button>
           </div>
 
-          <!-- 4 stat cards lớn -->
-          <div class="stats-big-row">
-            <div class="stat-big-card" style="border-top:4px solid var(--primary)">
-              <div class="stat-big-icon">🗺️</div>
-              <div class="stat-big-num" id="statTotal">0</div>
-              <div class="stat-big-label">Tổng số tour</div>
-            </div>
-            <div class="stat-big-card" style="border-top:4px solid #22c55e">
-              <div class="stat-big-icon">🇻🇳</div>
-              <div class="stat-big-num" id="statVN">0</div>
-              <div class="stat-big-label">Tour Việt Nam</div>
-            </div>
-            <div class="stat-big-card" style="border-top:4px solid var(--accent)">
-              <div class="stat-big-icon">🌍</div>
-              <div class="stat-big-num" id="statNN">0</div>
-              <div class="stat-big-label">Tour Quốc tế</div>
-            </div>
-            <div class="stat-big-card" style="border-top:4px solid #e53935">
-              <div class="stat-big-icon">🔥</div>
-              <div class="stat-big-num" id="statDiscount">0</div>
-              <div class="stat-big-label">Đang giảm giá</div>
-            </div>
-          </div>
-
-          <!-- Biểu đồ đơn giản: phân bổ theo loại -->
-          <div class="stats-charts-row">
-            <div class="stats-chart-card">
-              <h3>📍 Phân bổ theo loại tour</h3>
-              <div class="chart-bar-wrap" id="chartCategory">
-                <div class="chart-loading">Đang tải…</div>
+          <!-- 4 big cards -->
+          <div class="big-stats-grid">
+            <div class="big-stat-card" style="--card-color: #0068ff">
+              <div class="bsc-top">
+                <span class="bsc-icon">🗺️</span>
+                <span class="bsc-trend" id="trendTotal">—</span>
+              </div>
+              <div class="bsc-num" id="statTotal">0</div>
+              <div class="bsc-label">Tổng số tour</div>
+              <div class="bsc-bar">
+                <div
+                  class="bsc-bar-fill"
+                  id="barTotal"
+                  style="width: 100%"
+                ></div>
               </div>
             </div>
-            <div class="stats-chart-card">
-              <h3>💰 Phân bổ theo mức giá</h3>
-              <div class="chart-bar-wrap" id="chartPrice">
-                <div class="chart-loading">Đang tải…</div>
+            <div class="big-stat-card" style="--card-color: #22c55e">
+              <div class="bsc-top">
+                <span class="bsc-icon">🇻🇳</span>
+              </div>
+              <div class="bsc-num" id="statVN">0</div>
+              <div class="bsc-label">Tour Việt Nam</div>
+              <div class="bsc-bar">
+                <div class="bsc-bar-fill" id="barVN" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="big-stat-card" style="--card-color: #ff6b00">
+              <div class="bsc-top">
+                <span class="bsc-icon">🌍</span>
+              </div>
+              <div class="bsc-num" id="statNN">0</div>
+              <div class="bsc-label">Tour Quốc tế</div>
+              <div class="bsc-bar">
+                <div class="bsc-bar-fill" id="barNN" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="big-stat-card" style="--card-color: #e53935">
+              <div class="bsc-top">
+                <span class="bsc-icon">🔥</span>
+              </div>
+              <div class="bsc-num" id="statDiscount">0</div>
+              <div class="bsc-label">Đang giảm giá</div>
+              <div class="bsc-bar">
+                <div
+                  class="bsc-bar-fill"
+                  id="barDiscount"
+                  style="width: 0%"
+                ></div>
               </div>
             </div>
           </div>
 
-          <!-- Bảng top tour đắt nhất -->
-          <div class="stats-table-card">
-            <h3>🏆 Top 5 tour giá cao nhất</h3>
-            <table class="admin-table" id="statsTopTable">
+          <!-- Charts row -->
+          <div class="charts-row">
+            <div class="chart-card">
+              <div class="chart-card-title">📍 Phân bổ theo loại tour</div>
+              <div id="chartCategory" class="chart-body">
+                <div class="chart-skeleton"></div>
+              </div>
+            </div>
+            <div class="chart-card">
+              <div class="chart-card-title">💰 Phân bổ theo mức giá</div>
+              <div id="chartPrice" class="chart-body">
+                <div class="chart-skeleton"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top 5 table -->
+          <div class="stats-data-card">
+            <div class="sdc-header">🏆 Top 5 tour giá cao nhất</div>
+            <table class="admin-table">
               <thead>
                 <tr>
                   <th>Hạng</th>
@@ -205,19 +278,24 @@
                   <th>Địa điểm</th>
                   <th>Loại</th>
                   <th>Giá</th>
-                  <th>Rating</th>
+                  <th>⭐</th>
                 </tr>
               </thead>
               <tbody id="statsTopBody">
-                <tr><td colspan="6" style="text-align:center;padding:24px;color:var(--text-muted)">Đang tải…</td></tr>
+                <tr>
+                  <td colspan="6" class="table-loading">
+                    <div class="spinner"></div>
+                    Đang tải…
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
 
-          <!-- Bảng tour giảm giá -->
-          <div class="stats-table-card" style="margin-top:20px">
-            <h3>🔥 Tour đang có khuyến mãi</h3>
-            <table class="admin-table" id="statsDiscountTable">
+          <!-- Discount table -->
+          <div class="stats-data-card" style="margin-top: 20px">
+            <div class="sdc-header">🔥 Tour đang khuyến mãi</div>
+            <table class="admin-table">
               <thead>
                 <tr>
                   <th>Tên tour</th>
@@ -228,29 +306,36 @@
                 </tr>
               </thead>
               <tbody id="statsDiscountBody">
-                <tr><td colspan="5" style="text-align:center;padding:24px;color:var(--text-muted)">Đang tải…</td></tr>
+                <tr>
+                  <td colspan="5" class="table-loading">
+                    <div class="spinner"></div>
+                    Đang tải…
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
-        </div>
-        <!-- ===== END SECTIONS ===== -->
+        </section>
+      </div>
+      <!-- end admin-main -->
+    </div>
+    <!-- end admin-layout -->
 
-      </div><!-- end admin-main -->
-    </div><!-- end adminPanel -->
-
-    <!-- Form Modal -->
-    <div class="form-overlay" id="formOverlay"></div>
+    <!-- ═══════════════════════════════════════════
+     FORM MODAL
+═══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="formOverlay"></div>
     <div class="form-modal" id="formModal">
-      <div class="form-modal-header">
+      <div class="form-modal-hdr">
         <h3 id="formTitle">➕ Thêm Tour Mới</h3>
-        <button class="form-close" id="closeFormBtn">✕</button>
+        <button class="modal-close" id="closeFormBtn">✕</button>
       </div>
       <form id="tourForm" novalidate>
         <input type="hidden" id="tourId" />
         <div class="fm-grid">
-          <div class="fm-group">
-            <label>Tên tour <span class="required">*</span></label
-            ><input
+          <div class="fm-group fm-full">
+            <label>Tên tour <span class="req">*</span></label>
+            <input
               type="text"
               id="fName"
               placeholder="VD: Ba Na Hills – Đà Nẵng"
@@ -258,8 +343,8 @@
             />
           </div>
           <div class="fm-group">
-            <label>Địa điểm <span class="required">*</span></label
-            ><input
+            <label>Địa điểm <span class="req">*</span></label>
+            <input
               type="text"
               id="fLocation"
               placeholder="VD: Đà Nẵng"
@@ -267,19 +352,15 @@
             />
           </div>
           <div class="fm-group">
-            <label>Loại tour</label
-            ><select id="fCategory">
-              <option value="vn">Việt Nam</option>
-              <option value="nn">Nước ngoài</option>
+            <label>Loại tour</label>
+            <select id="fCategory">
+              <option value="vn">🇻🇳 Việt Nam</option>
+              <option value="nn">🌍 Nước ngoài</option>
             </select>
           </div>
           <div class="fm-group">
-            <label>Thời gian</label
-            ><input type="text" id="fDuration" placeholder="VD: 3N2Đ" />
-          </div>
-          <div class="fm-group">
-            <label>Giá (VNĐ) <span class="required">*</span></label
-            ><input
+            <label>Giá (VNĐ) <span class="req">*</span></label>
+            <input
               type="number"
               id="fPrice"
               placeholder="1500000"
@@ -288,8 +369,12 @@
             />
           </div>
           <div class="fm-group">
-            <label>Giảm giá (%)</label
-            ><input
+            <label>Thời gian</label>
+            <input type="text" id="fDuration" placeholder="VD: 3N2Đ" />
+          </div>
+          <div class="fm-group">
+            <label>Giảm giá (%)</label>
+            <input
               type="number"
               id="fDiscount"
               placeholder="0"
@@ -298,16 +383,16 @@
             />
           </div>
           <div class="fm-group">
-            <label>Số chỗ còn</label
-            ><input type="number" id="fSlots" placeholder="10" min="0" />
+            <label>Số chỗ còn</label>
+            <input type="number" id="fSlots" placeholder="10" min="0" />
           </div>
           <div class="fm-group">
-            <label>Số người</label
-            ><input type="number" id="fPeople" placeholder="2" min="1" />
+            <label>Số người tối thiểu</label>
+            <input type="number" id="fPeople" placeholder="2" min="1" />
           </div>
           <div class="fm-group">
-            <label>Rating (1–5)</label
-            ><input
+            <label>Rating (1–5)</label>
+            <input
               type="number"
               id="fRating"
               placeholder="4.5"
@@ -317,99 +402,122 @@
             />
           </div>
           <div class="fm-group fm-full">
-            <label>Đường dẫn ảnh</label
-            ><input type="text" id="fImage" placeholder="img/banahilljpg.jpg" />
+            <label>Đường dẫn ảnh</label>
+            <input type="text" id="fImage" placeholder="img/banahilljpg.jpg" />
+            <div class="img-preview-wrap">
+              <img id="fImagePreview" src="" alt="" style="display: none" />
+            </div>
           </div>
           <div class="fm-group fm-full">
-            <label>Mô tả ngắn</label
-            ><textarea id="fDesc" rows="3" placeholder="Mô tả tour…"></textarea>
+            <label>Mô tả ngắn</label>
+            <textarea id="fDesc" rows="3" placeholder="Mô tả tour…"></textarea>
           </div>
         </div>
         <div class="fm-actions">
           <button type="button" class="btn-cancel" id="cancelFormBtn">
             Hủy
           </button>
-          <button type="submit" class="btn-save">💾 Lưu</button>
+          <button type="submit" class="btn-save" id="saveBtn">
+            💾 Lưu tour
+          </button>
         </div>
       </form>
     </div>
 
-    <div class="toast" id="adminToast"></div>
-
     <!-- Loading overlay -->
-    <div id="loadingOverlay" style="display:none;position:fixed;inset:0;z-index:9998;background:rgba(255,255,255,.75);backdrop-filter:blur(3px);align-items:center;justify-content:center;flex-direction:column;gap:14px;">
-      <div style="width:44px;height:44px;border:4px solid var(--primary-light);border-top-color:var(--primary);border-radius:50%;animation:spin .7s linear infinite;"></div>
-      <p style="color:var(--primary);font-weight:600;font-size:.9rem">Đang xử lý…</p>
+    <div class="loading-overlay" id="loadingOverlay">
+      <div class="loading-box">
+        <div class="spinner lg"></div>
+        <p>Đang xử lý…</p>
+      </div>
     </div>
-    <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 
-    <!-- Load api.js TRƯỚC admin.js -->
+    <!-- Toast -->
+    <div class="admin-toast" id="adminToast"></div>
+
     <script src="js/api.js"></script>
     <script src="js/admin.js"></script>
     <script>
-      // ===== ADMIN LOGIN GATE =====
-      const ADMIN_SESSION = "mq_admin_logged";
+      /* ─── LOGIN ─── */
+      const SESSION_KEY = "mq_admin_logged";
 
-      function checkAdminSession() {
-        if (sessionStorage.getItem(ADMIN_SESSION) === "1") {
-          showAdminPanel();
+      function checkSession() {
+        if (sessionStorage.getItem(SESSION_KEY) === "1") showAdmin();
+      }
+
+      function showAdmin() {
+        document.getElementById("loginGate").style.display = "none";
+        document.getElementById("adminLayout").style.display = "flex";
+      }
+
+      document.getElementById("loginBtn").addEventListener("click", () => {
+        const u = document.getElementById("adminUser").value.trim();
+        const p = document.getElementById("adminPass").value.trim();
+        const e = document.getElementById("loginErr");
+        if (u === "admin" && p === "admin123") {
+          sessionStorage.setItem(SESSION_KEY, "1");
+          e.textContent = "";
+          showAdmin();
+        } else {
+          e.textContent = "❌ Sai tên đăng nhập hoặc mật khẩu!";
         }
-      }
+      });
 
-      function showAdminPanel() {
-        document.getElementById("adminLoginGate").style.display = "none";
-        document.getElementById("adminPanel").style.display = "flex";
-      }
-
-      document
-        .getElementById("adminLoginBtn")
-        .addEventListener("click", function () {
-          const user = document.getElementById("adminUser").value.trim();
-          const pass = document.getElementById("adminPass").value.trim();
-          const err = document.getElementById("adminLoginErr");
-          if (user === "admin" && pass === "admin123") {
-            sessionStorage.setItem(ADMIN_SESSION, "1");
-            err.textContent = "";
-            showAdminPanel();
-          } else {
-            err.textContent = "❌ Sai tên đăng nhập hoặc mật khẩu!";
-          }
-        });
-
-      // Enter to login
-      ["adminUser", "adminPass"].forEach((id) => {
+      ["adminUser", "adminPass"].forEach((id) =>
         document.getElementById(id).addEventListener("keydown", (e) => {
-          if (e.key === "Enter")
-            document.getElementById("adminLoginBtn").click();
-        });
+          if (e.key === "Enter") document.getElementById("loginBtn").click();
+        }),
+      );
+
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        sessionStorage.removeItem(SESSION_KEY);
+        location.reload();
       });
 
-      // Logout
-      document
-        .getElementById("adminLogoutBtn")
-        .addEventListener("click", function () {
-          sessionStorage.removeItem(ADMIN_SESSION);
-          location.reload();
-        });
-
-      // Sidebar toggle
+      /* ─── SIDEBAR TOGGLE ─── */
       document.getElementById("sidebarToggle").addEventListener("click", () => {
-        document.getElementById("sidebar").classList.toggle("open");
+        document.getElementById("sidebar").classList.toggle("collapsed");
+        document.getElementById("adminMain").classList.toggle("expanded");
       });
 
-      // Sync stats from table mutation
-      const ob = new MutationObserver(() => {
-        const rows = document.querySelectorAll(
-          "#adminTbody tr td:first-child:not([colspan])",
-        );
-        const n = rows.length;
-        document.getElementById("totalCount").textContent = n;
-        document.getElementById("totalCount2").textContent = n;
-      });
-      ob.observe(document.getElementById("adminTbody"), { childList: true });
+      /* ─── SECTION SWITCH ─── */
+      function showSection(name, el) {
+        ["tours", "stats"].forEach((s) => {
+          document.getElementById(`section-${s}`).style.display =
+            s === name ? "block" : "none";
+          document
+            .getElementById(`nav-${s}`)
+            ?.classList.toggle("active", s === name);
+        });
+        const titles = { tours: "Quản lý Tour", stats: "📊 Thống kê" };
+        document.getElementById("topbarTitle").textContent =
+          titles[name] || name;
+        if (name === "stats") renderStatsPage();
+      }
 
-      // Check session on load
-      checkAdminSession();
+      /* ─── IMAGE PREVIEW ─── */
+      document.getElementById("fImage").addEventListener("input", function () {
+        const prev = document.getElementById("fImagePreview");
+        if (this.value) {
+          prev.src = this.value;
+          prev.style.display = "block";
+          prev.onerror = () => (prev.style.display = "none");
+        } else {
+          prev.style.display = "none";
+        }
+      });
+
+      /* ─── REFRESH ─── */
+      function refreshAll() {
+        const cur =
+          document.getElementById("section-stats").style.display !== "none"
+            ? "stats"
+            : "tours";
+        if (cur === "stats") renderStatsPage();
+        else loadAndRender(document.getElementById("adminSearch")?.value || "");
+      }
+
+      checkSession();
     </script>
   </body>
 </html>

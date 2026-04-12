@@ -142,7 +142,7 @@ function renderTourDetail(tour) {
         <div class="rating-box">
           <span class="star-icon">⭐</span>
           <span class="rating-value">${tour.rating || 4.5}/5</span>
-          <span class="rating-text">(${Math.floor(Math.random() * 400 + 100)} đánh giá)</span>
+          <span class="rating-text">(${((tour.id * 37 + 123) % 400) + 100} đánh giá)</span>
         </div>
         ${
           tour.slots > 0 && tour.slots <= 8

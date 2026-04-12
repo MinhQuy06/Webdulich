@@ -8,12 +8,13 @@
     <title>Tours – MinhQuy Travel</title>
   </head>
   <body>
+
+    <!-- ===== NAVBAR ===== -->
     <nav id="navbar">
       <div class="nav-inner">
         <div class="logo">
-          <img src="img/logo.jpg" alt="MinhQuy Travel" /><span class="logo-text"
-            >MinhQuy<b>Travel</b></span
-          >
+          <img src="img/logo.jpg" alt="MinhQuy Travel" />
+          <span class="logo-text">MinhQuy<b>Travel</b></span>
         </div>
         <button class="hamburger" id="hamburger">
           <span></span><span></span><span></span>
@@ -32,16 +33,16 @@
           <li><a href="hotro.html">Hỗ trợ</a></li>
         </ul>
         <div class="nav-actions">
-          <button class="cart-btn">🛒 <span class="cart-badge">0</span></button>
+          <button class="cart-btn" title="Giỏ hàng">
+            🛒 <span class="cart-badge">0</span>
+          </button>
           <a class="btn-login" href="login.html">Đăng nhập</a>
         </div>
       </div>
     </nav>
 
-    <header
-      class="hero"
-      style="background-image: url(img/background5.jpg); min-height: 55vh"
-    >
+    <!-- ===== HERO ===== -->
+    <header class="hero" style="background-image:url(img/background5.jpg); min-height:55vh">
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <p class="hero-label">🗺️ 200+ điểm đến chờ bạn</p>
@@ -55,49 +56,31 @@
     </header>
 
     <main>
-      <!-- Highlights -->
+
+      <!-- ===== HIGHLIGHTS ===== -->
       <section class="highlights-bar">
         <div class="section-inner">
           <div class="highlights">
-            <div class="highlight-item">
-              <span>🗺️</span>
-              <p>Lịch trình rõ ràng</p>
-            </div>
-            <div class="highlight-item">
-              <span>🎙️</span>
-              <p>HDV chuyên nghiệp</p>
-            </div>
-            <div class="highlight-item">
-              <span>🏨</span>
-              <p>KS chất lượng</p>
-            </div>
-            <div class="highlight-item">
-              <span>💰</span>
-              <p>Giá tốt nhất</p>
-            </div>
-            <div class="highlight-item">
-              <span>🛡️</span>
-              <p>Bảo hiểm du lịch</p>
-            </div>
+            <div class="highlight-item"><span>🗺️</span><p>Lịch trình rõ ràng</p></div>
+            <div class="highlight-item"><span>🎙️</span><p>HDV chuyên nghiệp</p></div>
+            <div class="highlight-item"><span>🏨</span><p>KS chất lượng</p></div>
+            <div class="highlight-item"><span>💰</span><p>Giá tốt nhất</p></div>
+            <div class="highlight-item"><span>🛡️</span><p>Bảo hiểm du lịch</p></div>
           </div>
         </div>
       </section>
 
-      <!-- Search & Filter bar -->
+      <!-- ===== FILTER BAR ===== -->
       <section class="filter-bar-section">
         <div class="section-inner">
           <div class="filter-bar">
             <div class="filter-search">
               <span>🔍</span>
-              <input
-                type="text"
-                id="searchInput"
-                placeholder="Tìm tour theo tên, địa điểm…"
-              />
+              <input type="text" id="searchInput" placeholder="Tìm tour theo tên, địa điểm…" />
             </div>
             <select id="locationFilter" class="filter-select">
               <option value="">🌐 Tất cả</option>
-              <option value="vn">Việt Nam</option>
+              <option value="vn">🇻🇳 Việt Nam</option>
               <option value="nn">🌍 Nước ngoài</option>
             </select>
             <select id="priceFilter" class="filter-select">
@@ -108,42 +91,29 @@
               <option value="10000000">Dưới 10 triệu</option>
             </select>
             <div class="view-toggle">
-              <button id="btnGrid" class="view-btn active" title="Grid">
-                ⊞
-              </button>
-              <button id="btnList" class="view-btn" title="List">☰</button>
+              <button id="btnGrid" class="view-btn active" title="Dạng lưới">⊞</button>
+              <button id="btnList" class="view-btn" title="Dạng danh sách">☰</button>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Tour List -->
+      <!-- ===== TOUR LIST ===== -->
       <section id="vn" class="tour-results-section">
         <div class="section-inner">
-          <div
-            class="section-header"
-            style="text-align: left; margin-bottom: 20px"
-          >
+          <div class="section-header" style="text-align:left; margin-bottom:20px">
             <h2 class="section-title">Danh sách tour</h2>
             <p class="section-sub">
               Tổng cộng <strong id="resultCount">--</strong> tours
             </p>
           </div>
           <div id="tourListContainer" class="grid-view">
-            <p
-              style="
-                text-align: center;
-                color: var(--text-muted);
-                padding: 48px;
-              "
-            >
-              Đang tải tour…
-            </p>
+            <!-- Nội dung được render bởi main.js -->
           </div>
         </div>
       </section>
 
-      <!-- CTA Banner -->
+      <!-- ===== CTA BANNER ===== -->
       <section class="cta-section">
         <div class="section-inner">
           <div class="cta-banner">
@@ -155,35 +125,30 @@
           </div>
         </div>
       </section>
+
     </main>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
       <div class="footer-inner">
         <div class="footer-brand">
           <div class="footer-logo">✈ MinhQuy<b>Travel</b></div>
           <p>"Hành trình khám phá thế giới"</p>
           <div class="footer-socials">
-            <a href="#" class="social-btn"
-              ><img src="img/facebook.png" alt="fb" />Facebook</a
-            ><a href="#" class="social-btn"
-              ><img src="img/google.png" alt="gg" />Google</a
-            >
+            <a href="#" class="social-btn"><img src="img/facebook.png" alt="Facebook" />Facebook</a>
+            <a href="#" class="social-btn"><img src="img/google.png" alt="Google" />Google</a>
           </div>
         </div>
         <div class="footer-col">
           <h4>Liên hệ</h4>
-          <p>
-            📍 123 Đường ABC, TP.HCM<br />📞 0123 456 789<br />✉️
-            info@minhquytravel.com
-          </p>
+          <p>📍 123 Đường ABC, TP.HCM<br />📞 0123 456 789<br />✉️ info@minhquytravel.com</p>
         </div>
         <div class="footer-col">
           <h4>Nhận ưu đãi</h4>
           <p>Đăng ký nhận thông báo!</p>
           <div class="footer-email">
-            <input type="email" placeholder="Email của bạn…" /><button>
-              Gửi
-            </button>
+            <input type="email" placeholder="Email của bạn…" />
+            <button type="button">Gửi</button>
           </div>
         </div>
       </div>
@@ -192,6 +157,7 @@
       </div>
     </footer>
 
+    <!-- ===== CART DRAWER ===== -->
     <div class="cart-overlay" id="cartOverlay"></div>
     <div class="cart-drawer" id="cartDrawer">
       <div class="cart-drawer-header">
@@ -201,25 +167,22 @@
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer">
         <div class="cart-total">
-          <span>Tổng cộng:</span><span id="cartTotal">0đ</span>
+          <span>Tổng cộng:</span>
+          <span id="cartTotal">0đ</span>
         </div>
-        <button
-          class="btn-checkout"
-          onclick="showToast('🚧 Tính năng đang phát triển!')"
-        >
-          Thanh toán
-        </button>
+        <button class="btn-checkout" onclick="goToCheckout()">Thanh toán</button>
       </div>
     </div>
 
+    <!-- ===== CHAT WIDGET ===== -->
     <div class="chat-widget">
       <div class="chat-box" id="chatBox">
         <div class="chat-header">
           <div class="chat-agent">
             <div class="agent-avatar">MQ</div>
             <div>
-              <strong>Hỗ trợ khách hàng</strong
-              ><span class="agent-status">🟢 Đang trực tuyến</span>
+              <strong>Hỗ trợ khách hàng</strong>
+              <span class="agent-status">🟢 Đang trực tuyến</span>
             </div>
           </div>
           <button class="chat-close" id="chatClose">✕</button>
@@ -230,32 +193,21 @@
           </div>
         </div>
         <div class="chat-input-wrap">
-          <input
-            type="text"
-            id="chatInput"
-            placeholder="Nhập tin nhắn…"
-          /><button id="chatSend">➤</button>
+          <input type="text" id="chatInput" placeholder="Nhập tin nhắn…" />
+          <button id="chatSend">➤</button>
         </div>
       </div>
       <button class="chat-toggle" id="chatToggle">
         💬<span class="chat-dot">1</span>
       </button>
     </div>
+
     <div class="toast" id="toast"></div>
 
-    <script src="js/cart.js"></script>
+    <!-- ===== SCRIPTS – Đúng thứ tự, không inline ===== -->
     <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/main.js"></script>
-    <script>
-      // Count results after render
-      const observer = new MutationObserver(() => {
-        const count = document.querySelectorAll(".tour-card-dyn").length;
-        const el = document.getElementById("resultCount");
-        if (el) el.textContent = count;
-      });
-      observer.observe(document.getElementById("tourListContainer"), {
-        childList: true,
-      });
-    </script>
+
   </body>
 </html>

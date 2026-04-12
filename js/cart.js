@@ -200,3 +200,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("cartOverlay")?.addEventListener("click", closeCart);
   document.getElementById("cartCloseBtn")?.addEventListener("click", closeCart);
 });
+
+// ============================================================
+// goToCheckout – Nút Thanh toán trong giỏ hàng
+// ============================================================
+function goToCheckout() {
+  const cart = getCart();
+  if (cart.length === 0) {
+    showToast("🛒 Giỏ hàng đang trống!");
+    return;
+  }
+  // Chuyển sang checkout với mode=cart (không cần id)
+  window.location.href = "checkout.html?mode=cart";
+}
