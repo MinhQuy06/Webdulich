@@ -1,14 +1,7 @@
-/* ============================================================
-   admin.js – CRUD + Stats  (dùng api.js / json-server)
-   ⚠️  api.js phải load TRƯỚC admin.js
-   ============================================================ */
-
+// alo alo
 let adminTours = [];
 let editingId = null;
 
-// ════════════════════════════════════
-// HELPERS
-// ════════════════════════════════════
 const fmtV = (n) => parseInt(n || 0).toLocaleString("vi-VN") + "đ";
 
 function setEl(id, v) {
@@ -31,9 +24,6 @@ function setLoading(on) {
   if (el) el.classList.toggle("active", on);
 }
 
-// ════════════════════════════════════
-// STATS (mini bar trên section tours)
-// ════════════════════════════════════
 function updateMiniStats(tours) {
   const vn = tours.filter((t) => t.category === "vn").length;
   const nn = tours.filter((t) => t.category === "nn").length;
@@ -45,9 +35,6 @@ function updateMiniStats(tours) {
   setEl("countDiscount", dis);
 }
 
-// ════════════════════════════════════
-// RENDER TABLE
-// ════════════════════════════════════
 function renderTable(tours) {
   const tbody = document.getElementById("adminTbody");
   if (!tbody) return;
@@ -93,17 +80,14 @@ function renderTable(tours) {
         <td style="color:var(--accent);font-weight:700;white-space:nowrap">${fmtV(t.price)}</td>
         <td>${badge}</td>
         <td style="white-space:nowrap">
-          <button class="admin-btn edit-btn" onclick="openEdit(${t.id})">✏️ Sửa</button>
-          <button class="admin-btn del-btn"  onclick="handleDelete(${t.id})">🗑 Xóa</button>
+          <button class="admin-btn edit-btn" onclick="openEdit('${t.id}')">✏️ Sửa</button>
+          <button class="admin-btn del-btn"  onclick="handleDelete('${t.id}')">🗑 Xóa</button>
         </td>
       </tr>`;
     })
     .join("");
 }
 
-// ════════════════════════════════════
-// LOAD & RENDER (tours section)
-// ════════════════════════════════════
 let _searchTimer = null;
 
 async function loadAndRender(q = "") {
@@ -136,9 +120,6 @@ async function loadAndRender(q = "") {
   }
 }
 
-// ════════════════════════════════════
-// FORM MODAL
-// ════════════════════════════════════
 function openAdd() {
   editingId = null;
   setEl("formTitle", "➕ Thêm Tour Mới");
@@ -149,6 +130,7 @@ function openAdd() {
 }
 
 async function openEdit(id) {
+  id = String(id);
   setLoading(true);
   try {
     const t = await getTourById(id);
@@ -199,12 +181,8 @@ function closeModal() {
   editingId = null;
 }
 
-// ════════════════════════════════════
-// SAVE FORM
-// ════════════════════════════════════
 async function saveTour(e) {
   e.preventDefault();
-
   const name = document.getElementById("fName").value.trim();
   const location = document.getElementById("fLocation").value.trim();
   const category = document.getElementById("fCategory").value;
@@ -249,11 +227,18 @@ async function saveTour(e) {
 
   try {
     if (editingId !== null) {
-      const existing = adminTours.find((x) => x.id === editingId) || {};
+      const existing =
+        adminTours.find((x) => String(x.id) === String(editingId)) || {};
       await updateTour(editingId, { ...existing, ...data, id: editingId });
       showToast("✅ Cập nhật tour thành công!");
     } else {
-      await addTour(data);
+      // Tạo id số tự tăng thay vì để json-server tạo string
+      const allTours = await getTours();
+      const maxId = allTours.reduce(
+        (max, t) => Math.max(max, parseInt(t.id) || 0),
+        0,
+      );
+      await addTour({ ...data, id: String(maxId + 1) });
       showToast("✅ Thêm tour mới thành công!");
     }
     closeModal();
@@ -268,11 +253,9 @@ async function saveTour(e) {
   }
 }
 
-// ════════════════════════════════════
-// DELETE
-// ════════════════════════════════════
 async function handleDelete(id) {
-  const t = adminTours.find((x) => x.id === id);
+  id = String(id);
+  const t = adminTours.find((x) => String(x.id) === id);
   if (
     !confirm(
       `Xóa tour "${t?.name || "#" + id}"?\nHành động này không thể hoàn tác.`,
@@ -291,9 +274,6 @@ async function handleDelete(id) {
   }
 }
 
-// ════════════════════════════════════
-// STATS PAGE
-// ════════════════════════════════════
 async function renderStatsPage() {
   try {
     const tours = await getTours();
@@ -302,13 +282,11 @@ async function renderStatsPage() {
     const nn = tours.filter((t) => t.category === "nn").length;
     const discount = tours.filter((t) => (t.discount || 0) > 0).length;
 
-    // Big cards
     setEl("statTotal", total);
     setEl("statVN", vn);
     setEl("statNN", nn);
     setEl("statDiscount", discount);
 
-    // Progress bars on cards
     const setPct = (id, pct) => {
       const el = document.getElementById(id);
       if (el) el.style.width = Math.min(100, Math.max(4, pct)) + "%";
@@ -318,7 +296,6 @@ async function renderStatsPage() {
     setPct("barNN", total > 0 ? (nn / total) * 100 : 0);
     setPct("barDiscount", total > 0 ? (discount / total) * 100 : 0);
 
-    // Chart: loại tour
     const chartCat = document.getElementById("chartCategory");
     if (chartCat) {
       if (total === 0) {
@@ -345,7 +322,6 @@ async function renderStatsPage() {
       }
     }
 
-    // Chart: mức giá
     const chartPrice = document.getElementById("chartPrice");
     if (chartPrice) {
       const ranges = [
@@ -372,7 +348,6 @@ async function renderStatsPage() {
         .join("");
     }
 
-    // Top 5 đắt nhất
     const topBody = document.getElementById("statsTopBody");
     if (topBody) {
       const top5 = [...tours].sort((a, b) => b.price - a.price).slice(0, 5);
@@ -400,7 +375,6 @@ async function renderStatsPage() {
               .join("");
     }
 
-    // Tour giảm giá
     const discBody = document.getElementById("statsDiscountBody");
     if (discBody) {
       const disc = tours
@@ -433,20 +407,428 @@ async function renderStatsPage() {
   }
 }
 
+function showSection(section, navItem) {
+  // Hide all sections
+  document.querySelectorAll(".admin-section").forEach((el) => {
+    el.style.display = "none";
+  });
+
+  // Remove active class from all nav items
+  document.querySelectorAll(".snav-item").forEach((el) => {
+    el.classList.remove("active");
+  });
+
+  // Show the selected section
+  const sectionEl = document.getElementById(`section-${section}`);
+  if (sectionEl) sectionEl.style.display = "block";
+
+  // Add active class to nav item
+  if (navItem) navItem.classList.add("active");
+
+  // Update topbar title
+  const titles = {
+    tours: "Quản lý Tour",
+    orders: "Quản lý Khách hàng",
+    messages: "Tin nhắn hỗ trợ",
+    stats: "Thống kê",
+  };
+  const titleEl = document.getElementById("topbarTitle");
+  if (titleEl) titleEl.textContent = titles[section] || section;
+
+  // Load data if needed
+  if (section === "orders") loadOrders();
+  else if (section === "messages") loadMessages();
+  else if (section === "stats") renderStatsPage();
+}
+
 // ════════════════════════════════════
-// INIT
+//  ORDERS / CUSTOMERS MANAGEMENT
 // ════════════════════════════════════
+
+async function loadOrders() {
+  setLoading(true);
+  try {
+    const orders = await getOrders();
+    // Lấy thông tin users để có tên khách hàng (nếu cần)
+    const users = await getUsers();
+    renderOrdersTable(orders, users);
+  } catch (err) {
+    console.error(err);
+    showToast("❌ Không thể tải danh sách khách hàng", "error");
+  } finally {
+    setLoading(false);
+  }
+}
+
+function renderOrdersTable(orders, users) {
+  const tbody = document.getElementById("ordersTableBody");
+  if (!tbody) return;
+
+  if (!orders || orders.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="8" style="text-align:center;padding:40px;color:var(--text-muted)">
+          <div style="font-size:2.5rem;margin-bottom:10px">📭</div>
+          Chưa có đơn hàng nào
+        </td>
+      </tr>`;
+    return;
+  }
+
+  // Create user map for quick lookup
+  const userMap = {};
+  if (users && Array.isArray(users)) {
+    users.forEach((u) => {
+      userMap[String(u.id)] = u;
+    });
+  }
+
+  tbody.innerHTML = orders
+    .map((order) => {
+      const statusColors = {
+        paid: { bg: "#d4edda", text: "#155724", label: "✅ Đã thanh toán" },
+        pending: { bg: "#fff3cd", text: "#856404", label: "⏳ Chờ xử lý" },
+        cancelled: { bg: "#f8d7da", text: "#721c24", label: "❌ Đã hủy" },
+      };
+      const status = statusColors[order.status] || {
+        bg: "#e2e3e5",
+        text: "#383d41",
+        label: order.status,
+      };
+
+      // Get user info
+      const user = userMap[String(order.userId)] || {
+        fullname: `Khách #${order.userId}`,
+        email: "—",
+        phone: "—",
+      };
+      const date = new Date(order.createdAt || order.date);
+      const dateStr = date.toLocaleDateString("vi-VN");
+
+      return `
+      <tr>
+        <td style="color:var(--text-muted);font-size:.78rem;font-weight:600">#${order.id}</td>
+        <td>
+          <div style="font-size:.87rem;color:var(--text);font-weight:500">${user.fullname}</div>
+          <small style="color:var(--text-muted);font-size:.72rem">${user.email || "—"}</small>
+        </td>
+        <td style="font-size:.84rem;color:var(--text-muted)">${order.tourName || "—"}</td>
+        <td style="font-size:.84rem;color:var(--text-muted);text-align:center">${order.quantity || 0}</td>
+        <td style="color:var(--accent);font-weight:700;white-space:nowrap">${fmtV(order.total)}</td>
+        <td>
+          <span style="background:${status.bg};color:${status.text};padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:600">
+            ${status.label}
+          </span>
+        </td>
+        <td style="color:var(--text-muted);font-size:.84rem">${dateStr}</td>
+        <td style="white-space:nowrap">
+          <button class="admin-btn edit-btn" onclick="openEditOrderModal('${order.id}')">
+            ✏️ Sửa
+          </button>
+          <button class="admin-btn del-btn" onclick="deleteOrderRecord('${order.id}')">
+            🗑 Xóa
+          </button>
+        </td>
+      </tr>`;
+    })
+    .join("");
+}
+
+async function deleteOrderRecord(orderId) {
+  if (!confirm("Xóa đơn hàng này? Hành động không thể hoàn tác.")) return;
+
+  setLoading(true);
+  try {
+    await deleteOrder(orderId);
+    showToast("✅ Xóa đơn hàng thành công!");
+    await loadOrders();
+  } catch (err) {
+    showToast("❌ Lỗi xóa: " + err.message, "error");
+  } finally {
+    setLoading(false);
+  }
+}
+
+let editingOrder = null;
+
+async function openEditOrderModal(orderId) {
+  setLoading(true);
+  try {
+    const orders = await getOrders();
+    const users = await getUsers();
+    const order = orders.find((o) => String(o.id) === String(orderId));
+
+    if (!order) {
+      showToast("❌ Không tìm thấy đơn hàng!", "error");
+      return;
+    }
+
+    editingOrder = order;
+    const user = users.find((u) => String(u.id) === String(order.userId)) || {
+      fullname: "—",
+    };
+
+    // Set form values
+    document.getElementById("eOrderId").textContent = order.id;
+    document.getElementById("eCustomerName").textContent = user.fullname;
+    document.getElementById("eTourName").textContent = order.tourName;
+    document.getElementById("ePrice").textContent = fmtV(order.price);
+    document.getElementById("eQuantity").value = order.quantity || 0;
+    document.getElementById("eDate").value = order.date || "";
+    document.getElementById("ePaymentMethod").value =
+      order.paymentMethod || "bank";
+    document.getElementById("eStatus").value = order.status || "pending";
+
+    // Remove lại listener cũ nếu có
+    const quantityEl = document.getElementById("eQuantity");
+    const newQuantityEl = quantityEl.cloneNode(true);
+    quantityEl.parentNode.replaceChild(newQuantityEl, quantityEl);
+
+    // Thêm listener mới
+    document
+      .getElementById("eQuantity")
+      .addEventListener("input", updateOrderTotal);
+
+    // Tính tổng ban đầu
+    updateOrderTotal();
+
+    openOrderModal();
+  } catch (err) {
+    showToast("❌ Lỗi tải đơn hàng: " + err.message, "error");
+  } finally {
+    setLoading(false);
+  }
+}
+
+function updateOrderTotal() {
+  const quantity = parseInt(document.getElementById("eQuantity").value) || 0;
+  const price = editingOrder?.price || 0;
+  const total = quantity * price;
+  document.getElementById("eTotal").textContent = fmtV(total);
+}
+
+function openOrderModal() {
+  document.getElementById("orderEditModal").classList.add("open");
+  document.getElementById("orderEditOverlay").classList.add("open");
+}
+
+function closeOrderModal() {
+  document.getElementById("orderEditModal").classList.remove("open");
+  document.getElementById("orderEditOverlay").classList.remove("open");
+  editingOrder = null;
+}
+
+async function saveOrderChanges(e) {
+  e.preventDefault();
+
+  if (!editingOrder) return;
+
+  const quantity = parseInt(document.getElementById("eQuantity").value) || 0;
+  const date = document.getElementById("eDate").value || editingOrder.date;
+  const paymentMethod = document.getElementById("ePaymentMethod").value;
+  const status = document.getElementById("eStatus").value;
+  const total = quantity * (editingOrder.price || 0);
+
+  if (!quantity || !date) {
+    showToast("❌ Vui lòng điền đủ thông tin!", "error");
+    return;
+  }
+
+  setLoading(true);
+  try {
+    await patchOrder(editingOrder.id, {
+      quantity,
+      date,
+      paymentMethod,
+      status,
+      total,
+    });
+    showToast("✅ Cập nhật đơn hàng thành công!");
+    closeOrderModal();
+    await loadOrders();
+  } catch (err) {
+    showToast("❌ Lỗi: " + err.message, "error");
+  } finally {
+    setLoading(false);
+  }
+}
+
+// ════════════════════════════════════
+//  MESSAGES / SUPPORT MANAGEMENT
+// ════════════════════════════════════
+
+async function loadMessages() {
+  setLoading(true);
+  try {
+    const [messages, users] = await Promise.all([getContacts(), getUsers()]);
+    renderMessagesTable(messages, users);
+  } catch (err) {
+    console.error(err);
+    showToast("❌ Không thể tải tin nhắn", "error");
+  } finally {
+    setLoading(false);
+  }
+}
+
+function renderMessagesTable(messages, users = []) {
+  const tbody = document.getElementById("messagesTableBody");
+  if (!tbody) return;
+
+  if (!messages || messages.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="8" style="text-align:center;padding:40px;color:var(--text-muted)">
+          <div style="font-size:2.5rem;margin-bottom:10px">📭</div>
+          Chưa có tin nhắn nào
+        </td>
+      </tr>`;
+    return;
+  }
+
+  // Create user map for quick lookup
+  const userMap = {};
+  if (users && Array.isArray(users)) {
+    users.forEach((u) => {
+      userMap[String(u.id)] = u;
+    });
+  }
+
+  tbody.innerHTML = messages
+    .map((msg) => {
+      const statusColors = {
+        new: { bg: "#d4edda", text: "#155724", label: "🆕 Mới" },
+        in_progress: { bg: "#cfe2ff", text: "#084298", label: "⏳ Đang xử lý" },
+        done: { bg: "#d1e7dd", text: "#0f5132", label: "✅ Hoàn tất" },
+      };
+      const status = statusColors[msg.status] || {
+        bg: "#e2e3e5",
+        text: "#383d41",
+        label: msg.status,
+      };
+
+      const msgPreview = (msg.message || "").substring(0, 50);
+      const date = new Date(msg.createdAt);
+      const dateStr = date.toLocaleDateString("vi-VN");
+
+      // Nếu msg có userId, lấy thông tin từ user map, còn không dùng name/email từ msg
+      const displayName =
+        msg.userId && userMap[String(msg.userId)]
+          ? userMap[String(msg.userId)].fullname
+          : msg.name || "—";
+      const displayEmail =
+        msg.userId && userMap[String(msg.userId)]
+          ? userMap[String(msg.userId)].email
+          : msg.email || "—";
+
+      return `
+      <tr>
+        <td style="color:var(--text-muted);font-size:.78rem;font-weight:600">#${msg.id}</td>
+        <td style="font-size:.86rem;color:var(--text);font-weight:500">${displayName}</td>
+        <td style="font-size:.84rem;color:var(--text-muted)">${displayEmail}</td>
+        <td style="font-size:.84rem;color:var(--text-muted)">${msg.phone || "—"}</td>
+        <td style="font-size:.84rem;color:var(--text)">${msg.subject || "—"}</td>
+        <td style="font-size:.82rem;color:var(--text-muted)" title="${msg.message}">${msgPreview}${msg.message && msg.message.length > 50 ? "..." : ""}</td>
+        <td>
+          <span style="background:${status.bg};color:${status.text};padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:600">
+            ${status.label}
+          </span>
+        </td>
+        <td style="white-space:nowrap">
+          <button class="admin-btn edit-btn" onclick="viewMessage('${msg.id}')">
+            👁️ Xem
+          </button>
+          <button class="admin-btn del-btn" onclick="deleteMessage('${msg.id}')">
+            🗑 Xóa
+          </button>
+        </td>
+      </tr>`;
+    })
+    .join("");
+}
+
+async function viewMessage(messageId) {
+  try {
+    const messages = await getContacts();
+    const msg = messages.find((m) => String(m.id) === String(messageId));
+    if (!msg) {
+      showToast("❌ Không tìm thấy tin nhắn", "error");
+      return;
+    }
+
+    const detail = `
+📧 Từ: ${msg.name}
+✉️ Email: ${msg.email}
+📱 Phone: ${msg.phone}
+🎯 Chủ đề: ${msg.subject}
+📅 Ngày: ${new Date(msg.createdAt).toLocaleString("vi-VN")}
+
+📝 Nội dung:
+${msg.message}
+
+Trạng thái hiện tại: ${msg.status}
+Chọn trạng thái mới: new | in_progress | done`;
+
+    const userChoice = prompt(detail, msg.status);
+    if (userChoice === null || userChoice === msg.status) return;
+
+    setLoading(true);
+    try {
+      await patchContact(messageId, { status: userChoice });
+      showToast("✅ Cập nhật trạng thái tin nhắn thành công!");
+      await loadMessages();
+    } finally {
+      setLoading(false);
+    }
+  } catch (err) {
+    setLoading(false);
+    showToast("❌ Lỗi: " + err.message, "error");
+  }
+}
+
+async function deleteMessage(messageId) {
+  if (!confirm("Xóa tin nhắn này? Hành động không thể hoàn tác.")) return;
+
+  setLoading(true);
+  try {
+    await deleteContact(messageId);
+    showToast("✅ Xóa tin nhắn thành công!");
+    await loadMessages();
+  } catch (err) {
+    showToast("❌ Lỗi xóa: " + err.message, "error");
+  } finally {
+    setLoading(false);
+  }
+}
+
+function refreshAll() {
+  const activeSection =
+    document.getElementById("section-tours").style.display !== "none"
+      ? "tours"
+      : document.getElementById("section-orders").style.display !== "none"
+        ? "orders"
+        : document.getElementById("section-messages").style.display !== "none"
+          ? "messages"
+          : "stats";
+
+  if (activeSection === "tours") {
+    loadAndRender(document.getElementById("adminSearch")?.value || "");
+  } else if (activeSection === "orders") {
+    loadOrders();
+  } else if (activeSection === "messages") {
+    loadMessages();
+  } else if (activeSection === "stats") {
+    renderStatsPage();
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
-  // Load dữ liệu tours
   await loadAndRender();
 
-  // Search (debounce)
   document.getElementById("adminSearch")?.addEventListener("input", (e) => {
     clearTimeout(_searchTimer);
     _searchTimer = setTimeout(() => loadAndRender(e.target.value), 350);
   });
 
-  // Form
   document.getElementById("tourForm")?.addEventListener("submit", saveTour);
   document.getElementById("addTourBtn")?.addEventListener("click", openAdd);
   document
@@ -457,10 +839,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     ?.addEventListener("click", closeModal);
   document.getElementById("formOverlay")?.addEventListener("click", closeModal);
 
-  // Sidebar mobile toggle
+  // Order edit form listeners
+  document
+    .getElementById("orderEditForm")
+    ?.addEventListener("submit", saveOrderChanges);
+  document
+    .getElementById("closeOrderEditBtn")
+    ?.addEventListener("click", closeOrderModal);
+  document
+    .getElementById("cancelOrderEditBtn")
+    ?.addEventListener("click", closeOrderModal);
+  document
+    .getElementById("orderEditOverlay")
+    ?.addEventListener("click", closeOrderModal);
+
   document.getElementById("sidebarToggle")?.addEventListener("click", () => {
     const sb = document.getElementById("sidebar");
-    // Mobile: dùng class mobile-open; Desktop: dùng collapsed
     if (window.innerWidth <= 768) sb.classList.toggle("mobile-open");
     else {
       sb.classList.toggle("collapsed");

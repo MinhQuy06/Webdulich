@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Trang cá nhân - MinhQuy Travel. Quản lý tài khoản, xem đơn hàng đã mua." />
+    <link rel="stylesheet" href="css/shared.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+    <title>Tôi – MinhQuy Travel</title>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="img/logo.jpg" alt="MinhQuy Travel" />
+          <span class="logo-text">MinhQuy<b>Travel</b></span>
+        </div>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li class="has-dropdown">
+            <a href="tour.html">Tours ▾</a>
+            <ul class="dropdown">
+              <li><a href="tour.html#vn"><span class="flag-vn"></span> Việt Nam</a></li>
+              <li><a href="tour.html#nn">🌍 Nước ngoài</a></li>
+            </ul>
+          </li>
+          <li><a href="hotels.html">Khách sạn</a></li>
+          <li><a href="giave.html">Giá vé</a></li>
+          <li><a href="hotro.html">Hỗ trợ</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="cart-btn" title="Giỏ hàng">
+            🛒 <span class="cart-badge">0</span>
+          </button>
+          <a class="btn-login" href="profile.html" id="navProfileBtn">👤 Tôi</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN PROFILE CONTENT -->
+    <main class="profile-main">
+      <!-- State: NOT LOGGED IN -->
+      <section class="profile-card" id="profileNotLogged" style="display:none;">
+        <div class="profile-card-inner">
+          <div class="profile-empty-icon">
+            <div class="empty-avatar-ring">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="38" stroke="url(#grad1)" stroke-width="3" stroke-dasharray="6 4"/>
+                <circle cx="40" cy="30" r="12" fill="#c5d0e6"/>
+                <ellipse cx="40" cy="56" rx="18" ry="12" fill="#c5d0e6"/>
+                <defs>
+                  <linearGradient id="grad1" x1="0" y1="0" x2="80" y2="80">
+                    <stop offset="0%" stop-color="#0068ff"/>
+                    <stop offset="100%" stop-color="#ff6b00"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <h2 class="profile-empty-title">Bạn chưa đăng nhập</h2>
+          <p class="profile-empty-sub">Đăng nhập để quản lý tài khoản, xem đơn hàng và nhận ưu đãi đặc biệt.</p>
+          <a href="login.html" class="btn-login-large" id="btnGoLogin">
+            <span class="btn-login-icon">🔑</span>
+            Đăng nhập ngay
+          </a>
+          <p class="profile-signup-hint">
+            Chưa có tài khoản? <a href="signup.html">Đăng ký miễn phí</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- State: LOGGED IN -->
+      <section class="profile-logged" id="profileLogged" style="display:none;">
+        <!-- User Header -->
+        <div class="profile-header-card">
+          <div class="profile-header-bg"></div>
+          <div class="profile-header-content">
+            <div class="profile-avatar-wrap">
+              <div class="profile-avatar" id="profileAvatar">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="50" fill="url(#avatarGrad)"/>
+                  <circle cx="50" cy="38" r="16" fill="rgba(255,255,255,0.9)"/>
+                  <ellipse cx="50" cy="72" rx="24" ry="16" fill="rgba(255,255,255,0.9)"/>
+                  <defs>
+                    <linearGradient id="avatarGrad" x1="0" y1="0" x2="100" y2="100">
+                      <stop offset="0%" stop-color="#0068ff"/>
+                      <stop offset="100%" stop-color="#667eea"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div class="profile-online-dot"></div>
+            </div>
+            <div class="profile-user-info">
+              <h1 class="profile-username" id="profileUsername">--</h1>
+              <p class="profile-email" id="profileEmail">--</p>
+              <span class="profile-member-badge">✨ Thành viên MinhQuy Travel</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="profile-stats-row">
+          <div class="stat-box">
+            <div class="stat-box-icon">🛒</div>
+            <div class="stat-box-value" id="statOrders">--</div>
+            <div class="stat-box-label">Đơn hàng</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-icon">✅</div>
+            <div class="stat-box-value" id="statPaid">--</div>
+            <div class="stat-box-label">Đã thanh toán</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-box-icon">⏳</div>
+            <div class="stat-box-value" id="statPending">--</div>
+            <div class="stat-box-label">Chờ xử lý</div>
+          </div>
+        </div>
+
+        <!-- Menu List -->
+        <div class="profile-menu-card">
+          <h3 class="profile-menu-title">Tài khoản của tôi</h3>
+          <ul class="profile-menu-list">
+            <li>
+              <a href="orders.html" class="profile-menu-item" id="menuOrders">
+                <span class="menu-icon menu-icon-orders">📦</span>
+                <div class="menu-text">
+                  <span class="menu-label">Đã mua</span>
+                  <span class="menu-desc">Xem lại đơn hàng, trạng thái thanh toán</span>
+                </div>
+                <span class="menu-arrow">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="index.html" class="profile-menu-item">
+                <span class="menu-icon menu-icon-home">🏠</span>
+                <div class="menu-text">
+                  <span class="menu-label">Trang chủ</span>
+                  <span class="menu-desc">Khám phá tour mới, ưu đãi hấp dẫn</span>
+                </div>
+                <span class="menu-arrow">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="tour.html" class="profile-menu-item">
+                <span class="menu-icon menu-icon-tour">✈️</span>
+                <div class="menu-text">
+                  <span class="menu-label">Danh sách Tour</span>
+                  <span class="menu-desc">Tìm kiếm và đặt tour yêu thích</span>
+                </div>
+                <span class="menu-arrow">›</span>
+              </a>
+            </li>
+            <li>
+              <a href="hotro.html" class="profile-menu-item">
+                <span class="menu-icon menu-icon-support">💬</span>
+                <div class="menu-text">
+                  <span class="menu-label">Hỗ trợ</span>
+                  <span class="menu-desc">Liên hệ tư vấn, giải đáp thắc mắc</span>
+                </div>
+                <span class="menu-arrow">›</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="profile-logout-wrap">
+          <button class="btn-logout" id="btnLogout">
+            <span class="logout-icon">🚪</span>
+            Đăng xuất
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">✈ MinhQuy<b>Travel</b></div>
+          <p>"Hành trình khám phá thế giới – Kỷ niệm những trải nghiệm đáng nhớ"</p>
+        </div>
+        <div class="footer-col">
+          <h4>Liên hệ</h4>
+          <p>📍 123 Đường ABC, Quận XYZ, TP.HCM<br />📞 0123 456 789<br />✉️ info@minhquytravel.com</p>
+        </div>
+        <div class="footer-col">
+          <h4>Nhận ưu đãi</h4>
+          <p>Đăng ký nhận thông tin tour mới nhất!</p>
+          <div class="footer-email">
+            <input type="email" placeholder="Email của bạn…" />
+            <button type="button">Gửi</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MinhQuy Travel. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- CART DRAWER -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3>🛒 Giỏ hàng</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Tổng cộng:</span><span id="cartTotal">0đ</span>
+        </div>
+        <button class="btn-checkout" onclick="goToCheckout()">Thanh toán</button>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html>

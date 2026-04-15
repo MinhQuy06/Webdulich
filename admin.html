@@ -64,6 +64,28 @@
           </a>
           <a
             class="snav-item"
+            id="nav-orders"
+            href="#"
+            onclick="
+              showSection('orders', this);
+              return false;
+            "
+          >
+            👥 Khách hàng
+          </a>
+          <a
+            class="snav-item"
+            id="nav-messages"
+            href="#"
+            onclick="
+              showSection('messages', this);
+              return false;
+            "
+          >
+            💬 Tin nhắn hỗ trợ
+          </a>
+          <a
+            class="snav-item"
             id="nav-stats"
             href="#"
             onclick="
@@ -177,6 +199,94 @@
                   <td colspan="7" class="table-loading">
                     <div class="spinner"></div>
                     Đang tải dữ liệu…
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ─────────────────────────────────────
+         SECTION: QUẢN LÝ ĐƠN HÀNG / KHÁCH HÀNG
+    ───────────────────────────────────── -->
+        <section
+          id="section-orders"
+          class="admin-section"
+          style="display: none"
+        >
+          <div class="orders-header">
+            <div>
+              <h2 class="section-title">👥 Quản lý Khách hàng</h2>
+              <p class="section-sub">Danh sách các đơn hàng và khách hàng</p>
+            </div>
+            <button class="btn-reload-stats" onclick="loadOrders()">
+              ⟳ Làm mới
+            </button>
+          </div>
+
+          <div class="table-card">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tên khách hàng</th>
+                  <th>Tour</th>
+                  <th>Số lượng</th>
+                  <th>Tổng tiền</th>
+                  <th>Trạng thái</th>
+                  <th>Ngày đặt</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody">
+                <tr>
+                  <td colspan="8" class="table-loading">
+                    <div class="spinner"></div>
+                    Đang tải…
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ─────────────────────────────────────
+         SECTION: TIN NHẮN HỖ TRỢ
+    ───────────────────────────────────── -->
+        <section
+          id="section-messages"
+          class="admin-section"
+          style="display: none"
+        >
+          <div class="messages-header">
+            <div>
+              <h2 class="section-title">💬 Tin nhắn hỗ trợ</h2>
+              <p class="section-sub">Quản lý các yêu cầu từ khách hàng</p>
+            </div>
+            <button class="btn-reload-stats" onclick="loadMessages()">
+              ⟳ Làm mới
+            </button>
+          </div>
+
+          <div class="table-card">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tên khách hàng</th>
+                  <th>Email</th>
+                  <th>Điện thoại</th>
+                  <th>Chủ đề</th>
+                  <th>Tin nhắn</th>
+                  <th>Trạng thái</th>
+                  <th>Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="messagesTableBody">
+                <tr>
+                  <td colspan="8" class="table-loading">
+                    <div class="spinner"></div>
+                    Đang tải…
                   </td>
                 </tr>
               </tbody>
@@ -432,92 +542,118 @@
       </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════
+     ORDER EDIT MODAL
+═══════════════════════════════════════════ -->
+    <div class="modal-overlay" id="orderEditOverlay"></div>
+    <div class="form-modal" id="orderEditModal">
+      <div class="form-modal-hdr">
+        <h3>✏️ Chỉnh sửa Đơn hàng #<span id="eOrderId">—</span></h3>
+        <button class="modal-close" id="closeOrderEditBtn">✕</button>
+      </div>
+      <form id="orderEditForm" novalidate>
+        <div class="fm-grid">
+          <div class="fm-group fm-full">
+            <label>Khách hàng</label>
+            <div
+              style="
+                padding: 10px;
+                background: #f5f5f5;
+                border-radius: 4px;
+                color: var(--text);
+              "
+            >
+              <strong id="eCustomerName">—</strong>
+            </div>
+          </div>
+          <div class="fm-group fm-full">
+            <label>Tour</label>
+            <div
+              style="
+                padding: 10px;
+                background: #f5f5f5;
+                border-radius: 4px;
+                color: var(--text);
+              "
+            >
+              <strong id="eTourName">—</strong>
+            </div>
+          </div>
+          <div class="fm-group fm-full">
+            <label>Giá/người</label>
+            <div
+              style="
+                padding: 10px;
+                background: #f5f5f5;
+                border-radius: 4px;
+                color: var(--accent);
+                font-weight: 700;
+              "
+            >
+              <span id="ePrice">—</span>
+            </div>
+          </div>
+          <div class="fm-group">
+            <label>Số lượng người <span class="req">*</span></label>
+            <input
+              type="number"
+              id="eQuantity"
+              min="1"
+              placeholder="2"
+              required
+            />
+          </div>
+          <div class="fm-group">
+            <label>Ngày đi <span class="req">*</span></label>
+            <input type="date" id="eDate" required />
+          </div>
+          <div class="fm-group">
+            <label>Phương thức thanh toán</label>
+            <select id="ePaymentMethod">
+              <option value="bank">🏦 Chuyển khoản</option>
+              <option value="card">💳 Thẻ tín dụng</option>
+              <option value="cash">💵 Tiền mặt</option>
+              <option value="momo">📱 MoMo</option>
+            </select>
+          </div>
+          <div class="fm-group">
+            <label>Trạng thái</label>
+            <select id="eStatus">
+              <option value="pending">⏳ Chờ xử lý</option>
+              <option value="paid">✅ Đã thanh toán</option>
+              <option value="cancelled">❌ Đã hủy</option>
+            </select>
+          </div>
+          <div class="fm-group fm-full">
+            <label>Tổng tiền</label>
+            <div
+              style="
+                padding: 10px;
+                background: #f5f5f5;
+                border-radius: 4px;
+                color: var(--accent);
+                font-weight: 700;
+                font-size: 1.1rem;
+              "
+            >
+              <span id="eTotal">—</span>
+            </div>
+          </div>
+        </div>
+        <div class="fm-actions">
+          <button type="button" class="btn-cancel" id="cancelOrderEditBtn">
+            Hủy
+          </button>
+          <button type="submit" class="btn-save">💾 Lưu thay đổi</button>
+        </div>
+      </form>
+    </div>
+
     <!-- Toast -->
     <div class="admin-toast" id="adminToast"></div>
 
     <script src="js/api.js"></script>
+    <script src="js/loginadmin.js"></script>
     <script src="js/admin.js"></script>
-    <script>
-      /* ─── LOGIN ─── */
-      const SESSION_KEY = "mq_admin_logged";
-
-      function checkSession() {
-        if (sessionStorage.getItem(SESSION_KEY) === "1") showAdmin();
-      }
-
-      function showAdmin() {
-        document.getElementById("loginGate").style.display = "none";
-        document.getElementById("adminLayout").style.display = "flex";
-      }
-
-      document.getElementById("loginBtn").addEventListener("click", () => {
-        const u = document.getElementById("adminUser").value.trim();
-        const p = document.getElementById("adminPass").value.trim();
-        const e = document.getElementById("loginErr");
-        if (u === "admin" && p === "admin123") {
-          sessionStorage.setItem(SESSION_KEY, "1");
-          e.textContent = "";
-          showAdmin();
-        } else {
-          e.textContent = "❌ Sai tên đăng nhập hoặc mật khẩu!";
-        }
-      });
-
-      ["adminUser", "adminPass"].forEach((id) =>
-        document.getElementById(id).addEventListener("keydown", (e) => {
-          if (e.key === "Enter") document.getElementById("loginBtn").click();
-        }),
-      );
-
-      document.getElementById("logoutBtn").addEventListener("click", () => {
-        sessionStorage.removeItem(SESSION_KEY);
-        location.reload();
-      });
-
-      /* ─── SIDEBAR TOGGLE ─── */
-      document.getElementById("sidebarToggle").addEventListener("click", () => {
-        document.getElementById("sidebar").classList.toggle("collapsed");
-        document.getElementById("adminMain").classList.toggle("expanded");
-      });
-
-      /* ─── SECTION SWITCH ─── */
-      function showSection(name, el) {
-        ["tours", "stats"].forEach((s) => {
-          document.getElementById(`section-${s}`).style.display =
-            s === name ? "block" : "none";
-          document
-            .getElementById(`nav-${s}`)
-            ?.classList.toggle("active", s === name);
-        });
-        const titles = { tours: "Quản lý Tour", stats: "📊 Thống kê" };
-        document.getElementById("topbarTitle").textContent =
-          titles[name] || name;
-        if (name === "stats") renderStatsPage();
-      }
-
-      /* ─── IMAGE PREVIEW ─── */
-      document.getElementById("fImage").addEventListener("input", function () {
-        const prev = document.getElementById("fImagePreview");
-        if (this.value) {
-          prev.src = this.value;
-          prev.style.display = "block";
-          prev.onerror = () => (prev.style.display = "none");
-        } else {
-          prev.style.display = "none";
-        }
-      });
-
-      /* ─── REFRESH ─── */
-      function refreshAll() {
-        const cur =
-          document.getElementById("section-stats").style.display !== "none"
-            ? "stats"
-            : "tours";
-        if (cur === "stats") renderStatsPage();
-        else loadAndRender(document.getElementById("adminSearch")?.value || "");
-      }
-
-      checkSession();
-    </script>
   </body>
 </html>

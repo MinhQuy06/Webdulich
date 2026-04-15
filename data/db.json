@@ -11,7 +11,7 @@
       "rating": 4.7,
       "price": 1500000,
       "discount": 0,
-      "slots": 8,
+      "slots": 7,
       "description": "Khám phá Bà Nà Hills với Cầu Vàng nổi tiếng, làng Pháp cổ kính và cảnh quan núi non hùng vĩ. Tour bao gồm hướng dẫn viên chuyên nghiệp, khách sạn 3 sao và các bữa ăn chính.",
       "itinerary": [
         {
@@ -146,7 +146,7 @@
       "rating": 4.9,
       "price": 500000,
       "discount": 0,
-      "slots": 12,
+      "slots": 11,
       "description": "Dạo bước trên những con phố đèn lồng lung linh, thả hoa đăng trên sông Hoài. Trải nghiệm văn hóa phố cổ được UNESCO công nhận di sản thế giới.",
       "itinerary": [
         {
@@ -240,7 +240,7 @@
       "rating": 4.8,
       "price": 2000000,
       "discount": 25,
-      "slots": 4,
+      "slots": 2,
       "description": "Đảo ngọc Phú Quốc với bãi biển xanh trong, san hô đẹp và resort sang trọng. Tận hưởng không khí biển đảo và trải nghiệm cuộc sống người dân đảo.",
       "itinerary": [
         {
@@ -372,7 +372,7 @@
       "rating": 4.6,
       "price": 1000000,
       "discount": 0,
-      "slots": 10,
+      "slots": 9,
       "description": "Leo núi Bà Đen huyền thoại với cáp treo hiện đại và lễ hội văn hóa đặc sắc. Điểm du lịch tâm linh nổi tiếng nhất Tây Nguyên.",
       "itinerary": [
         {
@@ -656,7 +656,7 @@
       "rating": 4.9,
       "price": 5000000,
       "discount": 20,
-      "slots": 6,
+      "slots": 1,
       "description": "Khám phá thủ đô hiện đại nhất thế giới với công nghệ tiên tiến và văn hóa truyền thống. Nơi giao thoa giữa cổ xưa và hiện đại.",
       "itinerary": [
         {
@@ -1640,7 +1640,155 @@
       "itinerary": [],
       "includes": [],
       "excludes": [],
-      "id": "ZZw5a2Y-Glc"
+      "id": "13"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "minhquy",
+      "password": "123456",
+      "fullname": "Minh Quy",
+      "email": "minhquy@gmail.com",
+      "phone": "0901234567"
+    },
+    {
+      "id": "2",
+      "username": "ngochan",
+      "password": "123456",
+      "fullname": "Ngọc Hân",
+      "email": "ngochan@gmail.com",
+      "phone": "0912345678"
+    },
+    {
+      "username": "leminhquy05.01.2006",
+      "password": "123456",
+      "fullname": "Hau",
+      "email": "leminhquy05.01.2006@gmail.com",
+      "phone": "0203214546",
+      "id": "pjd5X3MWgqo"
+    },
+    {
+      "username": "leminhquyy05.01.2006",
+      "password": "123456",
+      "fullname": "hau",
+      "email": "leminhquyy05.01.2006@gmail.com",
+      "phone": "025616565",
+      "id": "X5tS1o2VkqQ"
+    },
+    {
+      "username": "hau",
+      "password": "123456",
+      "fullname": "hau",
+      "email": "leminhhquy05.01.2006@gmail.com",
+      "phone": "003216548",
+      "id": "37rzal8WQbU"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": 1,
+      "tourName": "Phú Quốc – Đảo Ngọc",
+      "tourImage": "img/phuquoc.jpg",
+      "price": 2000000,
+      "quantity": 2,
+      "total": 4000000,
+      "status": "pending",
+      "date": "2026-05-10",
+      "createdAt": "2026-04-01T10:30:00Z"
+    },
+    {
+      "id": "2",
+      "userId": 1,
+      "tourName": "Tokyo – Nhật Bản",
+      "tourImage": "img/tokyo.jpg",
+      "price": 5000000,
+      "quantity": 1,
+      "total": 5000000,
+      "status": "pending",
+      "date": "2026-06-20",
+      "createdAt": "2026-04-10T14:00:00Z"
+    },
+    {
+      "id": "3",
+      "userId": 2,
+      "tourName": "Ba Na Hills – Đà Nẵng",
+      "tourImage": "img/banahilljpg.jpg",
+      "price": 1500000,
+      "quantity": 3,
+      "total": 4500000,
+      "status": "paid",
+      "date": "2026-05-15",
+      "createdAt": "2026-04-05T09:00:00Z"
+    },
+    {
+      "id": "4",
+      "userId": 1,
+      "tourName": "Bangkok – Thái Lan",
+      "tourImage": "img/bangkok.jpg",
+      "price": 3000000,
+      "quantity": 2,
+      "total": 6000000,
+      "status": "paid",
+      "date": "2026-07-01",
+      "createdAt": "2026-04-12T16:45:00Z"
+    },
+    {
+      "userId": "1",
+      "tourName": "Tokyo",
+      "tourImage": "img/tokyo.jpg",
+      "price": 5000000,
+      "quantity": 1,
+      "total": 5000000,
+      "status": "paid",
+      "date": "2026-06-06",
+      "createdAt": "2026-04-14T14:40:08.012Z",
+      "id": "j2jMFOAtj2g"
+    },
+    {
+      "userId": "1",
+      "tourName": "Bà Đen",
+      "tourImage": "img/sunworld-ba-den.jpg",
+      "price": 1000000,
+      "quantity": 1,
+      "total": 1000000,
+      "status": "paid",
+      "date": "2026-06-06",
+      "createdAt": "2026-04-14T14:40:08.017Z",
+      "id": "M4LR67XRqmc"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "1",
+      "name": "Nguyễn Văn A",
+      "email": "nguyenvana@gmail.com",
+      "phone": "0901234567",
+      "subject": "Đặt tour",
+      "message": "Tôi muốn hỏi thông tin về tour Phú Quốc cho 4 người vào tháng 6.",
+      "status": "new",
+      "createdAt": "2026-04-10T08:30:00Z"
+    },
+    {
+      "id": "2",
+      "name": "Trần Thị B",
+      "email": "tranthib@gmail.com",
+      "phone": "0912345678",
+      "subject": "Hủy / Đổi tour",
+      "message": "Tôi muốn đổi ngày tour Tokyo từ 20/6 sang 25/6. Xin hãy liên hệ lại.",
+      "status": "done",
+      "createdAt": "2026-04-08T14:15:00Z"
+    },
+    {
+      "name": "Hau",
+      "email": "leminhquy05.01.2006@gmail.com",
+      "phone": "01093346546",
+      "subject": "Hủy / Đổi tour",
+      "message": "Không muốn đi nữa",
+      "status": "new",
+      "createdAt": "2026-04-15T14:29:54.189Z",
+      "id": "zlXQIbHeEWI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

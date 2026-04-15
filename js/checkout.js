@@ -1,21 +1,9 @@
-/* ============================================================
-   checkout.js – Trang thanh toán
-   Hỗ trợ 2 mode:
-   1. checkout.html?id=X&qty=Y   → Đặt 1 tour cụ thể
-   2. checkout.html?mode=cart     → Thanh toán toàn bộ giỏ hàng
-   ============================================================ */
-
-// ─── State ───────────────────────────────────────────────────
 let _mode = "single"; // 'single' | 'cart'
 let _singleTour = null;
 let _singleQty = 1;
 let _singlePrice = 0;
 let _currentStep = 1;
 
-// ─── Helpers ─────────────────────────────────────────────────
-// fmtVnd, CART_KEY, getCart, saveCart đã được khai báo trong cart.js — dùng lại trực tiếp
-
-// ─── Step progress ───────────────────────────────────────────
 function goToStep(step) {
   _currentStep = step;
   document.querySelectorAll(".step").forEach((el, i) => {
@@ -24,9 +12,6 @@ function goToStep(step) {
   });
 }
 
-// ════════════════════════════════════════════════════════════
-// LOAD DỮ LIỆU
-// ════════════════════════════════════════════════════════════
 async function loadSingleTour(id) {
   try {
     return await getTourById(id);
@@ -55,9 +40,6 @@ async function loadSingleTour(id) {
   return null;
 }
 
-// ════════════════════════════════════════════════════════════
-// RENDER ORDER SUMMARY
-// ════════════════════════════════════════════════════════════
 function renderSummary() {
   const box = document.getElementById("summaryContent");
   if (!box) return;
@@ -69,7 +51,6 @@ function renderSummary() {
   }
 }
 
-/* ── Mode: CART ── */
 function renderCartSummary(box) {
   const cart = getCart();
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
@@ -109,12 +90,10 @@ function renderCartSummary(box) {
       </div>
     </div>`;
 
-  // Update total in summary card too
   const totalEl = document.getElementById("summaryTotalPrice");
   if (totalEl) totalEl.textContent = fmtVnd(total);
 }
 
-/* ── Mode: SINGLE TOUR ── */
 function renderSingleSummary(box) {
   const tour = _singleTour;
   if (!tour) return;
@@ -166,9 +145,6 @@ function renderSingleSummary(box) {
     </div>`;
 }
 
-// ════════════════════════════════════════════════════════════
-// QUANTITY (chỉ dùng ở single mode)
-// ════════════════════════════════════════════════════════════
 function changeCheckoutQty(delta) {
   if (_mode !== "single") return;
   _singleQty = Math.max(1, Math.min(20, _singleQty + delta));
@@ -190,9 +166,6 @@ function updateTotals() {
   if (qtyEl && _mode === "single") qtyEl.textContent = _singleQty + " người";
 }
 
-// ════════════════════════════════════════════════════════════
-// VALIDATE FORM
-// ════════════════════════════════════════════════════════════
 function validateForm() {
   let valid = true;
   const setErr = (id, msg) => {
@@ -222,9 +195,6 @@ function validateForm() {
   return valid;
 }
 
-// ════════════════════════════════════════════════════════════
-// BƯỚC 2: Review thông tin
-// ════════════════════════════════════════════════════════════
 function showConfirmStep() {
   const name = document.getElementById("co_name").value.trim();
   const phone = document.getElementById("co_phone").value.trim();
@@ -307,13 +277,9 @@ function backToStep1() {
   }
 }
 
-// ════════════════════════════════════════════════════════════
-// SUBMIT FORM – 3 bước
-// ════════════════════════════════════════════════════════════
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
 
-  // Bước 1 → validate → bước 2
   if (_currentStep === 1) {
     if (!validateForm()) return;
     goToStep(2);
@@ -321,7 +287,6 @@ function handleSubmit(e) {
     return;
   }
 
-  // Bước 2 → lưu → bước 3
   const name = document.getElementById("co_name").value.trim();
   const phone = document.getElementById("co_phone").value.trim();
   const email = document.getElementById("co_email").value.trim();
@@ -346,14 +311,41 @@ function handleSubmit(e) {
 
   if (_mode === "cart") {
     const cart = getCart();
+
+    // Kiểm tra slots cho từng tour trong giỏ
+    for (const item of cart) {
+      try {
+        const tourData = await getTourById(item.id);
+        if (tourData && tourData.slots > 0 && item.qty > tourData.slots) {
+          showToast(
+            `⚠️ Tour "${item.name}" chỉ còn ${tourData.slots} chỗ! Vui lòng giảm số lượng.`,
+          );
+          return;
+        }
+      } catch (e) {
+        /* bỏ qua nếu không lấy được */
+      }
+    }
+
     total = cart.reduce((s, i) => s + i.price * i.qty, 0);
     tourInfo = `${cart.length} tour (${cart.map((i) => i.name).join(", ")})`;
   } else {
+    // Kiểm tra slots cho tour đơn
+    if (
+      _singleTour &&
+      _singleTour.slots > 0 &&
+      _singleQty > _singleTour.slots
+    ) {
+      showToast(
+        `⚠️ Tour này chỉ còn ${_singleTour.slots} chỗ! Vui lòng giảm số người.`,
+      );
+      return;
+    }
+
     total = _singlePrice * _singleQty;
     tourInfo = _singleTour?.name || "—";
   }
 
-  // Lưu đơn hàng
   const booking = {
     id: Date.now(),
     mode: _mode,
@@ -372,16 +364,83 @@ function handleSubmit(e) {
   bookings.push(booking);
   localStorage.setItem("mq_bookings", JSON.stringify(bookings));
 
-  // Xóa giỏ hàng nếu thanh toán từ cart
+  // ──── Lưu đơn hàng vào JSON Server (để hiện trong trang "Đã mua") ────
+  try {
+    const loggedUser = JSON.parse(localStorage.getItem("mq_user") || "null");
+    const userId = loggedUser ? loggedUser.id : null;
+
+    if (_mode === "cart") {
+      const cart = getCart();
+      for (const item of cart) {
+        const order = {
+          userId: userId,
+          tourName: item.name,
+          tourImage: item.image || "",
+          price: item.price,
+          quantity: item.qty,
+          total: item.price * item.qty,
+          status: payment === "cash" ? "pending" : "paid",
+          date: date,
+          createdAt: new Date().toISOString(),
+        };
+        await fetch(`${API_BASE}/orders`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(order),
+        }).catch(() => {});
+      }
+    } else if (_singleTour) {
+      const order = {
+        userId: userId,
+        tourName: _singleTour.name,
+        tourImage: _singleTour.image || "",
+        price: _singlePrice,
+        quantity: _singleQty,
+        total: total,
+        status: payment === "cash" ? "pending" : "paid",
+        date: date,
+        createdAt: new Date().toISOString(),
+      };
+      await fetch(`${API_BASE}/orders`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(order),
+      }).catch(() => {});
+    }
+  } catch (e) {
+    console.warn("Không thể lưu order vào server:", e.message);
+  }
+
+  // Cập nhật slots sau khi đặt thành công
+  try {
+    if (_mode === "cart") {
+      const cart = getCart();
+      for (const item of cart) {
+        try {
+          const tourData = await getTourById(item.id);
+          if (tourData && tourData.slots > 0) {
+            const newSlots = Math.max(0, tourData.slots - item.qty);
+            await patchTour(item.id, { slots: newSlots });
+          }
+        } catch (e) {
+          /* bỏ qua nếu lỗi API */
+        }
+      }
+    } else if (_singleTour && _singleTour.slots > 0) {
+      const newSlots = Math.max(0, _singleTour.slots - _singleQty);
+      await patchTour(_singleTour.id, { slots: newSlots });
+    }
+  } catch (e) {
+    /* bỏ qua nếu lỗi */
+  }
+
   if (_mode === "cart") {
     saveCart([]);
-    // Cập nhật badge
     document
       .querySelectorAll(".cart-badge")
       .forEach((el) => (el.textContent = "0"));
   }
 
-  // Điền success info
   document.getElementById("successInfo").innerHTML = `
     <div><strong>🗺️ Tour:</strong> ${tourInfo}</div>
     <div><strong>📅 Ngày đi:</strong> ${dateLabel}</div>
@@ -404,9 +463,6 @@ function handleSubmit(e) {
   }
 }
 
-// ════════════════════════════════════════════════════════════
-// PAYMENT OPTIONS
-// ════════════════════════════════════════════════════════════
 function initPaymentOptions() {
   document.querySelectorAll(".pay-opt").forEach((opt) => {
     opt.addEventListener("click", function () {
@@ -419,28 +475,22 @@ function initPaymentOptions() {
   });
 }
 
-// ════════════════════════════════════════════════════════════
-// INIT
-// ════════════════════════════════════════════════════════════
 async function initCheckout() {
   const params = new URLSearchParams(window.location.search);
   const mode = params.get("mode");
   const id = parseInt(params.get("id"));
   const qty = parseInt(params.get("qty")) || 1;
 
-  // Ngày tối thiểu = ngày mai
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
   const dateEl = document.getElementById("co_date");
   if (dateEl) dateEl.min = tomorrow.toISOString().split("T")[0];
 
   if (mode === "cart") {
-    // ── MODE: GIỎ HÀNG ──
     _mode = "cart";
     const cart = getCart();
 
     if (cart.length === 0) {
-      // Giỏ trống → về trang tour
       alert("Giỏ hàng đang trống. Hãy thêm tour trước!");
       window.location.href = "tour.html";
       return;
@@ -448,17 +498,14 @@ async function initCheckout() {
 
     document.title = "Thanh toán giỏ hàng – MinhQuy Travel";
 
-    // Ẩn qty input (không cần chọn số người khi từ giỏ)
     const qtySection = document.querySelector(".form-group:has(#co_qty)");
     if (qtySection) qtySection.style.display = "none";
 
-    // Breadcrumb
     const bcEl = document.getElementById("bcTourName");
     if (bcEl) bcEl.textContent = `Giỏ hàng (${cart.length} tour)`;
 
     renderSummary();
   } else if (id) {
-    // ── MODE: SINGLE TOUR ──
     _mode = "single";
     _singleQty = qty;
 

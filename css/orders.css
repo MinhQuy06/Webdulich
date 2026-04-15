@@ -1,0 +1,510 @@
+/* ============================================================
+   MinhQuy Travel – orders.css
+   Trang "Đã mua" – Order history page
+   ============================================================ */
+
+/* ---------- Main Layout ---------- */
+.orders-main {
+  min-height: 100vh;
+  padding: calc(var(--nav-h) + 30px) 20px 60px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- Breadcrumb --- */
+.orders-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 0.86rem;
+  animation: ordersFade 0.4s ease both;
+}
+
+.orders-breadcrumb a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.orders-breadcrumb a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  color: var(--text-muted);
+}
+
+.breadcrumb-current {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* --- Page Header --- */
+.orders-page-header {
+  margin-bottom: 24px;
+  animation: ordersFade 0.4s ease both 0.05s;
+}
+
+.orders-page-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.orders-page-sub {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+/* --- Tabs --- */
+.orders-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  background: var(--bg-white);
+  border-radius: 14px;
+  padding: 5px;
+  box-shadow: var(--shadow-sm);
+  animation: ordersFade 0.4s ease both 0.1s;
+}
+
+.order-tab {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.order-tab:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.order-tab.active {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 104, 255, 0.3);
+}
+
+/* --- Orders List --- */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+  animation: ordersFade 0.5s ease both 0.15s;
+}
+
+/* Single Order Card */
+.order-card {
+  background: var(--bg-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.25s ease;
+  animation: orderSlideIn 0.4s ease both;
+}
+
+.order-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.order-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px 0;
+}
+
+.order-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.order-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+}
+
+.order-status.paid {
+  background: linear-gradient(135deg, #e8fef0, #c0eed8);
+  color: #0f8a4f;
+}
+
+.order-status.pending {
+  background: linear-gradient(135deg, #fff8e1, #ffe082);
+  color: #b8860b;
+}
+
+.order-card-body {
+  display: flex;
+  gap: 14px;
+  padding: 14px 18px;
+}
+
+.order-tour-img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.order-tour-name {
+  font-weight: 700;
+  font-size: 0.94rem;
+  color: var(--text);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.order-detail-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.order-detail-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.order-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  border-top: 1px solid var(--border);
+  background: #fafbff;
+}
+
+.order-total-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.order-total-value {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+/* --- Empty State --- */
+.orders-empty {
+  background: var(--bg-white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  padding: 60px 30px;
+  text-align: center;
+  animation: ordersFade 0.5s ease both;
+}
+
+.orders-empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 16px;
+}
+
+.orders-empty h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.orders-empty p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 24px;
+}
+
+.orders-empty a {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.orders-empty a:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 104, 255, 0.35);
+}
+
+/* --- Loading --- */
+.orders-loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+
+.orders-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--primary-light);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 0 auto 14px;
+}
+
+/* --- Error --- */
+.orders-error {
+  background: var(--bg-white);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.orders-error-icon {
+  font-size: 3rem;
+  margin-bottom: 14px;
+}
+
+.orders-error h3 {
+  color: var(--danger);
+  margin-bottom: 8px;
+}
+
+.orders-error p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+}
+
+.orders-error code {
+  display: block;
+  background: #1a2340;
+  color: #7dd3fc;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.84rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* --- Back Buttons --- */
+.orders-back-wrap {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: ordersFade 0.5s ease both 0.2s;
+}
+
+.btn-back-profile,
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.btn-back-profile {
+  background: var(--bg-white);
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-back-profile:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-back-home {
+  background: var(--bg-white);
+  color: var(--text);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-back-home:hover {
+  background: var(--text);
+  color: #fff;
+  border-color: var(--text);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes ordersFade {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes orderSlideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 600px) {
+  .orders-main {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .orders-page-title {
+    font-size: 1.3rem;
+  }
+
+  .order-tab {
+    font-size: 0.78rem;
+    padding: 9px 8px;
+  }
+
+  .order-card-body {
+    gap: 10px;
+    padding: 12px 14px;
+  }
+
+  .order-tour-img {
+    width: 64px;
+    height: 48px;
+  }
+
+  .order-tour-name {
+    font-size: 0.86rem;
+  }
+
+  .order-detail-row {
+    gap: 8px;
+    font-size: 0.76rem;
+  }
+
+  .order-total-value {
+    font-size: 1rem;
+  }
+
+  .btn-back-profile,
+  .btn-back-home {
+    padding: 10px 18px;
+    font-size: 0.82rem;
+  }
+}
+
+/* ============================================================
+   SHARED: Cart drawer basics
+   ============================================================ */
+.cart-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-item-img {
+  width: 56px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-info { flex: 1; min-width: 0; }
+.cart-item-name {
+  font-weight: 700;
+  font-size: 0.86rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item-price {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.cart-item-qty { display: flex; align-items: center; gap: 6px; }
+
+.qty-btn {
+  width: 24px; height: 24px; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--bg);
+  font-size: 0.82rem; display: flex; align-items: center; justify-content: center;
+}
+
+.qty-val { font-size: 0.84rem; font-weight: 600; min-width: 20px; text-align: center; }
+
+.cart-remove {
+  margin-left: auto; background: none; border: none;
+  color: var(--danger); font-size: 0.75rem; font-weight: 600;
+}
+
+.cart-footer {
+  padding: 16px 20px; border-top: 1px solid var(--border);
+}
+
+.cart-total {
+  display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 12px;
+}
+
+.btn-checkout {
+  width: 100%; padding: 12px; background: var(--primary); color: #fff;
+  border: none; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.9rem;
+}

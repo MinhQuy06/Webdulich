@@ -1,19 +1,5 @@
-/* ============================================================
-   main.js – Frontend người dùng
-   Nguồn dữ liệu DUY NHẤT: API (json-server) qua api.js
-   ⚠️  api.js PHẢI được load TRƯỚC main.js trong HTML
-   ============================================================ */
-
 let allTours = []; // cache toàn bộ tour đang hiển thị
 
-// ============================================================
-// FORMAT TIỀN
-// ============================================================
-// fmtVnd đã được khai báo trong cart.js — dùng lại trực tiếp
-
-// ============================================================
-// COUNTDOWN (trang chủ – index.html)
-// ============================================================
 function startCountdown(endMs) {
   const el = document.getElementById("countdown");
   if (!el) return;
@@ -23,6 +9,7 @@ function startCountdown(endMs) {
       el.textContent = "Đã hết ưu đãi";
       return;
     }
+    //
     const h = String(Math.floor(diff / 3600000)).padStart(2, "0");
     const m = String(Math.floor((diff % 3600000) / 60000)).padStart(2, "0");
     const s = String(Math.floor((diff % 60000) / 1000)).padStart(2, "0");
@@ -32,17 +19,11 @@ function startCountdown(endMs) {
   setInterval(tick, 1000);
 }
 
-// ============================================================
-// HIỂN THỊ TRẠNG THÁI LOADING / LỖI trên tour.html
-// ============================================================
 function showListStatus(html) {
   const c = document.getElementById("tourListContainer");
   if (c) c.innerHTML = html;
 }
 
-// ============================================================
-// RENDER DANH SÁCH TOUR CARD
-// ============================================================
 function renderTourList(tours) {
   const container = document.getElementById("tourListContainer");
   if (!container) return;
@@ -111,36 +92,14 @@ function renderTourList(tours) {
     })
     .join("");
 
-  // Cập nhật số đếm
   const countEl = document.getElementById("resultCount");
   if (countEl) countEl.textContent = tours.length;
 }
 
-// ============================================================
-// NÚT "ĐẶT" TRÊN CARD → chuyển thẳng sang checkout
-// ============================================================
 function goToCheckoutById(id) {
   window.location.href = `checkout.html?id=${id}&qty=1`;
 }
 
-// Quick add (dùng khi cần thêm vào giỏ mà không rời trang)
-function quickAddToCart(id) {
-  const t = allTours.find((x) => x.id === id);
-  if (!t) return;
-  const finalPrice =
-    t.discount > 0 ? Math.round(t.price * (1 - t.discount / 100)) : t.price;
-  addToCart({
-    id: t.id,
-    name: t.name,
-    price: finalPrice,
-    image: t.image,
-    qty: 1,
-  });
-}
-
-// ============================================================
-// FILTER + SEARCH – lọc từ allTours (đã cache từ API)
-// ============================================================
 function applyFilters() {
   const q = (document.getElementById("searchInput")?.value || "").toLowerCase();
   const loc = document.getElementById("locationFilter")?.value || "";
@@ -190,11 +149,7 @@ function initTourFilters() {
   });
 }
 
-// ============================================================
-// LOAD TOURS TỪ API – KHÔNG FALLBACK GÌ CẢ
-// ============================================================
 async function loadTourPage() {
-  // 1. Hiển thị skeleton loading
   showListStatus(`
     <div style="text-align:center;padding:60px 20px;color:var(--text-muted)">
       <div style="
@@ -206,14 +161,12 @@ async function loadTourPage() {
     </div>
     <style>@keyframes spin{to{transform:rotate(360deg)}}</style>`);
 
-  // 2. Gọi API
   try {
-    const tours = await getTours(); // hàm từ api.js → GET /tours
+    const tours = await getTours();
     allTours = tours;
     renderTourList(tours);
     initTourFilters();
   } catch (err) {
-    // 3. Hiển thị lỗi rõ ràng — KHÔNG fallback JSON tĩnh
     showListStatus(`
       <div style="text-align:center;padding:60px 20px">
         <div style="font-size:3rem;margin-bottom:14px">⚠️</div>
@@ -236,16 +189,11 @@ async function loadTourPage() {
   }
 }
 
-// ============================================================
-// DOMContentLoaded
-// ============================================================
 document.addEventListener("DOMContentLoaded", async () => {
-  // Countdown (index.html)
   const end = new Date();
   end.setHours(23, 59, 59, 0);
   startCountdown(end.getTime());
 
-  // Tour list page (tour.html)
   if (document.getElementById("tourListContainer")) {
     await loadTourPage();
   }

@@ -44,7 +44,6 @@ function changeQty(id, delta) {
   renderCartDrawer();
 }
 
-// --- Badge update ---
 function updateCartBadge() {
   const total = getCart().reduce((s, i) => s + i.qty, 0);
   document
@@ -67,7 +66,6 @@ function renderCartDrawer() {
   const drawer = document.getElementById("cartItems");
   const totalEl = document.getElementById("cartTotal");
   if (!drawer) return;
-
   const cart = getCart();
   if (cart.length === 0) {
     drawer.innerHTML =
@@ -168,15 +166,18 @@ function initChat() {
 }
 
 // --- Navbar scroll ---
+//
 function initNavbar() {
   const nav = document.getElementById("navbar");
   if (!nav) return;
   window.addEventListener("scroll", () =>
+    // toggle thêm class "scrolled" vào navbar khi scrollY > 50, nếu scrollY <= 50 thì sẽ xóa class "scrolled" khỏi navbar
     nav.classList.toggle("scrolled", window.scrollY > 50),
   );
 }
 
 // --- Hamburger ---
+// in
 function initHamburger() {
   const btn = document.getElementById("hamburger");
   const links = document.getElementById("navLinks");
@@ -199,7 +200,26 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".cart-btn")?.addEventListener("click", openCart);
   document.getElementById("cartOverlay")?.addEventListener("click", closeCart);
   document.getElementById("cartCloseBtn")?.addEventListener("click", closeCart);
+
+  // Cập nhật nút đăng nhập/Tôi trên navbar
+  updateNavAuth();
 });
+
+// --- Cập nhật nút auth trên navbar ---
+function updateNavAuth() {
+  const btn = document.getElementById("navAuthBtn") || document.querySelector(".btn-login[href='login.html']");
+  if (!btn) return;
+
+  try {
+    const user = JSON.parse(localStorage.getItem("mq_user") || "null");
+    if (user) {
+      btn.textContent = "👤 " + (user.fullname || user.username);
+      btn.href = "profile.html";
+    }
+  } catch {
+    // ignore
+  }
+}
 
 // ============================================================
 // goToCheckout – Nút Thanh toán trong giỏ hàng

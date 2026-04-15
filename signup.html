@@ -52,6 +52,20 @@
               </div>
             </div>
 
+            <div class="form-group">
+              <label for="username">Tên đăng nhập</label>
+              <div class="input-wrapper user">
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="vd: nguyenvana"
+                  required
+                />
+              </div>
+              <small style="color:#888;font-size:12px;margin-top:4px;display:block;">Dùng để đăng nhập sau này (không có dấu, không khoảng trắng)</small>
+            </div>
+
             <div class="form-row">
               <div class="form-group">
                 <label for="email">Email</label>
@@ -115,5 +129,31 @@
         </div>
       </div>
     </main>
+
+    <script src="js/signup.js"></script>
+    <style>
+      .signup-message {
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        animation: msgFadeIn 0.3s ease;
+      }
+      .signup-message.error {
+        background: #fff0f0;
+        color: #e53935;
+        border: 1px solid #ffcdd2;
+      }
+      .signup-message.success {
+        background: #e8f5e9;
+        color: #2e7d32;
+        border: 1px solid #c8e6c9;
+      }
+      @keyframes msgFadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
   </body>
 </html>

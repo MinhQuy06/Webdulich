@@ -1,9 +1,3 @@
-/* ============================================================
-   detail.js – Trang chi tiết tour
-   Nguồn dữ liệu DUY NHẤT: API qua api.js (getTourById)
-   ⚠️  api.js + cart.js phải load TRƯỚC detail.js
-   ============================================================ */
-
 const SESSION_ICONS = {
   morning: { icon: "🌅", label: "Sáng" },
   noon: { icon: "🍽", label: "Trưa" },
@@ -11,29 +5,20 @@ const SESSION_ICONS = {
   evening: { icon: "🌙", label: "Tối" },
 };
 
-// ============================================================
-// LẤY TOUR THEO ID – CHỈ QUA API
-// ============================================================
 async function fetchTourById(id) {
-  // Gọi thẳng API — hàm getTourById từ api.js
   const tour = await getTourById(id);
   return tour;
 }
 
-// ============================================================
-// RENDER CHI TIẾT TOUR
-// ============================================================
 function renderTourDetail(tour) {
   const container = document.getElementById("detailContainer");
   if (!container) return;
 
-  // Build itinerary HTML
   let itineraryHtml = "";
   if (Array.isArray(tour.itinerary) && tour.itinerary.length > 0) {
     const firstItem = tour.itinerary[0];
 
     if (typeof firstItem === "object" && firstItem.sessions) {
-      // Dạng mới: có sessions theo buổi
       itineraryHtml = tour.itinerary
         .map(
           (day, idx) => `
@@ -67,7 +52,6 @@ function renderTourDetail(tour) {
         )
         .join("");
     } else if (typeof firstItem === "string") {
-      // Dạng cũ: mảng string
       itineraryHtml = `
         <div class="itinerary-day-card">
           <div class="itinerary-day-body">
@@ -90,7 +74,6 @@ function renderTourDetail(tour) {
       </p>`;
   }
 
-  // Includes / Excludes
   let ieHtml = "";
   if (
     (tour.includes && tour.includes.length > 0) ||
@@ -230,9 +213,6 @@ function renderTourDetail(tour) {
   `;
 }
 
-// ============================================================
-// RENDER BOOKING BOX
-// ============================================================
 function renderBookingBox(tour) {
   const box = document.getElementById("bookingBox");
   if (!box) return;
@@ -248,7 +228,6 @@ function renderBookingBox(tour) {
        <span class="discount-info">Tiết kiệm ${fmtVnd(tour.price - finalPrice)}</span>`
       : "";
 
-  // Lưu finalPrice vào window để updateSubtotal dùng
   window._detailFinalPrice = finalPrice;
 
   box.innerHTML = `
@@ -294,15 +273,17 @@ function renderBookingBox(tour) {
     </div>`;
 }
 
-// ============================================================
-// CÁC HÀM TƯƠNG TÁC
-// ============================================================
 let _pCount = 1;
 
 function changePeople(delta) {
-  _pCount = Math.max(1, Math.min(20, _pCount + delta));
+  const tour = window._currentTour;
+  const maxSlots = tour && tour.slots > 0 ? tour.slots : 20;
+  _pCount = Math.max(1, Math.min(maxSlots, _pCount + delta));
   const el = document.getElementById("peopleCount");
   if (el) el.value = _pCount;
+  if (tour && tour.slots > 0 && _pCount >= tour.slots) {
+    showToast(`⚠️ Chỉ còn ${tour.slots} chỗ trống cho tour này!`);
+  }
   updateSubtotal();
 }
 
@@ -314,6 +295,13 @@ function updateSubtotal() {
 
 function handleAddToCart(id, name, price, image) {
   const qty = parseInt(document.getElementById("peopleCount")?.value) || 1;
+  const tour = window._currentTour;
+  if (tour && tour.slots > 0 && qty > tour.slots) {
+    showToast(
+      `⚠️ Tour này chỉ còn ${tour.slots} chỗ! Không thể thêm ${qty} người.`,
+    );
+    return;
+  }
   addToCart({ id, name, price, image, qty });
   openCart();
 }
@@ -327,9 +315,6 @@ function toggleDay(idx) {
   document.getElementById(`day-card-${idx}`)?.classList.toggle("collapsed");
 }
 
-// ============================================================
-// RENDER LỖI / NOT FOUND
-// ============================================================
 function renderError(type, id) {
   const c = document.getElementById("detailContainer");
   const b = document.getElementById("bookingBox");
@@ -346,7 +331,6 @@ function renderError(type, id) {
         </div>
       </div>`;
   } else {
-    // API error
     if (c)
       c.innerHTML = `
       <div class="not-found-container">
@@ -372,9 +356,6 @@ function renderError(type, id) {
   if (b) b.innerHTML = "";
 }
 
-// ============================================================
-// INIT – Chỉ gọi API, không fallback gì cả
-// ============================================================
 async function initDetailPage() {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get("id"));
@@ -384,7 +365,6 @@ async function initDetailPage() {
     return;
   }
 
-  // Loading state
   const c = document.getElementById("detailContainer");
   if (c)
     c.innerHTML = `

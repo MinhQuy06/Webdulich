@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng Nhập - Du Lịch Việt</title>
     <link rel="stylesheet" href="css/login.css" />
+    <style>
+      .login-message {
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        animation: msgFadeIn 0.3s ease;
+      }
+      .login-message.error {
+        background: #fff0f0;
+        color: #e53935;
+        border: 1px solid #ffcdd2;
+      }
+      .login-message.success {
+        background: #e8f5e9;
+        color: #2e7d32;
+        border: 1px solid #c8e6c9;
+      }
+      @keyframes msgFadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -83,6 +107,12 @@
             <div class="signup-link">
               Chưa có tài khoản? <a href="signup.html">Tham gia ngay</a>
             </div>
+
+            <div style="margin-top:20px; padding:14px 18px; background:#f0f7ff; border-radius:10px; border:1px solid #c8e0ff; font-size:0.82rem; color:#1a2340; line-height:1.7;">
+              <strong>🔑 Tài khoản demo:</strong><br/>
+              Username: <code style="background:#e8f0fe;padding:2px 6px;border-radius:4px;font-weight:700;">minhquy</code><br/>
+              Password: <code style="background:#e8f0fe;padding:2px 6px;border-radius:4px;font-weight:700;">123456</code>
+            </div>
           </form>
         </div>
 
@@ -99,5 +129,8 @@
     </main>
 
     <div class="footer">© 2025 Minh Quy TRAVEL. All rights reserved.</div>
+
+    <script src="js/login.js"></script>
   </body>
 </html>
+

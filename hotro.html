@@ -311,50 +311,9 @@
     <div class="toast" id="toast"></div>
 
     <script src="js/cart.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/hotro.js"></script>
     <script>
-      // Form Validation
-      document
-        .getElementById("supportForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          let valid = true;
-          const name = document.getElementById("fname").value.trim();
-          const email = document.getElementById("femail").value.trim();
-          const phone = document.getElementById("fphone").value.trim();
-          const msg = document.getElementById("fmessage").value.trim();
-
-          const setErr = (id, txt) => {
-            document.getElementById(id).textContent = txt;
-            if (txt) valid = false;
-          };
-
-          setErr(
-            "fnameErr",
-            name.length < 2 ? "Vui lòng nhập họ tên (tối thiểu 2 ký tự)." : "",
-          );
-          setErr(
-            "femailErr",
-            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-              ? "Email không hợp lệ."
-              : "",
-          );
-          setErr(
-            "fphoneErr",
-            !/^(0|\+84)[0-9]{8,10}$/.test(phone)
-              ? "Số điện thoại không hợp lệ."
-              : "",
-          );
-          setErr(
-            "fmessageErr",
-            msg.length < 10 ? "Nội dung tối thiểu 10 ký tự." : "",
-          );
-
-          if (valid) {
-            showToast("✅ Gửi tin nhắn thành công! Chúng tôi sẽ phản hồi sớm.");
-            this.reset();
-          }
-        });
-
       function toggleFaq(btn) {
         const ans = btn.nextElementSibling;
         ans.classList.toggle("open");
