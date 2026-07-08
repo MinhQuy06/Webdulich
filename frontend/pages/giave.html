@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/shared.css" />
+    <link rel="stylesheet" href="../css/giave.css" />
+    <title>Giá vé – MinhQuy Travel</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="../assets/images/logo.jpg" alt="MinhQuy Travel" /><span class="logo-text"
+            >MinhQuy<b>Travel</b></span
+          >
+        </div>
+
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html">Trang chủ</a></li>
+          <li class="has-dropdown">
+            <a href="tour.html">Tours ▾</a>
+            <ul class="dropdown">
+              <li><a href="tour.html#vn"> Việt Nam</a></li>
+              <li><a href="tour.html#nn"> Nước ngoài</a></li>
+            </ul>
+          </li>
+          <li><a href="hotels.html">Khách sạn</a></li>
+          <li><a href="giave.html" class="active">Giá vé</a></li>
+          <li><a href="hotro.html">Hỗ trợ</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="cart-btn">🛒 <span class="cart-badge">0</span></button>
+          <a class="btn-login" href="../pages/login.html">Đăng nhập</a>
+        </div>
+      </div>
+    </nav>
+
+    <header
+      class="hero"
+      style="background-image: url(../assets/images/background2.jpg); min-height: 52vh"
+    >
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-label">✈️ Hàng trăm chuyến bay mỗi ngày</p>
+        <h1 class="hero-heading">Vé máy bay<br /><span>giá tốt nhất</span></h1>
+        <p class="hero-sub">
+          So sánh hàng nghìn chuyến bay. Đặt vé nhanh chóng, an toàn.
+        </p>
+        <div class="hero-btns">
+          <a href="#flash" class="btn-primary">🔥 Vé Flash Sale</a>
+          <a href="#popular" class="btn-outline">Điểm đến phổ biến</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Flash Sale -->
+      <section id="flash" class="flash-section">
+        <div class="section-inner">
+          <div class="flash-header">
+            <div class="flash-title-row">
+              <span class="flash-icon">🔥</span>
+              <h2
+                class="section-title"
+                style="text-align: left; margin-bottom: 0"
+              >
+                Flash Sale – Vé giá sốc
+              </h2>
+              <span class="badge-cohan">Hôm nay</span>
+            </div>
+            <p
+              class="section-sub"
+              style="text-align: left; max-width: none; margin-top: 6px"
+            >
+              Đặt ngay trước khi hết vé! Giới hạn số lượng mỗi ngày.
+            </p>
+          </div>
+
+          <div class="ticket-scroll">
+            <div class="ticket-card">
+              <div class="ticket-img">
+                <img src="../assets/images/phuquoc.jpg" alt="Phú Quốc" /><span
+                  class="tag-label"
+                  >Phổ biến</span
+                ><span class="tag-discount">-40%</span>
+                <div class="ticket-route">
+                  <h2>HCM → Phú Quốc</h2>
+                  <p>✈️ Vietnam Airlines</p>
+                </div>
+              </div>
+              <div class="ticket-info">
+                <div class="ticket-meta">
+                  <span>📅 15/08/2025</span><span>⏱ 1h15m</span
+                  ><span>🪑 Còn 5 vé</span>
+                </div>
+                <div class="ticket-bottom">
+                  <div class="ticket-price">
+                    <s>1,200,000đ</s><strong>720,000đ</strong
+                    ><span>/người</span>
+                  </div>
+                  <button
+                    class="btn-datve"
+                    onclick="
+                      addToCart({
+                        id: 101,
+                        name: 'HCM→Phú Quốc',
+                        price: 720000,
+                        image: 'img/phuquoc.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="ticket-card">
+              <div class="ticket-img">
+                <img src="../assets/images/banahilljpg.jpg" alt="Đà Nẵng" /><span
+                  class="tag-discount"
+                  >-30%</span
+                >
+                <div class="ticket-route">
+                  <h2>HCM → Đà Nẵng</h2>
+                  <p>✈️ Bamboo Airways</p>
+                </div>
+              </div>
+              <div class="ticket-info">
+                <div class="ticket-meta">
+                  <span>📅 20/08/2025</span><span>⏱ 1h30m</span
+                  ><span>🪑 Còn 8 vé</span>
+                </div>
+                <div class="ticket-bottom">
+                  <div class="ticket-price">
+                    <s>850,000đ</s><strong>595,000đ</strong><span>/người</span>
+                  </div>
+                  <button
+                    class="btn-datve"
+                    onclick="
+                      addToCart({
+                        id: 102,
+                        name: 'HCM→Đà Nẵng',
+                        price: 595000,
+                        image: 'img/banahilljpg.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="ticket-card">
+              <div class="ticket-img">
+                <img src="../assets/images/tokyo.jpg" alt="Tokyo" /><span class="tag-label"
+                  >HOT</span
+                ><span class="tag-discount">-25%</span>
+                <div class="ticket-route">
+                  <h2>HCM → Tokyo</h2>
+                  <p>✈️ Vietnam Airlines</p>
+                </div>
+              </div>
+              <div class="ticket-info">
+                <div class="ticket-meta">
+                  <span>📅 10/09/2025</span><span>⏱ 5h30m</span
+                  ><span>🪑 Còn 3 vé</span>
+                </div>
+                <div class="ticket-bottom">
+                  <div class="ticket-price">
+                    <s>8,500,000đ</s><strong>6,375,000đ</strong
+                    ><span>/người</span>
+                  </div>
+                  <button
+                    class="btn-datve"
+                    onclick="
+                      addToCart({
+                        id: 103,
+                        name: 'HCM→Tokyo',
+                        price: 6375000,
+                        image: 'img/tokyo.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="ticket-card">
+              <div class="ticket-img">
+                <img src="../assets/images/bangkok.jpg" alt="Bangkok" /><span
+                  class="tag-discount"
+                  >-20%</span
+                >
+                <div class="ticket-route">
+                  <h2>HCM → Bangkok</h2>
+                  <p>✈️ Thai Airways</p>
+                </div>
+              </div>
+              <div class="ticket-info">
+                <div class="ticket-meta">
+                  <span>📅 05/09/2025</span><span>⏱ 1h45m</span
+                  ><span>🪑 Còn 12 vé</span>
+                </div>
+                <div class="ticket-bottom">
+                  <div class="ticket-price">
+                    <s>2,200,000đ</s><strong>1,760,000đ</strong
+                    ><span>/người</span>
+                  </div>
+                  <button
+                    class="btn-datve"
+                    onclick="
+                      addToCart({
+                        id: 104,
+                        name: 'HCM→Bangkok',
+                        price: 1760000,
+                        image: 'img/bangkok.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular Routes -->
+      <section id="popular" class="popular-section">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2 class="section-title">🌏 Điểm đến phổ biến</h2>
+            <span class="section-accent-line"></span>
+            <p class="section-sub">Những chuyến bay được đặt nhiều nhất</p>
+          </div>
+
+          <div class="tab-group">
+            <button
+              class="tab-btn active"
+              onclick="switchTab(this, 'domestic')"
+            >
+              🇻🇳 Nội địa
+            </button>
+            <button class="tab-btn" onclick="switchTab(this, 'international')">
+              🌍 Quốc tế
+            </button>
+          </div>
+
+          <div id="domestic" class="flight-grid tab-content active">
+            <div class="flight-card">
+              <div class="card-img-wrap">
+                <img src="../assets/images/Phocohoian.jpg" alt="Hội An" />
+                <div class="card-route">
+                  <h2>HCM → Hội An</h2>
+                  <p>✈️ Vietjet Air</p>
+                </div>
+              </div>
+              <div class="card-info">
+                <div class="card-meta-row">
+                  <span>📅 Hàng ngày</span><span>⏱ 1h20m</span>
+                </div>
+                <div class="card-bottom">
+                  <div class="card-price">
+                    <strong>490,000đ</strong><span>/người</span>
+                  </div>
+                  <button
+                    class="btn-datve"
+                    onclick="
+                      addToCart({
+                        id: 105,
+                        name: 'HCM→Hội An',
+                        price: 490000,
+                        image: 'img/Phocohoian.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="flight-card">
+              <div class="card-img-wrap">
+                <img src="../assets/images/tamdao.webp" alt="Hà Nội" />
+                <div class="card-route">
+                  <h2>HCM → Hà Nội</h2>
+                  <p>✈️ Vietnam Airlines</p>
+                </div>
+              </div>
+              <div class="card-info">
+                <div class="card-meta-row">
+                  <span>📅 Hàng ngày</span><span>⏱ 2h</span>
+                </div>
+                <div class="card-bottom">
+                  <div class="card-price">
+                    <strong>650,000đ</strong><span>/người</span>
+                  </div>
+                  <button
+                    class="btn-datve"
+                    onclick="
+                      addToCart({
+                        id: 106,
+                        name: 'HCM→Hà Nội',
+                        price: 650000,
+                        image: 'img/tamdao.webp',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="flight-card">
+              <div class="card-img-wrap">
+                <img src="../assets/images/sunworld-ba-den.jpg" alt="Tây Ninh" />
+                <div class="card-route">
+                  <h2>HCM → Đà Lạt</h2>
+                  <p>✈️ Bamboo Airways</p>
+                </div>
+              </div>
+              <div class="card-info">
+                <div class="card-meta-row">
+                  <span>📅 Hàng ngày</span><span>⏱ 55m</span>
+                </div>
+                <div class="card-bottom">
+                  <div class="card-price">
+                    <strong>420,000đ</strong><span>/người</span>
+                  </div>
+                  <button
+                    class="btn-datve"
+                    onclick="
+                      addToCart({
+                        id: 107,
+                        name: 'HCM→Đà Lạt',
+                        price: 420000,
+                        image: 'img/sunworld-ba-den.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="international"
+            class="flight-grid tab-content"
+            style="display: none"
+          >
+            <div class="flight-card">
+              <div class="card-img-wrap">
+                <img src="../assets/images/seouljpg.jpg" alt="Seoul" />
+                <div class="card-route">
+                  <h2>HCM → Seoul</h2>
+                  <p>✈️ Korean Air</p>
+                </div>
+              </div>
+              <div class="card-info">
+                <div class="card-meta-row">
+                  <span>📅 Hàng ngày</span><span>⏱ 5h</span>
+                </div>
+                <div class="card-bottom">
+                  <div class="card-price">
+                    <strong>5,500,000đ</strong><span>/người</span>
+                  </div>
+                  <button
+                    class="btn-datve"
+                    onclick="
+                      addToCart({
+                        id: 108,
+                        name: 'HCM→Seoul',
+                        price: 5500000,
+                        image: 'img/seouljpg.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="flight-card">
+              <div class="card-img-wrap">
+                <img src="../assets/images/singapore.jpg" alt="Singapore" />
+                <div class="card-route">
+                  <h2>HCM → Singapore</h2>
+                  <p>✈️ Singapore Airlines</p>
+                </div>
+              </div>
+              <div class="card-info">
+                <div class="card-meta-row">
+                  <span>📅 Hàng ngày</span><span>⏱ 2h</span>
+                </div>
+                <div class="card-bottom">
+                  <div class="card-price">
+                    <strong>2,800,000đ</strong><span>/người</span>
+                  </div>
+                  <button
+                    class="btn-datve"
+                    onclick="
+                      addToCart({
+                        id: 109,
+                        name: 'HCM→Singapore',
+                        price: 2800000,
+                        image: 'img/singapore.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="flight-card">
+              <div class="card-img-wrap">
+                <img src="../assets/images/paris.jpg" alt="Paris" />
+                <div class="card-route">
+                  <h2>HCM → Paris</h2>
+                  <p>✈️ Air France</p>
+                </div>
+              </div>
+              <div class="card-info">
+                <div class="card-meta-row">
+                  <span>📅 T3, T5, T7</span><span>⏱ 12h</span>
+                </div>
+                <div class="card-bottom">
+                  <div class="card-price">
+                    <strong>15,000,000đ</strong><span>/người</span>
+                  </div>
+                  <button
+                    class="btn-datve"
+                    onclick="
+                      addToCart({
+                        id: 110,
+                        name: 'HCM→Paris',
+                        price: 15000000,
+                        image: 'img/paris.jpg',
+                      })
+                    "
+                  >
+                    Đặt vé
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">✈ MinhQuy<b>Travel</b></div>
+          <p>"Hành trình khám phá thế giới"</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"
+              ><img src="../assets/images/facebook.png" alt="fb" />Facebook</a
+            ><a href="#" class="social-btn"
+              ><img src="../assets/images/google.png" alt="gg" />Google</a
+            >
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Liên hệ</h4>
+          <p>
+            📍 123 Đường ABC, TP.HCM<br />📞 0123 456 789<br />✉️
+            info@minhquytravel.com
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Nhận ưu đãi</h4>
+          <p>Đăng ký nhận thông báo!</p>
+          <div class="footer-email">
+            <input type="email" placeholder="Email của bạn…" /><button>
+              Gửi
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MinhQuy Travel. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3>🛒 Giỏ hàng</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Tổng cộng:</span><span id="cartTotal">0đ</span>
+        </div>
+        <button class="btn-checkout">Thanh toán</button>
+      </div>
+    </div>
+
+    <div class="chat-widget">
+      <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+          <div class="chat-agent">
+            <div class="agent-avatar">MQ</div>
+            <div>
+              <strong>Hỗ trợ khách hàng</strong
+              ><span class="agent-status">🟢 Đang trực tuyến</span>
+            </div>
+          </div>
+          <button class="chat-close" id="chatClose">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg bot">
+            <span>✈️ Cần tìm vé máy bay giá tốt? Hỏi tôi nhé!</span>
+          </div>
+        </div>
+        <div class="chat-input-wrap">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Nhập tin nhắn…"
+          /><button id="chatSend">➤</button>
+        </div>
+      </div>
+      <button class="chat-toggle" id="chatToggle">
+        💬<span class="chat-dot">1</span>
+      </button>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <script src="../js/cart.js"></script>
+    <script>
+      function switchTab(btn, tabId) {
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        document
+          .querySelectorAll(".tab-content")
+          .forEach((c) => (c.style.display = "none"));
+        btn.classList.add("active");
+        document.getElementById(tabId).style.display = "grid";
+      }
+    </script>
+  </body>
+</html>

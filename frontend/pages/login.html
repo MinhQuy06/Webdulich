@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng Nhập - Du Lịch Việt</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <style>
+      .login-message {
+        padding: 12px 18px;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        margin-bottom: 16px;
+        animation: msgFadeIn 0.3s ease;
+      }
+      .login-message.error {
+        background: #fff0f0;
+        color: #e53935;
+        border: 1px solid #ffcdd2;
+      }
+      .login-message.success {
+        background: #e8f5e9;
+        color: #2e7d32;
+        border: 1px solid #c8e6c9;
+      }
+      @keyframes msgFadeIn {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo">Du Lịch Việt</div>
+        <ul class="nav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../pages/tour.html">Tours</a></li>
+          <li><a href="../pages/hotels.html">Hotels</a></li>
+          <li><a href="../pages/giave.html">Giá vé</a></li>
+          <li><a href="../pages/hotro.html">Hổ trợ</a></li>
+          <li><a href="../pages/signup.html" class="signup">Đăng ký</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div class="main-container">
+        <div class="login-container">
+          <h1>Chào mừng trở lại</h1>
+          <p class="subtitle">
+            Cùng tiếp tục hành trình khám phá những vùng đất mới.
+          </p>
+
+          <form>
+            <div class="form-group">
+              <label for="email">Tên tài khoản hoặc Email</label>
+              <div class="input-wrapper email-input">
+                <input
+                  type="text"
+                  id="email"
+                  placeholder="username@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="label-row">
+                <label for="password">Mật khẩu</label>
+                <a href="#forgot" class="forgot-password">Quên mật khẩu?</a>
+              </div>
+              <div class="input-wrapper password-input">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="••••••••"
+                  required
+                />
+                <span class="password-toggle">👁️</span>
+              </div>
+            </div>
+
+            <button type="submit" class="login-btn">Đăng Nhập Ngay →</button>
+
+            <div class="divider"><span>KẾT NỐI NHANH QUA</span></div>
+
+            <div class="social-login">
+              <button type="button" class="social-btn">
+                <img
+                  src="https://www.google.com/favicon.ico"
+                  alt="Google"
+                  width="24"
+                  height="24"
+                />
+              </button>
+              <button type="button" class="social-btn">
+                <img
+                  src="https://www.facebook.com/favicon.ico"
+                  alt="Facebook"
+                  width="24"
+                  height="24"
+                />
+              </button>
+            </div>
+
+            <div class="signup-link">
+              Chưa có tài khoản? <a href="../pages/signup.html">Tham gia ngay</a>
+            </div>
+
+            <div style="margin-top:20px; padding:14px 18px; background:#f0f7ff; border-radius:10px; border:1px solid #c8e0ff; font-size:0.82rem; color:#1a2340; line-height:1.7;">
+              <strong>🔑 Tài khoản demo:</strong><br/>
+              Username: <code style="background:#e8f0fe;padding:2px 6px;border-radius:4px;font-weight:700;">minhquy</code><br/>
+              Password: <code style="background:#e8f0fe;padding:2px 6px;border-radius:4px;font-weight:700;">123456</code>
+            </div>
+          </form>
+        </div>
+
+        <div class="right-side">
+          <img
+            src="../assets/images/login.jpg"
+            alt="Du lịch Việt Nam"
+            class="portal-image"
+          />
+          <h2>Khám phá Việt Nam</h2>
+          <p>Vẻ đẹp bất tận trong từng hành trình trải nghiệm.</p>
+        </div>
+      </div>
+    </main>
+
+    <div class="footer">© 2025 Minh Quy TRAVEL. All rights reserved.</div>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>
+

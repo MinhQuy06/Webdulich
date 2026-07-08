@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/shared.css" />
+    <link rel="stylesheet" href="../css/checkout.css" />
+    <title>Đặt tour – MinhQuy Travel</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="../assets/images/logo.jpg" alt="MinhQuy Travel" />
+          <span class="logo-text">MinhQuy<b>Travel</b></span>
+        </div>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html">Trang chủ</a></li>
+          <li class="has-dropdown">
+            <a href="../pages/tour.html">Tours ▾</a>
+            <ul class="dropdown">
+              <li><a href="../pages/tour.html#vn">Việt Nam</a></li>
+              <li><a href="../pages/tour.html#nn">Nước ngoài</a></li>
+            </ul>
+          </li>
+          <li><a href="../pages/hotels.html">Khách sạn</a></li>
+          <li><a href="../pages/giave.html">Giá vé</a></li>
+          <li><a href="../pages/hotro.html">Hỗ trợ</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="cart-btn">🛒 <span class="cart-badge">0</span></button>
+          <a class="btn-login" href="../pages/login.html">Đăng nhập</a>
+        </div>
+      </div>  
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar">
+      <div class="section-inner">
+        <nav class="breadcrumb">
+          <a href="../index.html">Trang chủ</a>
+          <span>›</span>
+          <a href="../pages/tour.html">Tours</a>
+          <span>›</span>
+          <span id="bcTourName">Chi tiết tour</span>
+          <span>›</span>
+          <span class="bc-current">Đặt tour</span>
+        </nav>
+      </div>
+    </div>
+
+    <main>
+      <!-- Progress Steps -->
+      <div class="checkout-progress">
+        <div class="section-inner">
+          <div class="steps">
+            <div class="step active">
+              <span class="step-num">1</span
+              ><span class="step-label">Thông tin</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step">
+              <span class="step-num">2</span
+              ><span class="step-label">Xác nhận</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step">
+              <span class="step-num">3</span
+              ><span class="step-label">Hoàn tất</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="checkout-section">
+        <div class="section-inner">
+          <div class="checkout-layout">
+            <!-- LEFT: Form -->
+            <div class="checkout-form-col">
+              <div class="checkout-card">
+                <h2 class="checkout-card-title">📝 Thông tin đặt tour</h2>
+
+                <form id="checkoutForm" novalidate>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="co_name"
+                        >Họ và tên <span class="req">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="co_name"
+                        placeholder="Nguyễn Văn A"
+                        maxlength="60"
+                      />
+                      <span class="field-error" id="co_nameErr"></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="co_phone"
+                        >Số điện thoại <span class="req">*</span></label
+                      >
+                      <input
+                        type="tel"
+                        id="co_phone"
+                        placeholder="0901234567"
+                        maxlength="12"
+                      />
+                      <span class="field-error" id="co_phoneErr"></span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="co_email"
+                      >Email <span class="req">*</span></label
+                    >
+                    <input
+                      type="email"
+                      id="co_email"
+                      placeholder="email@example.com"
+                    />
+                    <span class="field-error" id="co_emailErr"></span>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="co_date"
+                        >Ngày khởi hành <span class="req">*</span></label
+                      >
+                      <input type="date" id="co_date" />
+                      <span class="field-error" id="co_dateErr"></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="co_qty"
+                        >Số người <span class="req">*</span></label
+                      >
+                      <div class="qty-row">
+                        <button
+                          type="button"
+                          class="qty-btn-sm"
+                          onclick="changeCheckoutQty(-1)"
+                        >
+                          −
+                        </button>
+                        <input
+                          type="number"
+                          id="co_qty"
+                          value="1"
+                          min="1"
+                          max="20"
+                          readonly
+                        />
+                        <button
+                          type="button"
+                          class="qty-btn-sm"
+                          onclick="changeCheckoutQty(1)"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="co_note">Ghi chú</label>
+                    <textarea
+                      id="co_note"
+                      rows="3"
+                      placeholder="Yêu cầu đặc biệt: chế độ ăn, phòng riêng, trẻ em…"
+                    ></textarea>
+                  </div>
+
+                  <div class="payment-methods">
+                    <label class="pay-label">💳 Phương thức thanh toán</label>
+                    <div class="pay-options">
+                      <label class="pay-opt active" id="pay-bank">
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="bank"
+                          checked
+                        />
+                        <span class="pay-icon">🏦</span>
+                        <span>Chuyển khoản</span>
+                      </label>
+                      <label class="pay-opt" id="pay-momo">
+                        <input type="radio" name="payment" value="momo" />
+                        <span class="pay-icon">💜</span>
+                        <span>MoMo</span>
+                      </label>
+                      <label class="pay-opt" id="pay-cash">
+                        <input type="radio" name="payment" value="cash" />
+                        <span class="pay-icon">💵</span>
+                        <span>Tiền mặt</span>
+                      </label>
+                      <label class="pay-opt" id="pay-card">
+                        <input type="radio" name="payment" value="card" />
+                        <span class="pay-icon">💳</span>
+                        <span>Thẻ quốc tế</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn-confirm">
+                    ✅ Xác nhận đặt tour
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- RIGHT: Order Summary -->
+            <aside class="checkout-summary-col">
+              <div class="summary-card" id="summaryCard">
+                <h3 class="summary-title">🧾 Tóm tắt đơn hàng</h3>
+
+                <!-- Tour info - will be injected by JS -->
+                <div id="summaryContent">
+                  <p
+                    style="
+                      color: var(--text-muted);
+                      text-align: center;
+                      padding: 20px;
+                    "
+                  >
+                    Đang tải thông tin tour…
+                  </p>
+                </div>
+              </div>
+
+              <!-- Trust signals -->
+              <div class="trust-card">
+                <div class="trust-item">
+                  <span>🔒</span>
+                  <p>Thanh toán an toàn & bảo mật 100%</p>
+                </div>
+                <div class="trust-item">
+                  <span>🔄</span>
+                  <p>Miễn phí hủy trước 7 ngày</p>
+                </div>
+                <div class="trust-item">
+                  <span>☎️</span>
+                  <p>Hỗ trợ 24/7: <strong>0123 456 789</strong></p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- SUCCESS MODAL -->
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-modal" id="successModal">
+        <div class="success-anim">✅</div>
+        <h2>Đặt tour thành công!</h2>
+        <p>
+          Cảm ơn bạn đã tin tưởng MinhQuy Travel.<br />Chúng tôi sẽ liên hệ xác
+          nhận qua email & SĐT trong vòng <strong>30 phút</strong>.
+        </p>
+        <div class="success-info" id="successInfo"></div>
+        <div class="success-btns">
+          <a href="../pages/tour.html" class="btn-outline-dark">← Tiếp tục đặt tour</a>
+          <a href="../index.html" class="btn-primary">🏠 Về trang chủ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cart Drawer (shared) -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3>🛒 Giỏ hàng</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Tổng cộng:</span><span id="cartTotal">0đ</span>
+        </div>
+        <button
+          class="btn-checkout"
+          onclick="showToast('Bạn đang ở trang thanh toán!')"
+        >
+          Thanh toán
+        </button>
+      </div>
+    </div>
+
+    <div class="chat-widget">
+      <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+          <div class="chat-agent">
+            <div class="agent-avatar">MQ</div>
+            <div>
+              <strong>Hỗ trợ khách hàng</strong
+              ><span class="agent-status">🟢 Đang trực tuyến</span>
+            </div>
+          </div>
+          <button class="chat-close" id="chatClose">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg bot">
+            <span>💡 Cần hỗ trợ đặt tour? Tôi luôn ở đây!</span>
+          </div>
+        </div>
+        <div class="chat-input-wrap">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Nhập tin nhắn…"
+          /><button id="chatSend">➤</button>
+        </div>
+      </div>
+      <button class="chat-toggle" id="chatToggle">
+        💬<span class="chat-dot">1</span>
+      </button>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/checkout.js"></script>
+  </body>
+</html>

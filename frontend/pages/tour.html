@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/shared.css" />
+    <link rel="stylesheet" href="../css/tour.css" />
+    <title>Tours – MinhQuy Travel</title>
+  </head>
+  <body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="../assets/images/logo.jpg" alt="MinhQuy Travel" />
+          <span class="logo-text">MinhQuy<b>Travel</b></span>
+        </div>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html">Trang chủ</a></li>
+          <li class="has-dropdown">
+            <a href="tour.html" class="active">Tours ▾</a>
+            <ul class="dropdown">
+              <li><a href="#vn">Việt Nam</a></li>
+              <li><a href="#nn">Nước ngoài</a></li>
+            </ul>
+          </li>
+          <li><a href="hotels.html">Khách sạn</a></li>
+          <li><a href="giave.html">Giá vé</a></li>
+          <li><a href="hotro.html">Hỗ trợ</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="cart-btn" title="Giỏ hàng">
+            🛒 <span class="cart-badge">0</span>
+          </button>
+          <a class="btn-login" href="../pages/login.html">Đăng nhập</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header class="hero" style="background-image:url(../assets/images/background5.jpg); min-height:55vh">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-label">🗺️ 200+ điểm đến chờ bạn</p>
+        <h1 class="hero-heading">
+          Các tour du lịch<br /><span>hấp dẫn nhất</span>
+        </h1>
+        <p class="hero-sub">
+          Từ cảnh đẹp Việt Nam đến những điểm đến quốc tế nổi tiếng
+        </p>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ===== HIGHLIGHTS ===== -->
+      <section class="highlights-bar">
+        <div class="section-inner">
+          <div class="highlights">
+            <div class="highlight-item"><span>🗺️</span><p>Lịch trình rõ ràng</p></div>
+            <div class="highlight-item"><span>🎙️</span><p>HDV chuyên nghiệp</p></div>
+            <div class="highlight-item"><span>🏨</span><p>KS chất lượng</p></div>
+            <div class="highlight-item"><span>💰</span><p>Giá tốt nhất</p></div>
+            <div class="highlight-item"><span>🛡️</span><p>Bảo hiểm du lịch</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FILTER BAR ===== -->
+      <section class="filter-bar-section">
+        <div class="section-inner">
+          <div class="filter-bar">
+            <div class="filter-search">
+              <span>🔍</span>
+              <input type="text" id="searchInput" placeholder="Tìm tour theo tên, địa điểm…" />
+            </div>
+            <select id="locationFilter" class="filter-select">
+              <option value="">🌐 Tất cả</option>
+              <option value="vn">🇻🇳 Việt Nam</option>
+              <option value="nn">🌍 Nước ngoài</option>
+            </select>
+            <select id="priceFilter" class="filter-select">
+              <option value="">💰 Tất cả giá</option>
+              <option value="1000000">Dưới 1 triệu</option>
+              <option value="2000000">Dưới 2 triệu</option>
+              <option value="5000000">Dưới 5 triệu</option>
+              <option value="10000000">Dưới 10 triệu</option>
+            </select>
+            <div class="view-toggle">
+              <button id="btnGrid" class="view-btn active" title="Dạng lưới">⊞</button>
+              <button id="btnList" class="view-btn" title="Dạng danh sách">☰</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TOUR LIST ===== -->
+      <section id="vn" class="tour-results-section">
+        <div class="section-inner">
+          <div class="section-header" style="text-align:left; margin-bottom:20px">
+            <h2 class="section-title">Danh sách tour</h2>
+            <p class="section-sub">
+              Tổng cộng <strong id="resultCount">--</strong> tours
+            </p>
+          </div>
+          <div id="tourListContainer" class="grid-view">
+            <!-- Nội dung được render bởi main.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA BANNER ===== -->
+      <section class="cta-section">
+        <div class="section-inner">
+          <div class="cta-banner">
+            <div class="cta-text">
+              <h3>🌟 Chưa tìm được tour ưng ý?</h3>
+              <p>Liên hệ ngay để được tư vấn tour riêng theo nhu cầu!</p>
+            </div>
+            <a href="../pages/hotro.html" class="btn-primary">Tư vấn miễn phí</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">✈ MinhQuy<b>Travel</b></div>
+          <p>"Hành trình khám phá thế giới"</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"><img src="../assets/images/facebook.png" alt="Facebook" />Facebook</a>
+            <a href="#" class="social-btn"><img src="../assets/images/google.png" alt="Google" />Google</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Liên hệ</h4>
+          <p>📍 123 Đường ABC, TP.HCM<br />📞 0123 456 789<br />✉️ info@minhquytravel.com</p>
+        </div>
+        <div class="footer-col">
+          <h4>Nhận ưu đãi</h4>
+          <p>Đăng ký nhận thông báo!</p>
+          <div class="footer-email">
+            <input type="email" placeholder="Email của bạn…" />
+            <button type="button">Gửi</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MinhQuy Travel. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- ===== CART DRAWER ===== -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3>🛒 Giỏ hàng</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Tổng cộng:</span>
+          <span id="cartTotal">0đ</span>
+        </div>
+        <button class="btn-checkout" onclick="goToCheckout()">Thanh toán</button>
+      </div>
+    </div>
+
+    <!-- ===== CHAT WIDGET ===== -->
+    <div class="chat-widget">
+      <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+          <div class="chat-agent">
+            <div class="agent-avatar">MQ</div>
+            <div>
+              <strong>Hỗ trợ khách hàng</strong>
+              <span class="agent-status">🟢 Đang trực tuyến</span>
+            </div>
+          </div>
+          <button class="chat-close" id="chatClose">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg bot">
+            <span>👋 Cần tư vấn tour không? Hỏi tôi nhé!</span>
+          </div>
+        </div>
+        <div class="chat-input-wrap">
+          <input type="text" id="chatInput" placeholder="Nhập tin nhắn…" />
+          <button id="chatSend">➤</button>
+        </div>
+      </div>
+      <button class="chat-toggle" id="chatToggle">
+        💬<span class="chat-dot">1</span>
+      </button>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- ===== SCRIPTS – Đúng thứ tự, không inline ===== -->
+    <script src="../js/api.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/main.js"></script>
+
+  </body>
+</html>

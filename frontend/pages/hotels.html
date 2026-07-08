@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/shared.css" />
+    <link rel="stylesheet" href="../css/hotels.css" />
+    <title>Khách sạn – MinhQuy Travel</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="../assets/images/logo.jpg" alt="MinhQuy Travel" /><span class="logo-text"
+            >MinhQuy<b>Travel</b></span
+          >
+        </div>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html">Trang chủ</a></li>
+          <li class="has-dropdown">
+            <a href="tour.html">Tours ▾</a>
+            <ul class="dropdown">
+              <li><a href="tour.html#vn"> Việt Nam</a></li>
+              <li><a href="tour.html#nn"> Nước ngoài</a></li>
+            </ul>
+          </li>
+          <li><a href="hotels.html" class="active">Khách sạn</a></li>
+          <li><a href="giave.html">Giá vé</a></li>
+          <li><a href="hotro.html">Hỗ trợ</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="cart-btn">🛒 <span class="cart-badge">0</span></button>
+          <a class="btn-login" href="../pages/login.html">Đăng nhập</a>
+        </div>
+      </div>
+    </nav>
+
+    <header
+      class="hero"
+      style="background-image: url(../assets/images/background3.jpg); min-height: 55vh"
+    >
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-label">🏨 Hơn 500+ khách sạn</p>
+        <h1 class="hero-heading">
+          Nghỉ dưỡng<br /><span>đẳng cấp 5 sao</span>
+        </h1>
+        <p class="hero-sub">
+          Từ khách sạn sang trọng đến resort ven biển, chúng tôi có tất cả cho
+          bạn.
+        </p>
+        <div class="hero-btns">
+          <a href="#promo" class="btn-primary">🔥 Xem khuyến mãi</a>
+          <a href="#featured" class="btn-outline">KS nổi bật</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="promo" class="hotels-section">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2 class="section-title">🏷️ Khách sạn khuyến mãi</h2>
+            <span class="section-accent-line"></span>
+            <p class="section-sub">Ưu đãi đặc biệt – Đặt nhanh tay kẻo hết!</p>
+          </div>
+          <div class="hotels-scroll">
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh1.jpg" alt="RIS Panorama" /><span
+                  class="hotel-badge"
+                  >-30%</span
+                >
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐⭐⭐</div>
+                <h3>RIS Panorama</h3>
+                <p class="hotel-addr">📍 123 Đường ABC, Quận XYZ, TP.HCM</p>
+                <div class="hotel-amenities">
+                  <span>🍳 Bữa sáng</span><span>🅿️ Bãi xe</span
+                  ><span>📶 Wifi</span><span>⚡ Check-in nhanh</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"><strong>800,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh2.webp" alt="Palace Hotel" /><span
+                  class="hotel-badge"
+                  >-20%</span
+                >
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐⭐</div>
+                <h3>Palace Grand Hotel</h3>
+                <p class="hotel-addr">📍 45 Nguyễn Huệ, Quận 1, TP.HCM</p>
+                <div class="hotel-amenities">
+                  <span>🏊 Hồ bơi</span><span>🍳 Bữa sáng</span
+                  ><span>📶 Wifi</span><span>🌿 Spa</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"
+                    ><strong>1,200,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh3.jpg" alt="Garden Villa" />
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐⭐</div>
+                <h3>Garden Villa Resort</h3>
+                <p class="hotel-addr">📍 78 Trần Hưng Đạo, Quận 5, TP.HCM</p>
+                <div class="hotel-amenities">
+                  <span>🌺 Vườn hoa</span><span>🍳 Bữa sáng</span
+                  ><span>📶 Wifi</span><span>🚗 Đưa đón</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"><strong>950,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh4.jpg" alt="Sky Tower" /><span
+                  class="hotel-badge"
+                  >-15%</span
+                >
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐⭐⭐</div>
+                <h3>Sky Tower Luxury</h3>
+                <p class="hotel-addr">📍 200 Lê Lợi, Quận 1, TP.HCM</p>
+                <div class="hotel-amenities">
+                  <span>🍳 Bữa sáng</span><span>🅿️ Bãi xe</span
+                  ><span>📶 Wifi</span><span>☕ Cafe</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"
+                    ><strong>2,500,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh4.jpg" alt="Ocean Breeze" />
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐</div>
+                <h3>Ocean Breeze Inn</h3>
+                <p class="hotel-addr">📍 56 Phạm Văn Đồng, Bình Thạnh</p>
+                <div class="hotel-amenities">
+                  <span>🌊 View biển</span><span>🍳 Bữa sáng</span
+                  ><span>📶 Wifi</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"><strong>600,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh4.jpg" alt="Zen House" />
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐⭐</div>
+                <h3>Zen House Boutique</h3>
+                <p class="hotel-addr">📍 12 Đinh Tiên Hoàng, Quận Bình Thạnh</p>
+                <div class="hotel-amenities">
+                  <span>🧘 Yoga</span><span>🍳 Bữa sáng</span
+                  ><span>📶 Wifi</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"
+                    ><strong>1,100,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="featured" class="hotels-section">
+        <div class="section-inner">
+          <div class="section-header">
+            <h2 class="section-title">⭐ Khách sạn nổi bật</h2>
+            <span class="section-accent-line"></span>
+            <p class="section-sub">
+              Thoải mái như ở nhà – Sang trọng như khách sạn 5 sao
+            </p>
+          </div>
+          <div class="hotels-scroll">
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh5.jpg" alt="Grand Imperial" />
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐⭐⭐</div>
+                <h3>Grand Imperial Hotel</h3>
+                <p class="hotel-addr">📍 Phú Mỹ Hưng, Quận 7, TP.HCM</p>
+                <div class="hotel-amenities">
+                  <span>🏊 Bể bơi</span><span>🍳 Bữa sáng</span
+                  ><span>📶 Wifi</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"
+                    ><strong>3,500,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh6.jpg" alt="Blue Lagoon" />
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐⭐</div>
+                <h3>Blue Lagoon Resort</h3>
+                <p class="hotel-addr">📍 Bãi Dài, Phú Quốc, Kiên Giang</p>
+                <div class="hotel-amenities">
+                  <span>🌊 Bãi biển riêng</span><span>🍹 Bar</span
+                  ><span>📶 Wifi</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"
+                    ><strong>4,200,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh7.jpg" alt="Lotus Boutique" />
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐⭐</div>
+                <h3>Lotus Boutique Hotel</h3>
+                <p class="hotel-addr">📍 Phố cổ Hội An, Quảng Nam</p>
+                <div class="hotel-amenities">
+                  <span>🌸 Vườn cổ</span><span>🍳 Bữa sáng</span
+                  ><span>📶 Wifi</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"
+                    ><strong>1,800,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh8.webp" alt="Summit Dalat" />
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐⭐⭐</div>
+                <h3>Summit Đà Lạt Hotel</h3>
+                <p class="hotel-addr">📍 Trần Phú, Đà Lạt, Lâm Đồng</p>
+                <div class="hotel-amenities">
+                  <span>🌨️ View núi</span><span>🍳 Bữa sáng</span
+                  ><span>📶 Wifi</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"
+                    ><strong>2,100,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh9.jpg" alt="River Side" />
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐</div>
+                <h3>River Side Inn</h3>
+                <p class="hotel-addr">📍 Bờ sông Hương, Huế</p>
+                <div class="hotel-amenities">
+                  <span>🌊 View sông</span><span>🍳 Bữa sáng</span
+                  ><span>📶 Wifi</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"><strong>900,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hotel-card">
+              <div class="hotel-img">
+                <img src="../assets/images/hinh10.jpg" alt="Dynasty" />
+              </div>
+              <div class="hotel-body">
+                <div class="hotel-stars">⭐⭐⭐⭐⭐</div>
+                <h3>Dynasty Palace</h3>
+                <p class="hotel-addr">📍 Trung tâm Đà Nẵng</p>
+                <div class="hotel-amenities">
+                  <span>🏊 Bể bơi vô cực</span><span>🍳 Bữa sáng</span
+                  ><span>📶 Wifi</span>
+                </div>
+                <div class="hotel-footer">
+                  <span class="hotel-price"
+                    ><strong>5,000,000đ</strong>/đêm</span
+                  ><button
+                    class="btn-book-hotel"
+                    onclick="showToast('✅ Đã thêm phòng vào giỏ!')"
+                  >
+                    Đặt phòng
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">✈ MinhQuy<b>Travel</b></div>
+          <p>"Hành trình khám phá thế giới"</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"
+              ><img src="../assets/images/facebook.png" alt="fb" />Facebook</a
+            ><a href="#" class="social-btn"
+              ><img src="../assets/images/google.png" alt="gg" />Google</a
+            >
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Liên hệ</h4>
+          <p>
+            📍 123 Đường ABC, TP.HCM<br />📞 0123 456 789<br />✉️
+            info@minhquytravel.com
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Nhận ưu đãi</h4>
+          <p>Đăng ký nhận thông báo!</p>
+          <div class="footer-email">
+            <input type="email" placeholder="Email của bạn…" /><button>
+              Gửi
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MinhQuy Travel. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3>🛒 Giỏ hàng</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Tổng cộng:</span><span id="cartTotal">0đ</span>
+        </div>
+        <button class="btn-checkout">Thanh toán</button>
+      </div>
+    </div>
+
+    <div class="chat-widget">
+      <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+          <div class="chat-agent">
+            <div class="agent-avatar">MQ</div>
+            <div>
+              <strong>Hỗ trợ khách hàng</strong
+              ><span class="agent-status">🟢 Đang trực tuyến</span>
+            </div>
+          </div>
+          <button class="chat-close" id="chatClose">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg bot">
+            <span>🏨 Cần tìm khách sạn phù hợp? Hỏi tôi nhé!</span>
+          </div>
+        </div>
+        <div class="chat-input-wrap">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Nhập tin nhắn…"
+          /><button id="chatSend">➤</button>
+        </div>
+      </div>
+      <button class="chat-toggle" id="chatToggle">
+        💬<span class="chat-dot">1</span>
+      </button>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="../js/cart.js"></script>
+  </body>
+</html>

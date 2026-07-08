@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/shared.css" />
+    <link rel="stylesheet" href="../css/hotro.css" />
+    <title>Hỗ trợ – MinhQuy Travel</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="../assets/images/logo.jpg" alt="MinhQuy Travel" /><span class="logo-text"
+            >MinhQuy<b>Travel</b></span
+          >
+        </div>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html">Trang chủ</a></li>
+          <li class="has-dropdown">
+            <a href="tour.html">Tours ▾</a>
+            <ul class="dropdown">
+              <li><a href="tour.html#vn"> Việt Nam</a></li>
+              <li><a href="tour.html#nn"> Nước ngoài</a></li>
+            </ul>
+          </li>
+          <li><a href="hotels.html">Khách sạn</a></li>
+          <li><a href="giave.html">Giá vé</a></li>
+          <li><a href="hotro.html" class="active">Hỗ trợ</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="cart-btn">🛒 <span class="cart-badge">0</span></button>
+          <a class="btn-login" href="../pages/login.html">Đăng nhập</a>
+        </div>
+      </div>
+    </nav>
+
+    <header
+      class="hero"
+      style="background-image: url(../assets/images/background4.jpg); min-height: 52vh"
+    >
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-label">💬 Luôn sẵn sàng hỗ trợ</p>
+        <h1 class="hero-heading">
+          Trung tâm<br /><span>hỗ trợ khách hàng</span>
+        </h1>
+        <p class="hero-sub">
+          Chúng tôi luôn sẵn sàng giúp đỡ bạn. Hãy liên hệ hoặc gửi câu hỏi bên
+          dưới.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Quick contact cards -->
+      <section class="quick-contact-section">
+        <div class="section-inner">
+          <div class="quick-cards">
+            <div class="quick-card">
+              <div class="qc-icon">📞</div>
+              <h4>Hotline</h4>
+              <p>1900 1234</p>
+              <small>Thứ 2–7: 8:00–22:00</small>
+            </div>
+            <div class="quick-card">
+              <div class="qc-icon">✉️</div>
+              <h4>Email</h4>
+              <p>info@minhquytravel.com</p>
+              <small>Phản hồi trong 24h</small>
+            </div>
+            <div class="quick-card">
+              <div class="qc-icon">💬</div>
+              <h4>Live Chat</h4>
+              <p>Messenger</p>
+              <small>Phản hồi ngay lập tức</small>
+            </div>
+            <div class="quick-card">
+              <div class="qc-icon">📍</div>
+              <h4>Văn phòng</h4>
+              <p>123 Đường ABC, Quận XYZ</p>
+              <small>TP.Hồ Chí Minh</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Support form -->
+      <section class="support-section">
+        <div class="section-inner">
+          <div class="support-layout">
+            <div class="support-form-card">
+              <h2>📩 Gửi tin nhắn cho chúng tôi</h2>
+              <p class="form-desc">
+                Điền thông tin bên dưới, chúng tôi sẽ liên hệ trong vòng 24h.
+              </p>
+
+              <form id="supportForm" novalidate>
+                <div class="form-group">
+                  <label for="fname"
+                    >Họ và tên <span class="required">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="fname"
+                    placeholder="Nguyễn Văn A"
+                    maxlength="60"
+                  />
+                  <span class="field-error" id="fnameErr"></span>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="femail"
+                      >Email <span class="required">*</span></label
+                    >
+                    <input
+                      type="email"
+                      id="femail"
+                      placeholder="example@gmail.com"
+                    />
+                    <span class="field-error" id="femailErr"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="fphone"
+                      >Số điện thoại <span class="required">*</span></label
+                    >
+                    <input
+                      type="tel"
+                      id="fphone"
+                      placeholder="0901234567"
+                      maxlength="12"
+                    />
+                    <span class="field-error" id="fphoneErr"></span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="fsubject">Chủ đề</label>
+                  <select id="fsubject">
+                    <option value="">-- Chọn chủ đề --</option>
+                    <option>Đặt tour</option>
+                    <option>Hủy / Đổi tour</option>
+                    <option>Khách sạn</option>
+                    <option>Vé máy bay</option>
+                    <option>Khác</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="fmessage"
+                    >Nội dung <span class="required">*</span></label
+                  >
+                  <textarea
+                    id="fmessage"
+                    placeholder="Mô tả vấn đề của bạn…"
+                    rows="5"
+                  ></textarea>
+                  <span class="field-error" id="fmessageErr"></span>
+                </div>
+                <button type="submit" class="btn-submit">
+                  Gửi tin nhắn ✉️
+                </button>
+              </form>
+            </div>
+
+            <div class="contact-info-card">
+              <h3>Thông tin liên hệ</h3>
+              <div class="ci-item">
+                <div class="ci-icon">📞</div>
+                <div>
+                  <small>Hotline hỗ trợ</small><strong>1900 1234</strong>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">✉️</div>
+                <div>
+                  <small>Email</small><strong>info@minhquytravel.com</strong>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">📍</div>
+                <div>
+                  <small>Địa chỉ</small
+                  ><strong>123 Đường ABC, Quận XYZ, TP.HCM</strong>
+                </div>
+              </div>
+              <div class="ci-item">
+                <div class="ci-icon">🕐</div>
+                <div>
+                  <small>Giờ làm việc</small
+                  ><strong>T2–T7: 8:00 – 22:00</strong>
+                </div>
+              </div>
+
+              <div class="faq-box">
+                <h4>❓ Câu hỏi thường gặp</h4>
+                <div class="faq-item">
+                  <button class="faq-q" onclick="toggleFaq(this)">
+                    Tôi có thể hủy tour không?
+                  </button>
+                  <p class="faq-a">
+                    Bạn có thể hủy trước 7 ngày để được hoàn tiền 100%. Hủy
+                    trong vòng 3–7 ngày hoàn 50%.
+                  </p>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" onclick="toggleFaq(this)">
+                    Phương thức thanh toán nào được chấp nhận?
+                  </button>
+                  <p class="faq-a">
+                    Chúng tôi chấp nhận chuyển khoản ngân hàng, tiền mặt, Momo,
+                    ZaloPay và thẻ tín dụng quốc tế.
+                  </p>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-q" onclick="toggleFaq(this)">
+                    Tour có bao gồm bảo hiểm không?
+                  </button>
+                  <p class="faq-a">
+                    Tất cả tour đều có bảo hiểm du lịch cơ bản. Bạn có thể mua
+                    thêm bảo hiểm nâng cao theo yêu cầu.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">✈ MinhQuy<b>Travel</b></div>
+          <p>"Hành trình khám phá thế giới"</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn"
+              ><img src="../assets/images/facebook.png" alt="fb" />Facebook</a
+            ><a href="#" class="social-btn"
+              ><img src="../assets/images/google.png" alt="gg" />Google</a
+            >
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Liên hệ</h4>
+          <p>
+            📍 123 Đường ABC, TP.HCM<br />📞 0123 456 789<br />✉️
+            info@minhquytravel.com
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Nhận ưu đãi</h4>
+          <p>Đăng ký nhận thông báo!</p>
+          <div class="footer-email">
+            <input type="email" placeholder="Email của bạn…" /><button>
+              Gửi
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MinhQuy Travel. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3>🛒 Giỏ hàng</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Tổng cộng:</span><span id="cartTotal">0đ</span>
+        </div>
+        <button class="btn-checkout">Thanh toán</button>
+      </div>
+    </div>
+
+    <div class="chat-widget">
+      <div class="chat-box" id="chatBox">
+        <div class="chat-header">
+          <div class="chat-agent">
+            <div class="agent-avatar">MQ</div>
+            <div>
+              <strong>Hỗ trợ khách hàng</strong
+              ><span class="agent-status">🟢 Đang trực tuyến</span>
+            </div>
+          </div>
+          <button class="chat-close" id="chatClose">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="msg bot">
+            <span>👋 Xin chào! Bạn cần hỗ trợ gì không?</span>
+          </div>
+        </div>
+        <div class="chat-input-wrap">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Nhập tin nhắn…"
+          /><button id="chatSend">➤</button>
+        </div>
+      </div>
+      <button class="chat-toggle" id="chatToggle">
+        💬<span class="chat-dot">1</span>
+      </button>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <script src="../js/cart.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/hotro.js"></script>
+    <script>
+      function toggleFaq(btn) {
+        const ans = btn.nextElementSibling;
+        ans.classList.toggle("open");
+        btn.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>

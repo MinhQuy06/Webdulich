@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Đơn hàng đã mua - MinhQuy Travel. Xem lại lịch sử đặt tour." />
+    <link rel="stylesheet" href="../css/shared.css" />
+    <link rel="stylesheet" href="../css/orders.css" />
+    <title>Đã mua – MinhQuy Travel</title>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <div class="logo">
+          <img src="../assets/images/logo.jpg" alt="MinhQuy Travel" />
+          <span class="logo-text">MinhQuy<b>Travel</b></span>
+        </div>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="../index.html">Trang chủ</a></li>
+          <li class="has-dropdown">
+            <a href="../pages/tour.html">Tours ▾</a>
+            <ul class="dropdown">
+              <li><a href="../pages/tour.html#vn"><span class="flag-vn"></span> Việt Nam</a></li>
+              <li><a href="../pages/tour.html#nn">🌍 Nước ngoài</a></li>
+            </ul>
+          </li>
+          <li><a href="../pages/hotels.html">Khách sạn</a></li>
+          <li><a href="../pages/giave.html">Giá vé</a></li>
+          <li><a href="../pages/hotro.html">Hỗ trợ</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="cart-btn" title="Giỏ hàng">
+            🛒 <span class="cart-badge">0</span>
+          </button>
+          <a class="btn-login" href="../pages/profile.html">👤 Tôi</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="orders-main">
+      <!-- Breadcrumb -->
+      <div class="orders-breadcrumb">
+        <a href="../pages/profile.html">👤 Tài khoản</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">📦 Đã mua</span>
+      </div>
+
+      <!-- Page Header -->
+      <div class="orders-page-header">
+        <h1 class="orders-page-title">Đơn hàng của tôi</h1>
+        <p class="orders-page-sub">Theo dõi trạng thái và lịch sử đặt tour</p>
+      </div>
+
+      <!-- Status Tabs -->
+      <div class="orders-tabs" id="ordersTabs">
+        <button class="order-tab active" data-filter="all">Tất cả</button>
+        <button class="order-tab" data-filter="pending">⏳ Chờ thanh toán</button>
+        <button class="order-tab" data-filter="paid">✅ Đã thanh toán</button>
+      </div>
+
+      <!-- Orders List -->
+      <div class="orders-list" id="ordersList">
+        <!-- Dynamic content -->
+      </div>
+
+      <!-- Back Button -->
+      <div class="orders-back-wrap">
+        <a href="../pages/profile.html" class="btn-back-profile">
+          ← Quay lại trang Tôi
+        </a>
+        <a href="../index.html" class="btn-back-home">
+          🏠 Về trang chủ
+        </a>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">✈ MinhQuy<b>Travel</b></div>
+          <p>"Hành trình khám phá thế giới – Kỷ niệm những trải nghiệm đáng nhớ"</p>
+        </div>
+        <div class="footer-col">
+          <h4>Liên hệ</h4>
+          <p>📍 123 Đường ABC, Quận XYZ, TP.HCM<br />📞 0123 456 789<br />✉️ info@minhquytravel.com</p>
+        </div>
+        <div class="footer-col">
+          <h4>Nhận ưu đãi</h4>
+          <p>Đăng ký nhận thông tin tour mới nhất!</p>
+          <div class="footer-email">
+            <input type="email" placeholder="Email của bạn…" />
+            <button type="button">Gửi</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MinhQuy Travel. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- CART DRAWER -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3>🛒 Giỏ hàng</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Tổng cộng:</span><span id="cartTotal">0đ</span>
+        </div>
+        <button class="btn-checkout" onclick="goToCheckout()">Thanh toán</button>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Scripts -->
+    <script src="../js/api.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/orders.js"></script>
+  </body>
+</html>
